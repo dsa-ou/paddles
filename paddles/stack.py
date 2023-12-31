@@ -36,7 +36,7 @@ class DynamicArrayStack:
         self._members.append(item)
 
     def pop(self):
-        """Remove and return the item on the top of this stack.
+        """Remove and return the top item of this stack.
 
         Raise ValueError if this stack is empty.
         """
@@ -45,12 +45,12 @@ class DynamicArrayStack:
         return self._members.pop()
 
     def peek(self):
-        """Return the item on the top of this stack.
+        """Return the top item of this stack.
 
         Raise ValueError if this stack is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't peek top member of an empty stack")
+            raise ValueError("can't peek into an empty stack")
         return self._members[-1]
 
 
@@ -91,7 +91,7 @@ class LinkedListStack:
         strings = []
         current = self._head
         while current:
-            strings.append(f"'{current[DATA]}'")
+            strings.append(repr(current[DATA]))
             current = current[NEXT]
         return "LinkedListStack([" + ", ".join(reversed(strings)) + "])"
 

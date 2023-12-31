@@ -1,7 +1,7 @@
-# A doubly-linked list node is a list [item, previous, next].
+# A doubly-linked list node is a list [previous, item, next].
 # These constants make the code more readable.
-DATA = 0
-PREV = 1
+PREV = 0
+DATA = 1
 NEXT = 2
 
 
@@ -39,7 +39,7 @@ class LinkedListDeque:
         strings = []
         current = self._head
         while current:
-            strings.append(f"'{current[DATA]}'")
+            strings.append(repr(current[DATA]))
             current = current[NEXT]
         return f"LinkedListDeque([{', '.join(strings)}])"
 
@@ -49,25 +49,22 @@ class LinkedListDeque:
 
     def add_front(self, item):
         """Insert the given item at the front of this deque."""
-        node = [item, None, None]
+        node = [None, item, self._head]
         if self.size() == 0:
-            self._head = node
             self._tail = node
         else:
-            node[NEXT] = self._head
-            self._head = node
+            self._head[PREV] = node
+        self._head = node
         self._length += 1
 
     def add_back(self, item):
         """Insert the given item at the back of this deque."""
-        node = [item, None, None]
+        node = [self._tail, item, None]
         if self.size() == 0:
             self._head = node
-            self._tail = node
         else:
-            node[PREV] = self._tail
             self._tail[NEXT] = node
-            self._tail = node
+        self._tail = node
         self._length += 1
 
     def take_front(self):

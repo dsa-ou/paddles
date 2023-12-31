@@ -33,7 +33,7 @@ class LinkedListQueue:
         strings = []
         current = self._head
         while current:
-            strings.append(f"'{current[DATA]}'")
+            strings.append(repr(current[DATA]))
             current = current[NEXT]
         return f"LinkedListQueue([{', '.join(strings)}])"
 
