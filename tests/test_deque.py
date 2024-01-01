@@ -1,4 +1,5 @@
 """Closed-box unit tests for all implementations of the Deque ADT."""
+from collections.abc import Sequence
 
 import pytest
 
@@ -6,17 +7,19 @@ from paddles.deque import LinkedListDeque
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 
+DequeADT = LinkedListDeque
 
-def check_is_empty(deque):
+
+def check_is_empty(deque: DequeADT) -> None:
     """Test that the deque is empty."""
     assert deque.size() == 0
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Deque is empty"):
         deque.front()
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="Deque is empty"):
         deque.back()
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="can't take from an empty deque"):
         deque.take_front()
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="can't take from an empty deque"):
         deque.take_back()
     assert str(deque) == f"{deque.__class__.__name__}([])"
 
@@ -25,13 +28,13 @@ def check_is_empty(deque):
 
 
 @pytest.fixture(params=[LinkedListDeque])
-def Deque(request):
+def Deque(request: pytest.FixtureRequest) -> type[DequeADT]:  # noqa: N802
     """Return an implementation (a class) to be tested."""
     return request.param
 
 
 @pytest.fixture(params=["abcd", [1, 2, 3], (True, False, None), range(20)])
-def sequence(request):
+def sequence(request: pytest.FixtureRequest) -> Sequence:
     """Return a sequence of items to test with."""
     return request.param
 
@@ -39,12 +42,12 @@ def sequence(request):
 # Test the creation method.
 
 
-def test_init_empty(Deque):
+def test_init_empty(Deque: type[DequeADT]) -> None:  # noqa: N803
     """Test the creation of empty deques."""
     check_is_empty(Deque())
 
 
-def test_init_iterable(Deque, sequence):
+def test_init_iterable(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test the creation of deques from sequences."""
     deque = Deque(sequence)
     assert deque.size() == len(sequence)
@@ -56,7 +59,7 @@ def test_init_iterable(Deque, sequence):
 # Test each modifier method separately.
 
 
-def test_add_front(Deque, sequence):
+def test_add_front(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test that `add_front(item)` adds `item` to the front."""
     deque = Deque()
     for item in sequence:
@@ -68,7 +71,7 @@ def test_add_front(Deque, sequence):
     assert str(deque) == f"{Deque.__name__}({list(reversed(sequence))})"
 
 
-def test_add_back(Deque, sequence):
+def test_add_back(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test that `add_back(item)` adds `item` to the back."""
     deque = Deque()
     for item in sequence:
@@ -80,7 +83,7 @@ def test_add_back(Deque, sequence):
     assert str(deque) == f"{Deque.__name__}({list(sequence)})"
 
 
-def test_take_front(Deque, sequence):
+def test_take_front(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test that `take_front()` removes and returns the front item."""
     deque = Deque(sequence)
     for _ in sequence:
@@ -91,7 +94,7 @@ def test_take_front(Deque, sequence):
     check_is_empty(deque)
 
 
-def test_take_back(Deque, sequence):
+def test_take_back(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test that `take_back()` removes and returns the back item."""
     deque = Deque(sequence)
     for _ in sequence:
@@ -105,7 +108,7 @@ def test_take_back(Deque, sequence):
 # Test the combined behaviour of modifiers.
 
 
-def test_fifo(Deque, sequence):
+def test_fifo(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test that deques can act like queues (first-in first-out)."""
     # Add to the back, take from the front
     deque = Deque()
@@ -122,7 +125,7 @@ def test_fifo(Deque, sequence):
     check_is_empty(deque)
 
 
-def test_lifo(Deque, sequence):
+def test_lifo(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
     """Test that deques can act like stacks (last-in first-out)."""
     # Add to the front, take from the front
     deque = Deque()

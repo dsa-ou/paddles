@@ -1,3 +1,6 @@
+from collections.abc import Sequence
+from typing import Any
+
 # A doubly-linked list node is a list [previous, item, next].
 # These constants make the code more readable.
 PREV = 0
@@ -25,7 +28,7 @@ class LinkedListDeque:
     LinkedListDeque(['A', 'b', 'C'])
     """
 
-    def __init__(self, iterable=None):
+    def __init__(self, iterable: Sequence[Any] | None = None) -> None:
         """Initialize this deque with the given items, if any."""
         self._head = None
         self._tail = None
@@ -34,7 +37,7 @@ class LinkedListDeque:
             for item in iterable:
                 self.add_back(item)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Return a formatted string representation of this deque."""
         strings = []
         current = self._head
@@ -43,11 +46,11 @@ class LinkedListDeque:
             current = current[NEXT]
         return f"LinkedListDeque([{', '.join(strings)}])"
 
-    def size(self):
+    def size(self) -> int:
         """Return the number of items in this deque."""
         return self._length
 
-    def add_front(self, item):
+    def add_front(self, item: Any) -> None:
         """Insert the given item at the front of this deque."""
         node = [None, item, self._head]
         if self.size() == 0:
@@ -57,7 +60,7 @@ class LinkedListDeque:
         self._head = node
         self._length += 1
 
-    def add_back(self, item):
+    def add_back(self, item: Any) -> None:
         """Insert the given item at the back of this deque."""
         node = [self._tail, item, None]
         if self.size() == 0:
@@ -67,13 +70,14 @@ class LinkedListDeque:
         self._tail = node
         self._length += 1
 
-    def take_front(self):
+    def take_front(self) -> Any:
         """Remove and return the item at the front of this deque.
 
         Raise ValueError if this deque is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't take from an empty deque")
+            msg = "can't take from an empty deque"
+            raise ValueError(msg)
         item = self._head[DATA]
         self._head = self._head[NEXT]
         self._length -= 1
@@ -83,13 +87,14 @@ class LinkedListDeque:
             self._head[PREV] = None
         return item
 
-    def take_back(self):
+    def take_back(self) -> Any:
         """Remove and return the item at the back of this deque.
 
         Raise ValueError if this deque is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't take from an empty deque")
+            msg = "can't take from an empty deque"
+            raise ValueError(msg)
         item = self._tail[DATA]
         self._tail = self._tail[PREV]
         self._length -= 1
@@ -99,20 +104,22 @@ class LinkedListDeque:
             self._tail[NEXT] = None
         return item
 
-    def front(self):
+    def front(self) -> Any:
         """Return the item at the front of this deque without removing it.
 
         Raise ValueError if this deque is empty.
         """
         if self.size() == 0:
-            raise ValueError("Deque is empty")
+            msg = "Deque is empty"
+            raise ValueError(msg)
         return self._head[DATA]
 
-    def back(self):
+    def back(self) -> Any:
         """Return the item at the back of this deque without removing it.
 
         Raise ValueError if this deque is empty.
         """
         if self.size() == 0:
-            raise ValueError("Deque is empty")
+            msg = "Deque is empty"
+            raise ValueError(msg)
         return self._tail[DATA]

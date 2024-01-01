@@ -1,3 +1,7 @@
+from collections.abc import Sequence
+from typing import Any
+
+
 class DynamicArrayStack:
     """A stack implementation using Python lists.
 
@@ -13,44 +17,46 @@ class DynamicArrayStack:
     DynamicArrayStack(['a', 'b', 'C'])
     """
 
-    def __init__(self, iterable=None):
+    def __init__(self, iterable: Sequence[Any] | None = None) -> None:
         """Initialize this stack with the given items, if any."""
         if iterable:
             self._members = list(iterable)
         else:
             self._members = []
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Return a string representation of this stack.
 
         The string is 'DynamicArrayStack([bottom member, ..., top member])'.
         """
         return f"DynamicArrayStack({self._members})"
 
-    def size(self):
+    def size(self) -> int:
         """Return how many members this stack has."""
         return len(self._members)
 
-    def push(self, item):
+    def push(self, item: Any) -> None:
         """Add the given item to the top of this stack."""
         self._members.append(item)
 
-    def pop(self):
+    def pop(self) -> Any:
         """Remove and return the top item of this stack.
 
         Raise ValueError if this stack is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't pop a member from an empty stack")
+            msg = "can't pop a member from an empty stack"
+            raise ValueError(msg)
         return self._members.pop()
 
-    def peek(self):
+    def peek(self) -> Any:
         """Return the top item of this stack.
 
         Raise ValueError if this stack is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't peek into an empty stack")
+            msg = "can't peek into an empty stack"
+            raise ValueError(msg)
         return self._members[-1]
 
 
@@ -75,7 +81,7 @@ class LinkedListStack:
     LinkedListStack(['a', 'b', 'C'])
     """
 
-    def __init__(self, iterable=None):
+    def __init__(self, iterable: Sequence[Any] | None = None) -> None:
         """Initialize this stack with the given items, if any."""
         self._head = None
         self._length = 0
@@ -83,7 +89,7 @@ class LinkedListStack:
             for item in iterable:
                 self.push(item)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Return a string representation of this stack.
 
         The string is 'LinkedListStack([bottom member, ..., top member])'.
@@ -95,32 +101,34 @@ class LinkedListStack:
             current = current[NEXT]
         return "LinkedListStack([" + ", ".join(reversed(strings)) + "])"
 
-    def size(self):
+    def size(self) -> int:
         """Return how many members this stack has."""
         return self._length
 
-    def push(self, item):
+    def push(self, item: Any) -> None:
         """Add the given item to the top of this stack."""
         self._head = (item, self._head)
         self._length += 1
 
-    def pop(self):
+    def pop(self) -> Any:
         """Remove and return the item on the top of this stack.
 
         Raise ValueError if this stack is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't pop a member from an empty stack")
+            msg = "can't pop a member from an empty stack"
+            raise ValueError(msg)
         item = self._head[DATA]
         self._head = self._head[NEXT]
         self._length -= 1
         return item
 
-    def peek(self):
+    def peek(self) -> Any:
         """Return the item on the top of this stack.
 
         Raise ValueError if this stack is empty.
         """
         if self.size() == 0:
-            raise ValueError("can't peek top member of an empty stack")
+            msg = "can't peek into an empty stack"
+            raise ValueError(msg)
         return self._head[DATA]

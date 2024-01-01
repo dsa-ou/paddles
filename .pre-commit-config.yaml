@@ -1,12 +1,32 @@
+fail_fast: true                     # stop on first error
 repos:
 -   repo: local
     hooks:
-    -   id: pytest
+    -   id: test
         name: pytest
-        # the command line options are in pyproject.toml
-        entry: poetry run pytest
+        entry: poetry run pytest    # command line options are in pyproject.toml
         language: system
-        # run pytest on all files
+        pass_filenames: false       # run pytest on all files
+        types: [python]             # run pytest only if a Python file changed
+
+    -   id: typecheck
+        name: pytype
+        entry: poetry run pytype .
+        language: system
         pass_filenames: false
-        # run pytest only if a Python file changed
         types: [python]
+
+    # the following was adapted from https://github.com/astral-sh/ruff-pre-commit
+    -   id: lint
+        name: ruff-check
+        entry: poetry run ruff check --force-exclude
+        language: system
+        types_or: [python, pyi]
+        require_serial: true
+
+    -   id: format
+        name: ruff-format
+        entry: poetry run ruff format --force-exclude
+        language: system
+        types_or: [python, pyi]
+        require_serial: true

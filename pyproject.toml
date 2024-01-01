@@ -12,6 +12,8 @@ python = "^3.10"
 pytest = "^7.4.3"
 pytest-cov = "^4.1.0"
 pre-commit = "^3.6.0"
+ruff = "^0.1.9"
+pytype = "^2023.12.18"
 
 [build-system]
 requires = ["poetry-core"]
@@ -19,3 +21,19 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = "--cov=paddles --cov-report term-missing"
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN101",           # don't require type annotations for `self`
+    "ANN401",           # don't flag annotations with `Any`
+    "D",                # don't flag missing documentation yet
+    "ISC001", "COM812", # ignore rules that conflict with formatter
+    ]
+
+[tool.ruff.lint.per-file-ignores]
+# don't flag assertions in test code: they're used by pytest
+"test_*.py" = ["S101"]
