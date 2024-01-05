@@ -16,7 +16,7 @@ repos:
         pass_filenames: false
         types: [python]
 
-    # the following was adapted from https://github.com/astral-sh/ruff-pre-commit
+    # ruff hooks were adapted from https://github.com/astral-sh/ruff-pre-commit
     -   id: lint
         name: ruff-check
         entry: poetry run ruff check --force-exclude
@@ -30,3 +30,10 @@ repos:
         language: system
         types_or: [python, pyi]
         require_serial: true
+
+    -   id: docs
+        name: pdoc
+        entry: poetry run pdoc --docformat markdown -o docs paddles
+        language: system
+        pass_filenames: false
+        types: [python]

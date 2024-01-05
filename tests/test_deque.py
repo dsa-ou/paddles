@@ -13,13 +13,13 @@ DequeADT = LinkedListDeque
 def check_is_empty(deque: DequeADT) -> None:
     """Test that the deque is empty."""
     assert deque.size() == 0
-    with pytest.raises(ValueError, match="Deque is empty"):
+    with pytest.raises(ValueError, match="can't access the front of an empty deque"):
         deque.front()
-    with pytest.raises(ValueError, match="Deque is empty"):
+    with pytest.raises(ValueError, match="can't access the back of an empty deque"):
         deque.back()
-    with pytest.raises(ValueError, match="can't take from an empty deque"):
+    with pytest.raises(ValueError, match="can't remove a member from an empty deque"):
         deque.take_front()
-    with pytest.raises(ValueError, match="can't take from an empty deque"):
+    with pytest.raises(ValueError, match="can't remove a member from an empty deque"):
         deque.take_back()
     assert str(deque) == f"{deque.__class__.__name__}([])"
 

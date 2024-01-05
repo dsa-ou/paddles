@@ -14,7 +14,7 @@ QueueADT = LinkedListQueue
 def check_is_empty(queue: QueueADT) -> None:
     """Test that the queue is empty."""
     assert queue.size() == 0
-    with pytest.raises(ValueError, match="can't access front of an empty queue"):
+    with pytest.raises(ValueError, match="can't access the front of an empty queue"):
         queue.front()
     with pytest.raises(ValueError, match="can't dequeue from an empty queue"):
         queue.dequeue()

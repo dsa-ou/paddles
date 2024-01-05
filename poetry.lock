@@ -404,6 +404,25 @@ files = [
 ]
 
 [[package]]
+name = "pdoc"
+version = "14.3.0"
+description = "API Documentation for Python Projects"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pdoc-14.3.0-py3-none-any.whl", hash = "sha256:9a8f9a48bda5a99c249367c2b99779dbdd9f4a56f905068c9c2d6868dbae6882"},
+    {file = "pdoc-14.3.0.tar.gz", hash = "sha256:40bf8f092fcd91560d5e6cebb7c21b65df699f90a468c8ea316235c3368d5449"},
+]
+
+[package.dependencies]
+Jinja2 = ">=2.11.0"
+MarkupSafe = "*"
+pygments = ">=2.12.0"
+
+[package.extras]
+dev = ["hypothesis", "mypy", "pdoc-pyo3-sample-library (==1.0.11)", "pygments (>=2.14.0)", "pytest", "pytest-cov", "pytest-timeout", "ruff", "tox", "types-pygments"]
+
+[[package]]
 name = "platformdirs"
 version = "4.1.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -480,6 +499,21 @@ pyparsing = ">=3"
 dev = ["black", "chardet"]
 release = ["zest.releaser[recommended]"]
 tests = ["black", "chardet", "tox"]
+
+[[package]]
+name = "pygments"
+version = "2.17.2"
+description = "Pygments is a syntax highlighting package written in Python."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pygments-2.17.2-py3-none-any.whl", hash = "sha256:b27c2826c47d0f3219f29554824c30c5e8945175d888647acd804ddd04af846c"},
+    {file = "pygments-2.17.2.tar.gz", hash = "sha256:da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"},
+]
+
+[package.extras]
+plugins = ["importlib-metadata"]
+windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pyparsing"
@@ -756,4 +790,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1f184fd249a04f522982bd5c412fe84090a94d1dbc36a2198850980312bc4e5a"
+content-hash = "a87613c91c03d734e344dcd5c134b369af11d777c8134129973247daf1bfbe04"

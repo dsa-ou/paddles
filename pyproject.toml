@@ -14,6 +14,7 @@ pytest-cov = "^4.1.0"
 pre-commit = "^3.6.0"
 ruff = "^0.1.9"
 pytype = "^2023.12.18"
+pdoc = "^14.3.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -27,13 +28,15 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = [
-    "ANN101",           # don't require type annotations for `self`
-    "ANN401",           # don't flag annotations with `Any`
-    "D",                # don't flag missing documentation yet
-    "ISC001", "COM812", # ignore rules that conflict with formatter
+ignore = [              # ignore these rules:
+    "ANN101",           # provide the type of `self`
+    "ANN401",           # don't use `Any`
+    "ISC001", "COM812", # these rules may conflict with the formatter
     ]
 
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"   # this project's docstrings follow PEP 257
+
 [tool.ruff.lint.per-file-ignores]
-# don't flag assertions in test code: they're used by pytest
-"test_*.py" = ["S101"]
+# in test code, don't flag assertions nor missing package docstrings
+"tests/*py" = ["S101", "D104"]
