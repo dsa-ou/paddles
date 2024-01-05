@@ -33,7 +33,7 @@ repos:
 
     -   id: docs
         name: pdoc
-        entry: poetry run pdoc --docformat markdown -o docs paddles
+        entry: poetry run pdoc -o docs paddles
         language: system
         pass_filenames: false
         types: [python]
