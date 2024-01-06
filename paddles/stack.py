@@ -42,6 +42,11 @@ The Stack ADT can be implemented with dynamic arrays or singly-linked lists.
 In both cases, the operations listed above take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
 but a dynamic array may have wasted capacity and requires resizing.
+
+## Practice
+LeetCode has several [problems about stacks](https://leetcode.com/tag/stack).
+Click twice on 'Difficulty' to order them from easy to hard.
+Click on 'Show problem tags' to see what other ADTs they require.
 """
 
 from collections.abc import Sequence

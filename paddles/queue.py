@@ -41,6 +41,11 @@ In both cases, the operations listed above take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
 but a dynamic array may have wasted capacity and requires resizing.
 `paddles` only provides a singly-linked list implementation for the moment.
+
+## Practice
+LeetCode has several [problems about queues](https://leetcode.com/tag/queue).
+Click twice on 'Difficulty' to order them from easy to hard.
+Click on 'Show problem tags' to see what other ADTs they require.
 """
 
 from collections.abc import Sequence

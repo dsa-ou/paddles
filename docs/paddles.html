@@ -23,7 +23,9 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#licence">Licence</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#contributing">Contributing</a></li>
+  <li><a href="#licences">Licences</a></li>
 </ul>
 
 
@@ -56,17 +58,54 @@ paddles    </h1>
 <li>adhere to good Python coding practices.</li>
 </ul>
 
-<p>To install the library, type <code>pip install paddles</code> at the command line,
-preferably after activating a virtual environment.
-Your default Python version must be 3.10 or later.</p>
+<p><code><a href="">paddles</a></code> is a work in progress.
+The current version 0.1 implements stacks, queues and deques.</p>
 
-<p>This is version 0.1 of the library. It is a work in progress.
-It currently implements the Stack, Queue and Deque abstract data types (ADTs).</p>
+<h2 id="usage">Usage</h2>
 
-<p>The code repository is at <a href="https://github.com/dsa-ou/paddles">https://github.com/dsa-ou/paddles</a>.
-The formatted documentation is at <a href="https://dsa-ou.github.io/paddles">https://dsa-ou.github.io/paddles</a>.</p>
+<p>To use <code><a href="">paddles</a></code>, follow these steps:</p>
 
-<h2 id="licence">Licence</h2>
+<ol>
+<li>Open a terminal and enter <code>python -V</code> to get your Python's version.
+If the version is 3.10 or higher, go directly to step 3.</li>
+<li>If the version is lower than 3.10 or if you get an error message
+('<code>python</code> is an unknown command' or similar), then close the terminal and
+install the <a href="https://www.python.org/downloads/">latest Python version</a>.</li>
+<li>In the same terminal as step 1, or a new one if you did step 2,
+enter <code>pip install paddles</code>.</li>
+<li>To check that the library is now available, enter <code>python -m <a href="paddles/stack.html">paddles.stack</a></code>.
+You should not get any error message.</li>
+</ol>
+
+<p>If you have any problems during installation, please report them in the
+<a href="https://github.com/dsa-ou/paddles/discussions/categories/q-a">Q &amp; A discussion forum</a>.
+(If you're an M269 student or tutor you can use the Technical Forum instead.)
+Don't forget to indicate your operating system, your Python version,
+and what you did before the problem occurred, so that we can help you more effectively.</p>
+
+<ol start="5">
+<li>Read the <a href="https://dsa-ou.github.io/paddles">documentation</a> to learn how to
+use the data structures and algorithms provided by <code><a href="">paddles</a></code>.</li>
+</ol>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Any help to improve and extend <code><a href="">paddles</a></code> is welcome and appreciated.</p>
+
+<ul>
+<li>If you're an M269 student or tutor, you can report errors and suggest improvements
+in the Technical Forum instead of using GitHub's forums and issue tracker.</li>
+<li>If you require a new feature, please suggest it in the
+<a href="https://github.com/dsa-ou/paddles/discussions/categories/ideas">ideas discussion forum</a>.</li>
+<li>If you spot an error or omission in the code or documentation, please check if it
+<a href="https://github.com/dsa-ou/paddles/issues">has been reported</a>, before creating a new issue.</li>
+<li>If you want to contribute code or documentation that addresses
+an <a href="https://github.com/dsa-ou/paddles/issues">open issue</a>, please read first our
+<a href="https://github.com/dsa-ou/paddles/blob/main/CONTRIBUTING.md">contribution guide</a>.
+Your contribution will become available under the terms below.</li>
+</ul>
+
+<h2 id="licences">Licences</h2>
 
 <p><code><a href="">paddles</a></code> is Copyright © 2024 by The Open University, UK.
 The code is licensed under a <a href="https://github.com/dsa-ou/paddles/blob/main/LICENSE">BSD 3-clause licence</a>.
