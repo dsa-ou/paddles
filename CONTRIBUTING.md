@@ -1,20 +1,34 @@
 # Contributing
-This file documents how the library is developed, in case you want to contribute.
+This document explains how the library is developed,
+in case you want to contribute code or documentation. To contribute, you need:
+- an IDE, e.g. Visual Studio Code or PyCharm
+- a [GitHub account](https://docs.github.com/en/get-started/quickstart/creating-an-account-on-github)
+  (we recommend using your academic email, to get education benefits)
+- a basic knowledge of GitHub
+  (see this [tutorial](https://docs.github.com/en/get-started/quickstart/hello-world))
+- a basic knowledge of [Markdown](https://www.markdownguide.org/cheat-sheet/), to write docstrings
+- software to send your contributions back to GitHub, like [git](https://git-scm.com) (if you prefer the command line)
+  or [GitHub Desktop](https://desktop.github.com/) (if you prefer a more user-friendly app)
 
-By contributing code or documentation to this repository,
-you agree to transfer the copyright of your contribution to The Open University, UK,
-and that your contribution will be subject to the `paddles` [licence](README.md#Licence).
+You may wish to first read the more detailed and beginner-friendly
+[contribution guide for `allowed`](https://github.com/dsa-ou/allowed/blob/main/docs/contribution.md),
+as much of it also applies to `paddles`.
 
-## Environment
+## Development environment
 We use Python 3.10 and the [poetry](https://python-poetry.org) packaging and dependency manager.
-To set up the environment:
-- if you don't have Python 3.10, [install it](https://www.python.org/downloads/release/python-31011/)
-- if you don't have `poetry`, [install it](https://python-poetry.org/docs/#installing-with-the-official-installer)
-- clone this repository
-- open a terminal and go to the folder to where you cloned this project
-- enter `poetry install`
+We use an older Python version for development to make sure `paddles` works with it.
 
-This installs the software needed to develop `paddles`, in a new
+To set up the development environment:
+1. if you don't have Python 3.10, [install it](https://www.python.org/downloads/release/python-31011/)
+2. if you don't have `poetry`, [install it](https://python-poetry.org/docs/#installing-with-the-official-installer)
+3. [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+  this repository (this creates a copy in *your* GitHub account)
+4. [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+  your forked repository (this makes a local copy on your machine)
+5. open a terminal and go to the folder to where you cloned this project
+6. enter `poetry install`
+
+The last steps installs the software needed to develop `paddles`, in a new
 [virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment),
 in order to not interfere with your existing Python projects.
 
@@ -22,7 +36,7 @@ To use the environment, while developing `paddles`, enter `poetry run C`
 to execute command `C` in the virtual environment for `paddles`.
 
 Alternatively, you can enter `poetry shell` to activate the environment, and
-then you can just enter `C` to execute the command.
+then just enter `C` to execute the command.
 To deactivate the environment, enter `exit`.
 
 In the rest of this document, the notation `[poetry run] C` means that you should enter
@@ -31,19 +45,24 @@ In the rest of this document, the notation `[poetry run] C` means that you shoul
 
 To finish the setup, you may optionally enter `[poetry run] pre-commit install`
 to install pre-commit hooks (scripts that are run when committing changes to a repository).
-Our environment has configured hooks that test, check and format your code and
+Our development environment includes hooks that test, check and format your code and
 generate the documentation before you commit your changes to the repository.
 
-This project folder contains the following files and subfolders:
+## Structure
+The project folder contains the following files and subfolders, among others:
 
-- `README.md`: this file
+- `README.md`: an introduction to the project, in Markdown format
+- `CONTRIBUTING.md`: this file
 - `LICENSE`: the code licence
 - `pyproject.toml`: project configuration
 - `poetry.lock`: list of the packages installed by `poetry install`
 - `.pre-commit-config.yaml`: list of pre-commit hooks
 - `paddles/`: subfolder with the library's code
 - `tests/`: subfolder with the test code
-- `docs/`: subfolder with the documentation generated from the library code
+- `docs/`: subfolder with the HTML files of the [documentation site](https://dsa-ou.github.io/paddles).
+
+The documentation is generated from the docstrings in the code, so do *not*
+edit the `docs/` files directly.
 
 ## Testing
 
@@ -77,10 +96,10 @@ We check and format all code (library and tests) with [ruff](https://astral.sh/r
 
 To check the code against over 700 style rules, enter `[poetry run] ruff check`.
 If `ruff` reports rule violations, open the [rules page](https://docs.astral.sh/ruff/rules),
-search for the reported rule number (e.g. E101), and click on the rule name
-(e.g. mixed-spaces-and-tabs) next to it in the page.
-This will open a new page explaining the violated rule and its rationale, with an example,
-like [this](https://docs.astral.sh/ruff/rules/mixed-spaces-and-tabs/).
+search for the reported rule number (e.g. E713), and click on the rule name
+(e.g. not-in-test) next to it in the page.
+This will open a new page explaining the violated rule with an example,
+like [this](https://docs.astral.sh/ruff/rules/not-in-test/).
 
 To automatically fix violations, when possible,
 enter `[poetry run] ruff check --fix --unsafe-fixes` and double-check
@@ -109,14 +128,19 @@ to open a live site with the documentation. Any changes to the docstrings of
 the library files are immediately reflected in the site, upon saving the files.
 
 ## Comitting
-If you installed the pre-commit hooks when setting up the [environment](#environment)
-then every time you commit your code,
-these steps are done automatically on the _staged_ files:
+If you installed the pre-commit hooks when setting up the development environment,
+then every time you commit your code, these steps are done automatically:
 1. test the code with `pytest`
 2. type check the code with `pytype`
 3. check (but _don't_ fix) the code with `ruff`
 4. format the code with `ruff`
 5. generate the documentation with `pdoc`.
+
+You can therefore just commit whenever you want to check your changes,
+instead of running each check manually, as explained in the previous sections.
+
+The automated steps are executed on the staged files. If you changed some files
+but didn't stage them, you will get a warning that those files weren't processed.
 
 If a test or check fails in steps 1–3 or if a file is modified in steps 4–5,
 then the commit doesn't go ahead.
