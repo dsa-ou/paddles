@@ -44,6 +44,7 @@ select = ["ALL"]
 ignore = [              # ignore these rules:
     "ANN101",           # provide the type of `self`
     "ANN401",           # don't use `Any`
+    "SIM110",           # simplify for-loops with all() or any()
     "ISC001", "COM812", # these rules may conflict with the formatter
     ]
 
