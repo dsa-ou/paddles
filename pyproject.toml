@@ -34,7 +34,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-addopts = "--cov=paddles --cov-report term-missing"
+addopts = "--cov=paddles --cov-report term-missing --doctest-modules"
 
 [tool.ruff]
 target-version = "py310"
@@ -52,5 +52,5 @@ ignore = [              # ignore these rules:
 convention = "pep257"   # this project's docstrings follow PEP 257
 
 [tool.ruff.lint.per-file-ignores]
-# in test code, don't flag assertions nor missing package docstrings
+# In test code, don't flag assertions nor missing package docstrings.
 "tests/*py" = ["S101", "D104"]
