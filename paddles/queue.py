@@ -66,7 +66,7 @@ class LinkedListQueue:
     - create a non-empty queue from a given sequence
     - convert a queue to a string, to see its members listed from front to back.
 
-    >>> from paddles.queue import LinkedListQueue
+    >>> from paddles import LinkedListQueue
     >>> q = LinkedListQueue("abc")  # create a non-empty queue
     >>> q.size()                    # number of members
     3
