@@ -21,26 +21,22 @@ def check_is_empty(stack: StackADT) -> None:
     assert str(stack) == f"{stack.__class__.__name__}([])"
 
 
-# Fixtures: functions that return the data for testing the stack operations.
-
-
-@pytest.fixture(params=[DynamicArrayStack, LinkedListStack])
-def Stack(request: pytest.FixtureRequest) -> type[StackADT]:  # noqa: N802
-    """Return an implementation (a class) to be tested."""
-    return request.param
-
-
-@pytest.fixture(params=["abcd", [1, 2, 3], (True, False, None), range(20)])
-def sequence(request: pytest.FixtureRequest) -> Sequence:
-    """Return a sequence of items to test with."""
-    return request.param
-
+# Execute each test for all combinations of these parameter values.
+pytestmark = [
+    pytest.mark.parametrize("Stack", [LinkedListStack, DynamicArrayStack]),
+    pytest.mark.parametrize(
+        "sequence", ["abcd", [3, 2, 1], (True, False, None), range(20)]
+    ),
+]
 
 # Test the creation methods.
 
 
-def test_init_empty(Stack: type[StackADT]) -> None:  # noqa: N803
-    """Test the creation of empty stacks."""
+def test_init_empty(Stack: type[StackADT], sequence: Sequence) -> None:  # noqa: N803 ARG001
+    """Test the creation of empty stacks.
+
+    Ignore `sequence` as it's not needed for this one test.
+    """
     check_is_empty(Stack())
 
 

@@ -25,26 +25,19 @@ def check_is_empty(deque: DequeADT) -> None:
     assert str(deque) == f"{deque.__class__.__name__}([])"
 
 
-# Fixtures: functions that return the data for testing the queue operations.
-
-
-@pytest.fixture(params=[LinkedListDeque])
-def Deque(request: pytest.FixtureRequest) -> type[DequeADT]:  # noqa: N802
-    """Return an implementation (a class) to be tested."""
-    return request.param
-
-
-@pytest.fixture(params=["abcd", [1, 2, 3], (True, False, None), range(20)])
-def sequence(request: pytest.FixtureRequest) -> Sequence:
-    """Return a sequence of items to test with."""
-    return request.param
-
+# Execute each test for all combinations of these parameter values.
+pytestmark = [
+    pytest.mark.parametrize("Deque", [LinkedListDeque]),
+    pytest.mark.parametrize(
+        "sequence", ["abcd", [3, 2, 1], (True, False, None), range(20)]
+    ),
+]
 
 # Test the creation method.
 
 
-def test_init_empty(Deque: type[DequeADT]) -> None:  # noqa: N803
-    """Test the creation of empty deques."""
+def test_init_empty(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803 ARG001
+    """Test the creation of empty deques. Ignore the sequence for this test."""
     check_is_empty(Deque())
 
 
