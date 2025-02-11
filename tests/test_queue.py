@@ -4,7 +4,7 @@ from collections.abc import Sequence
 
 import pytest
 
-from paddles.queue import LinkedListQueue
+from paddles import LinkedListQueue
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 

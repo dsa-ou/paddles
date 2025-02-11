@@ -60,7 +60,7 @@ class LinkedListDeque:
     - create a non-empty deque from a given sequence
     - convert a deque to a string, to see its members listed from front to back.
 
-    >>> from paddles.deque import LinkedListDeque
+    >>> from paddles import LinkedListDeque
     >>> deque = LinkedListDeque("abc")          # create a non-empty deque
     >>> deque.size()                            # number of members
     3

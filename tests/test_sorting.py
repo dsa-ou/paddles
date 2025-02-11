@@ -4,7 +4,7 @@ from collections.abc import Callable, Iterable
 
 import pytest
 
-from paddles.sorting import tim_sort
+from paddles import tim_sort
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 

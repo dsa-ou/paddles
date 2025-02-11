@@ -4,7 +4,7 @@ from collections.abc import Sequence
 
 import pytest
 
-from paddles.stack import DynamicArrayStack, LinkedListStack
+from paddles import DynamicArrayStack, LinkedListStack
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 

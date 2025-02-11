@@ -62,7 +62,7 @@ class DynamicArrayStack:
     - create a non-empty stack from a given sequence
     - convert a stack to a string, to see its members listed from bottom to top.
 
-    >>> from paddles.stack import DynamicArrayStack
+    >>> from paddles import DynamicArrayStack
     >>> stack = DynamicArrayStack("abc")    # create a non-empty stack
     >>> stack.size()                        # number of members
     3
@@ -148,7 +148,7 @@ class LinkedListStack:
     - create a non-empty stack from a given sequence
     - convert a stack to a string, to see its members listed from bottom to top.
 
-    >>> from paddles.stack import LinkedListStack
+    >>> from paddles import LinkedListStack
     >>> stack = LinkedListStack("abc")      # create a non-empty stack
     >>> stack.size()                        # number of members
     3
