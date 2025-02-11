@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A pedagogical algorithms and data structures library"
 authors = ["Michel Wermelinger <michel.wermelinger@open.ac.uk>"]
 readme = "README.md"
-license = "BDS-3-Clause"
+license = "BSD-3-Clause"
 homepage = "https://dsa-ou.github.io/paddles/"
 repository = "https://github.com/dsa-ou/paddles"
 keywords = ["algorithms", "data structures", "education"]
@@ -22,12 +22,12 @@ classifiers = [
 python = "^3.10"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
-pytest-cov = "^4.1.0"
-pre-commit = "^3.6.0"
-ruff = "^0.1.9"
-pytype = "^2023.12.18"
-pdoc = "^14.3.0"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+pre-commit = "^4.1.0"
+ruff = "^0.9.6"
+pytype = "2024.4.11"    # same version as github.com/dsa-ou/algoesup
+pdoc = "^15.0.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -42,11 +42,14 @@ target-version = "py310"
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [              # ignore these rules:
-    "ANN101",           # provide the type of `self`
     "ANN401",           # don't use `Any`
     "SIM110",           # simplify for-loops with all() or any()
     "ISC001", "COM812", # these rules may conflict with the formatter
     ]
+
+[tool.ruff.lint.flake8-builtins]
+# Make Ruff not complain about modules named like standard library modules.
+builtins-allowed-modules = ["queue"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"   # this project's docstrings follow PEP 257

@@ -1,4 +1,5 @@
 """Closed-box unit tests for all Stack ADT implementations."""
+
 from collections.abc import Sequence
 
 import pytest
