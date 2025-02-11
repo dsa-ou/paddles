@@ -21,26 +21,20 @@ def check_is_empty(queue: QueueADT) -> None:
     assert str(queue) == f"{queue.__class__.__name__}([])"
 
 
-# Fixtures: functions that return the data for testing the queue operations.
-
-
-@pytest.fixture(params=[LinkedListQueue])
-def Queue(request: pytest.FixtureRequest) -> type[QueueADT]:  # noqa: N802
-    """Return an implementation (a class) to be tested."""
-    return request.param
-
-
-@pytest.fixture(params=["abcd", [1, 2, 3], (True, False, None), range(20)])
-def sequence(request: pytest.FixtureRequest) -> Sequence:
-    """Return a sequence of items to test with."""
-    return request.param
+# Execute each test for all combinations of these parameter values.
+pytestmark = [
+    pytest.mark.parametrize("Queue", [LinkedListQueue]),
+    pytest.mark.parametrize(
+        "sequence", ["abcd", [3, 2, 1], (True, False, None), range(20)]
+    ),
+]
 
 
 # Test the creation method.
 
 
-def test_init_empty(Queue: type[QueueADT]) -> None:  # noqa: N803
-    """Test the creation of empty queues."""
+def test_init_empty(Queue: type[QueueADT], sequence: Sequence) -> None:  # noqa: N803 ARG001
+    """Test the creation of empty queues. Ignore the sequence."""
     check_is_empty(Queue())
 
 
