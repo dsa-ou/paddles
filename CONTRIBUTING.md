@@ -28,7 +28,7 @@ To set up the development environment:
 5. open a terminal and go to the folder to where you cloned this project
 6. enter `poetry install`
 
-The last steps installs the software needed to develop `paddles`, in a new
+The last step installs the software needed to develop `paddles`, in a new
 [virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment),
 in order to not interfere with your existing Python projects.
 
