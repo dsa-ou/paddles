@@ -6,7 +6,7 @@ The Bag ADT models a 'bunch' of objects, e.g. a bag of marbles.
 
 ## Definition
 
-A **bag** (also called **multiset**) is a unordered collection of members,
+A **bag** (also called **multiset**) is an unordered collection of members,
 possibly with duplicates.
 The number of times each member occurs is called its **frequency**.
 
@@ -18,19 +18,17 @@ The Bag ADT provides operations to:
 - remove one copy of an existing member
 - count how many copies of a given item are in the bag (0 if it isn't)
 - compute the size of the bag (total number of copies)
-- compute the union of bags A and B: if an item occurs x times in A and y in B,
-  then it occurs max(x, y) times in the union
-- compute the intersection of bags A and B: if an item occurs x times in A and y in B,
-  then it occurs min(x, y) times in the intersection
-- compute the difference of bags A and B: if an item occurs x times in A and y in B,
-  then it occurs max(x - y, 0) times in the difference
+- compute the union of bags A and B: if an item occurs x times in A
+  and y times in B, then it occurs max(x, y) times in the union
+- compute the intersection of bags A and B: if an item occurs x times in A
+  and y times in B, then it occurs min(x, y) times in the intersection
+- compute the difference of bags A and B: if an item occurs x times in A
+  and y times in B, then it occurs max(x - y, 0) times in the difference
 
 ## Applications
 
-Bags are used to implement word counts and to count the number of occurrences of
-each item in a collection.
-You should consider using a bag when you need to:
-- count the number of occurrences of each item in a collection
+Bags are used to count how often each item occurs,
+e.g. how many times each word appears in a text.
 
 ## Implementations
 
@@ -46,7 +44,7 @@ __all__ = ["HashTableBag"]
 
 
 class HashTableBag:
-    """An implementation of the Bag ADT, using a hash table.
+    """An implementation of the Bag ADT with a Python dictionary.
 
     Besides the ADT's basic operations, for convenience this class allows to:
     - create a non-empty bag from an iterable collection of items
@@ -54,7 +52,7 @@ class HashTableBag:
     - check membership, i.e. whether a bag contains a given item
     - add or remove more than one copy of an item at once
 
-    >>> from paddles.bag import HashTableBag
+    >>> from paddles import HashTableBag
     >>> text = HashTableBag("picnic")               # create a non-empty bag
     >>> text.size()                                 # number of members
     6
@@ -69,7 +67,7 @@ class HashTableBag:
     >>> vowels = HashTableBag("aeiou")
     >>> print(text.union(vowels))                   # characters in text or vowels
     HashTableBag({'p': 1, 'i': 2, 'c': 1, 'n': 1, 'a': 3, 'e': 1, 'o': 1, 'u': 1})
-    >>> print(text.intersection(vowels))            # common characters
+    >>> print(text.intersection(vowels))            # vowels that are in text
     HashTableBag({'i': 1, 'a': 1})
     >>> print(vowels.difference(text))              # vowels that aren't in text
     HashTableBag({'e': 1, 'o': 1, 'u': 1})
@@ -192,7 +190,7 @@ class HashTableBag:
         this bag and `other`, respectively.
         """
         new_bag = HashTableBag()
-        if len(self._members) > len(other._members):  # noqa: SLF001
+        if self.size() >= other.size():
             larger = self
             smaller = other
         else:
@@ -222,7 +220,7 @@ class HashTableBag:
 
         Complexity: O(n), with n the number of unique items in this bag
         """
-        if len(self._members) != len(other._members):  # noqa: SLF001
+        if self.size() != other.size():
             return False
         for member in self._members:
             if self.frequency(member) != other.frequency(member):

@@ -42,15 +42,20 @@ target-version = "py310"
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [              # ignore these rules:
-    "ANN101",           # provide the type of `self`
     "ANN401",           # don't use `Any`
     "SIM110",           # simplify for-loops with all() or any()
     "ISC001", "COM812", # these rules may conflict with the formatter
     ]
 
+[tool.ruff.lint.flake8-builtins]
+# Make Ruff not complain about modules named like standard library modules.
+builtins-allowed-modules = ["queue"]
+
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"   # this project's docstrings follow PEP 257
 
 [tool.ruff.lint.per-file-ignores]
-# in test code, don't flag assertions nor missing package docstrings
+# In test code, don't flag assertions nor missing package docstrings.
 "tests/*py" = ["S101", "D104"]
+# In init files, don't flag unused imports.
+"*/__init__.py" = ["F401"]
