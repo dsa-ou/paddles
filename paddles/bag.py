@@ -159,10 +159,7 @@ class HashTableBag:
 
         Complexity: O(n), where n is the number of unique items in the bag.
         """
-        items = set()
-        for item in self._members:
-            items.add(item)
-        return items
+        return set(self._members)
 
     def union(self, other: "HashTableBag") -> "HashTableBag":
         """Return a new bag with the items that occur in either bag.
