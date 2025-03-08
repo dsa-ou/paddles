@@ -29,71 +29,71 @@ def check_is_empty(deque: DequeADT) -> None:
 pytestmark = [
     pytest.mark.parametrize("Deque", [LinkedListDeque]),
     pytest.mark.parametrize(
-        "sequence", ["abcd", [3, 2, 1], (True, False, None), range(20)]
+        "items", ["abcd", [3, 2, 1], (True, False, None), range(20)]
     ),
 ]
 
 # Test the creation method.
 
 
-def test_init_empty(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803 ARG001
-    """Test the creation of empty deques. Ignore the sequence for this test."""
+def test_init_empty(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803 ARG001
+    """Test the creation of empty deques. Ignore the items for this test."""
     check_is_empty(Deque())
 
 
-def test_init_iterable(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
-    """Test the creation of deques from sequences."""
-    deque = Deque(sequence)
-    assert deque.size() == len(sequence)
-    assert deque.front() == sequence[0]
-    assert deque.back() == sequence[-1]
-    assert str(deque) == f"{Deque.__name__}({list(sequence)})"
+def test_init_iterable(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
+    """Test the creation of deques from itemss."""
+    deque = Deque(items)
+    assert deque.size() == len(items)
+    assert deque.front() == items[0]
+    assert deque.back() == items[-1]
+    assert str(deque) == f"{Deque.__name__}({list(items)})"
 
 
 # Test each modifier method separately.
 
 
-def test_add_front(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
+def test_add_front(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that `add_front(item)` adds `item` to the front."""
     deque = Deque()
-    for item in sequence:
+    for item in items:
         before = deque.size()
         deque.add_front(item)
         assert deque.size() == before + 1
         assert deque.front() == item
-        assert deque.back() == sequence[0]
-    assert str(deque) == f"{Deque.__name__}({list(reversed(sequence))})"
+        assert deque.back() == items[0]
+    assert str(deque) == f"{Deque.__name__}({list(reversed(items))})"
 
 
-def test_add_back(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
+def test_add_back(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that `add_back(item)` adds `item` to the back."""
     deque = Deque()
-    for item in sequence:
+    for item in items:
         before = deque.size()
         deque.add_back(item)
         assert deque.size() == before + 1
-        assert deque.front() == sequence[0]
+        assert deque.front() == items[0]
         assert deque.back() == item
-    assert str(deque) == f"{Deque.__name__}({list(sequence)})"
+    assert str(deque) == f"{Deque.__name__}({list(items)})"
 
 
-def test_take_front(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
+def test_take_front(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that `take_front()` removes and returns the front item."""
-    deque = Deque(sequence)
-    for _ in sequence:
+    deque = Deque(items)
+    for _ in items:
         before = deque.size()
-        assert deque.back() == sequence[-1]
+        assert deque.back() == items[-1]
         assert deque.front() == deque.take_front()
         assert deque.size() == before - 1
     check_is_empty(deque)
 
 
-def test_take_back(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
+def test_take_back(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that `take_back()` removes and returns the back item."""
-    deque = Deque(sequence)
-    for _ in sequence:
+    deque = Deque(items)
+    for _ in items:
         before = deque.size()
-        assert deque.front() == sequence[0]
+        assert deque.front() == items[0]
         assert deque.back() == deque.take_back()
         assert deque.size() == before - 1
     check_is_empty(deque)
@@ -102,35 +102,35 @@ def test_take_back(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: 
 # Test the combined behaviour of modifiers.
 
 
-def test_fifo(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
+def test_fifo(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that deques can act like queues (first-in first-out)."""
     # Add to the back, take from the front
     deque = Deque()
-    for item in sequence:
+    for item in items:
         deque.add_back(item)
-    for item in sequence:
+    for item in items:
         assert deque.take_front() == item
     check_is_empty(deque)
     # Add to the front, take from the back
-    for item in sequence:
+    for item in items:
         deque.add_front(item)
-    for item in sequence:
+    for item in items:
         assert deque.take_back() == item
     check_is_empty(deque)
 
 
-def test_lifo(Deque: type[DequeADT], sequence: Sequence) -> None:  # noqa: N803
+def test_lifo(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that deques can act like stacks (last-in first-out)."""
     # Add to the front, take from the front
     deque = Deque()
-    for item in sequence:
+    for item in items:
         deque.add_front(item)
-    for item in reversed(sequence):
+    for item in reversed(items):
         assert deque.take_front() == item
     check_is_empty(deque)
     # Add to the back, take from the back
-    for item in sequence:
+    for item in items:
         deque.add_back(item)
-    for item in reversed(sequence):
+    for item in reversed(items):
         assert deque.take_back() == item
     check_is_empty(deque)

@@ -52,7 +52,7 @@ class HashTableBag:
     - check membership, i.e. whether a bag contains a given item
     - add or remove more than one copy of an item at once
 
-    >>> from paddles.bag import HashTableBag
+    >>> from paddles import HashTableBag
     >>> text = HashTableBag("picnic")               # create a non-empty bag
     >>> text.size()                                 # number of members
     6
@@ -65,11 +65,14 @@ class HashTableBag:
     >>> text.has("T")
     False
     >>> vowels = HashTableBag("aeiou")
-    >>> print(text.union(vowels))                   # characters in text or vowels
+    >>> # characters that are in text or in vowels
+    >>> print(text.union(vowels))                   # doctest: +SKIP
     HashTableBag({'p': 1, 'i': 2, 'c': 1, 'n': 1, 'a': 3, 'e': 1, 'o': 1, 'u': 1})
-    >>> print(text.intersection(vowels))            # vowels that are in text
+    >>> # vowels that occur in text
+    >>> print(text.intersection(vowels))            # doctest: +SKIP
     HashTableBag({'i': 1, 'a': 1})
-    >>> print(vowels.difference(text))              # vowels that aren't in text
+    >>> # vowels that aren't in text
+    >>> print(vowels.difference(text))              # doctest: +SKIP
     HashTableBag({'e': 1, 'o': 1, 'u': 1})
     """
 

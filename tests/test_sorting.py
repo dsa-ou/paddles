@@ -50,17 +50,17 @@ OTHER = [
 
 
 @pytest.mark.parametrize("sort_function", [tim_sort])
-@pytest.mark.parametrize("sequence", LISTS)
-def test_sort(sort_function: SortFunction, sequence: list) -> None:
-    """Test function `sort`, which sorts a list in-place, with `sequence`."""
+@pytest.mark.parametrize("to_sort", LISTS)
+def test_sort(sort_function: SortFunction, to_sort: list) -> None:
+    """Test a function that sorts a list in-place with the items to sort."""
     # Copy the input, so that subsequent functions don't get already sorted lists.
-    items = list(sequence)
-    sort_function(items)
-    assert is_non_decreasing(items)
+    copied = list(to_sort)
+    sort_function(copied)
+    assert copied == sorted(to_sort)
 
 
 @pytest.mark.parametrize("sorted_function", [])
-@pytest.mark.parametrize("iterable", LISTS + OTHER)
-def test_sorted(sorted_function: SortedFunction, iterable: Iterable) -> None:
-    """Test function `sorted`, which returns a new sorted list, with `iterable`."""
-    assert is_non_decreasing(sorted_function(iterable))
+@pytest.mark.parametrize("to_sort", LISTS + OTHER)
+def test_sorted(sorted_function: SortedFunction, to_sort: Iterable) -> None:
+    """Test a function that returns a new sorted list with the items to sort."""
+    assert sorted_function(to_sort) == sorted(to_sort)
