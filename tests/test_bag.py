@@ -109,10 +109,12 @@ def test_remove_preconditions(Bag: type[BagADT], items: Sequence[Hashable]) -> N
     """Test that `remove(item, copies)` checks the preconditions."""
     bag = Bag(items)
     for unique_item in set(items):
-        with pytest.raises(ValueError):  # noqa: PT011
+        with pytest.raises(ValueError, match="must remove at least one copy"):
             # test with various non-positive numbers, based on the index
             bag.remove(unique_item, -items.index(unique_item))
-        with pytest.raises(ValueError):  # noqa: PT011
+        with pytest.raises(
+            ValueError, match="can't remove more copies than the bag has"
+        ):
             bag.remove(unique_item, bag.frequency(unique_item) + 1)
 
 
