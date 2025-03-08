@@ -4,7 +4,7 @@
 - adhere to good Python coding practices.
 
 `paddles` is a work in progress.
-The current version 0.1 implements stacks, queues and deques.
+The current version implements stacks, queues, deques and bags.
 
 ## Usage
 To use `paddles`, follow these steps:
@@ -12,7 +12,7 @@ To use `paddles`, follow these steps:
 1. Open a terminal and enter `python -V` to get your Python's version.
    If the version is 3.10 or higher, go directly to step 3.
 2. If the version is lower than 3.10 or if you get an error message
-   ('`python` is an unknown command' or similar), then close the terminal and
+   (e.g. 'python is an unknown command'), then close the terminal and
    install the [latest Python version](https://www.python.org/downloads/).
 3. In the same terminal as step 1, or a new one if you did step 2,
    enter `pip install paddles`.
@@ -45,7 +45,7 @@ Any help to improve and extend `paddles` is welcome and appreciated.
 
 ## Licences
 
-`paddles` is Copyright © 2024 by The Open University, UK.
+`paddles` is Copyright © 2024–2025 by The Open University, UK.
 The code is licensed under a [BSD 3-clause licence](https://github.com/dsa-ou/paddles/blob/main/LICENSE).
 The documentation is licensed under a
 [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).
