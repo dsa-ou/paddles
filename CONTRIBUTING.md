@@ -28,7 +28,7 @@ To set up the development environment:
 5. open a terminal and go to the folder to where you cloned this project
 6. enter `poetry install`
 
-The last steps installs the software needed to develop `paddles`, in a new
+The last step installs the software needed to develop `paddles`, in a new
 [virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment),
 in order to not interfere with your existing Python projects.
 
@@ -74,10 +74,10 @@ using them for closed-box (black-box) testing of the modifiers.
 
 Each test file contains, in this order:
 1. helper functions
-1. fixtures (functions that generate test data)
-1. tests for creator methods
-1. tests for modifier methods, used separately, and finally
-1. tests for combined use of modifiers.
+2. test data
+3. tests for creator methods
+4. tests for modifier methods, used separately, and finally
+5. tests for combined use of modifiers.
 
 Additionally, there are simple interactive examples of how to use a class in that class's docstring,
 in subfolder `paddles`. These are used as [doctests](https://docs.python.org/3.10/library/doctest.html).
