@@ -1,4 +1,5 @@
 """Closed-box unit tests for all implementations of the Deque ADT."""
+
 from collections.abc import Sequence
 
 import pytest

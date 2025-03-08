@@ -167,36 +167,26 @@ class HashTableBag:
         The frequency of `item` in the union is
         `max(self.frequency(item), other.frequency(item))`.
 
-        Complexity: O(m + n), where m and n are the number of unique items in this
-        bag and `other`, respectively.
+        Complexity: O(s + o), where s and o are the number of unique items in
+        this bag and `other`, respectively.
         """
         new_bag = HashTableBag()
-        # Add the maximum of each item's occurrences in the two bags.
-        for member in self._members:
-            if self.frequency(member) >= other.frequency(member):
-                new_bag.add(member, self.frequency(member))
-        for member in other._members:  # noqa: SLF001
-            if other.frequency(member) > self.frequency(member):
-                new_bag.add(member, other.frequency(member))
+        for item in self.unique() | other.unique():
+            new_bag.add(item, max(self.frequency(item), other.frequency(item)))
         return new_bag
 
     def intersection(self, other: "HashTableBag") -> "HashTableBag":
         """Return a new bag with the common members of this bag and `other`.
 
-        Complexity: O(min(s, o)), where s and o are the number of unique items in
+        The frequency of `item` in the intersection is
+        `min(self.frequency(item), other.frequency(item))`.
+
+        Complexity: O(s + o), where s and o are the number of unique items in
         this bag and `other`, respectively.
         """
         new_bag = HashTableBag()
-        if self.size() >= other.size():
-            larger = self
-            smaller = other
-        else:
-            larger = other
-            smaller = self
-        for item in smaller._members:  # noqa: SLF001
-            count = min(smaller.frequency(item), larger.frequency(item))
-            if count > 0:
-                new_bag.add(item, count)
+        for item in self.unique() & other.unique():
+            new_bag.add(item, min(self.frequency(item), other.frequency(item)))
         return new_bag
 
     def difference(self, other: "HashTableBag") -> "HashTableBag":
@@ -217,12 +207,10 @@ class HashTableBag:
 
         Complexity: O(n), with n the number of unique items in this bag
         """
-        if self.size() != other.size():
-            return False
         for member in self._members:
             if self.frequency(member) != other.frequency(member):
                 return False
-        return True
+        return self.size() == other.size()  # other can't have extra members
 
     def included_in(self, other: "HashTableBag") -> bool:
         """Check if all members of this bag are members of `other`.
