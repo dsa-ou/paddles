@@ -43,15 +43,22 @@ Click twice on 'Difficulty' to sort them from easy to hard.
 Click on 'Show problem tags' to see what ADTs they require.
 """
 
-__all__ = ["tim_sort"]
+__all__ = ["selection_sort"]
 
 
-def tim_sort(items: list) -> None:
-    """Put `items` in non-descending order, in-place, using TimSort.
+def selection_sort(items: list) -> None:
+    """Put `items` in non-descending order, in-place, using Selection Sort.
 
-    [TimSort](https://en.wikipedia.org/wiki/Timsort) is Python's sorting algorithm,
-    derived from Insertion Sort and Merge Sort. It is adaptive and stable.
+    [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) repeatedly
+    selects the smallest unsorted item and moves it to the end of the sorted part.
 
-    Complexity: worst O(n log n), best O(n), with n = len(items)
+    Complexity: O(n^2) with n = len(items)
     """
-    items.sort()
+    for first_unsorted in range(len(items) - 1):
+        smallest = first_unsorted
+        for index in range(smallest + 1, len(items)):
+            if items[index] < items[smallest]:
+                smallest = index
+        unsorted_item = items[first_unsorted]
+        items[first_unsorted] = items[smallest]
+        items[smallest] = unsorted_item

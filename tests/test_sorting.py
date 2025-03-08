@@ -4,7 +4,7 @@ from collections.abc import Callable, Iterable
 
 import pytest
 
-from paddles import tim_sort
+from paddles import selection_sort
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 
@@ -49,7 +49,7 @@ OTHER = [
 # Test the sorting algorithms.
 
 
-@pytest.mark.parametrize("sort_function", [tim_sort])
+@pytest.mark.parametrize("sort_function", [selection_sort])
 @pytest.mark.parametrize("to_sort", LISTS)
 def test_sort(sort_function: SortFunction, to_sort: list) -> None:
     """Test a function that sorts a list in-place with the items to sort."""

@@ -40,7 +40,7 @@
             <h2>API Documentation</h2>
                 <ul class="memberlist">
             <li>
-                    <a class="function" href="#tim_sort">tim_sort</a>
+                    <a class="function" href="#selection_sort">selection_sort</a>
             </li>
     </ul>
 
@@ -155,51 +155,65 @@ Click on 'Show problem tags' to see what ADTs they require.</p>
 </span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="sd">Click on &#39;Show problem tags&#39; to see what ADTs they require.</span>
 </span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tim_sort&quot;</span><span class="p">]</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;selection_sort&quot;</span><span class="p">]</span>
 </span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
 </span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="k">def</span><span class="w"> </span><span class="nf">tim_sort</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Put `items` in non-descending order, in-place, using TimSort.</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="k">def</span><span class="w"> </span><span class="nf">selection_sort</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Put `items` in non-descending order, in-place, using Selection Sort.</span>
 </span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a><span class="sd">    [TimSort](https://en.wikipedia.org/wiki/Timsort) is Python&#39;s sorting algorithm,</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a><span class="sd">    derived from Insertion Sort and Merge Sort. It is adaptive and stable.</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a><span class="sd">    [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) repeatedly</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a><span class="sd">    selects the smallest unsorted item and moves it to the end of the sorted part.</span>
 </span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="sd">    Complexity: worst O(n log n), best O(n), with n = len(items)</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="sd">    Complexity: O(n^2) with n = len(items)</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>    <span class="n">items</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>    <span class="k">for</span> <span class="n">first_unsorted</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a>        <span class="n">smallest</span> <span class="o">=</span> <span class="n">first_unsorted</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">smallest</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">items</span><span class="p">[</span><span class="n">smallest</span><span class="p">]:</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>                <span class="n">smallest</span> <span class="o">=</span> <span class="n">index</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>        <span class="n">unsorted_item</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">first_unsorted</span><span class="p">]</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>        <span class="n">items</span><span class="p">[</span><span class="n">first_unsorted</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>        <span class="n">items</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span> <span class="o">=</span> <span class="n">unsorted_item</span>
 </span></pre></div>
 
 
             </section>
-                <section id="tim_sort">
-                            <input id="tim_sort-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="selection_sort">
+                            <input id="selection_sort-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">tim_sort</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">items</span><span class="p">:</span> <span class="nb">list</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+        <span class="name">selection_sort</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">items</span><span class="p">:</span> <span class="nb">list</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
 
-                <label class="view-source-button" for="tim_sort-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="selection_sort-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#tim_sort"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="tim_sort-50"><a href="#tim_sort-50"><span class="linenos">50</span></a><span class="k">def</span><span class="w"> </span><span class="nf">tim_sort</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="tim_sort-51"><a href="#tim_sort-51"><span class="linenos">51</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Put `items` in non-descending order, in-place, using TimSort.</span>
-</span><span id="tim_sort-52"><a href="#tim_sort-52"><span class="linenos">52</span></a>
-</span><span id="tim_sort-53"><a href="#tim_sort-53"><span class="linenos">53</span></a><span class="sd">    [TimSort](https://en.wikipedia.org/wiki/Timsort) is Python&#39;s sorting algorithm,</span>
-</span><span id="tim_sort-54"><a href="#tim_sort-54"><span class="linenos">54</span></a><span class="sd">    derived from Insertion Sort and Merge Sort. It is adaptive and stable.</span>
-</span><span id="tim_sort-55"><a href="#tim_sort-55"><span class="linenos">55</span></a>
-</span><span id="tim_sort-56"><a href="#tim_sort-56"><span class="linenos">56</span></a><span class="sd">    Complexity: worst O(n log n), best O(n), with n = len(items)</span>
-</span><span id="tim_sort-57"><a href="#tim_sort-57"><span class="linenos">57</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="tim_sort-58"><a href="#tim_sort-58"><span class="linenos">58</span></a>    <span class="n">items</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <a class="headerlink" href="#selection_sort"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="selection_sort-50"><a href="#selection_sort-50"><span class="linenos">50</span></a><span class="k">def</span><span class="w"> </span><span class="nf">selection_sort</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="selection_sort-51"><a href="#selection_sort-51"><span class="linenos">51</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Put `items` in non-descending order, in-place, using Selection Sort.</span>
+</span><span id="selection_sort-52"><a href="#selection_sort-52"><span class="linenos">52</span></a>
+</span><span id="selection_sort-53"><a href="#selection_sort-53"><span class="linenos">53</span></a><span class="sd">    [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) repeatedly</span>
+</span><span id="selection_sort-54"><a href="#selection_sort-54"><span class="linenos">54</span></a><span class="sd">    selects the smallest unsorted item and moves it to the end of the sorted part.</span>
+</span><span id="selection_sort-55"><a href="#selection_sort-55"><span class="linenos">55</span></a>
+</span><span id="selection_sort-56"><a href="#selection_sort-56"><span class="linenos">56</span></a><span class="sd">    Complexity: O(n^2) with n = len(items)</span>
+</span><span id="selection_sort-57"><a href="#selection_sort-57"><span class="linenos">57</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="selection_sort-58"><a href="#selection_sort-58"><span class="linenos">58</span></a>    <span class="k">for</span> <span class="n">first_unsorted</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span id="selection_sort-59"><a href="#selection_sort-59"><span class="linenos">59</span></a>        <span class="n">smallest</span> <span class="o">=</span> <span class="n">first_unsorted</span>
+</span><span id="selection_sort-60"><a href="#selection_sort-60"><span class="linenos">60</span></a>        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">smallest</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+</span><span id="selection_sort-61"><a href="#selection_sort-61"><span class="linenos">61</span></a>            <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">items</span><span class="p">[</span><span class="n">smallest</span><span class="p">]:</span>
+</span><span id="selection_sort-62"><a href="#selection_sort-62"><span class="linenos">62</span></a>                <span class="n">smallest</span> <span class="o">=</span> <span class="n">index</span>
+</span><span id="selection_sort-63"><a href="#selection_sort-63"><span class="linenos">63</span></a>        <span class="n">unsorted_item</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">first_unsorted</span><span class="p">]</span>
+</span><span id="selection_sort-64"><a href="#selection_sort-64"><span class="linenos">64</span></a>        <span class="n">items</span><span class="p">[</span><span class="n">first_unsorted</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span>
+</span><span id="selection_sort-65"><a href="#selection_sort-65"><span class="linenos">65</span></a>        <span class="n">items</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span> <span class="o">=</span> <span class="n">unsorted_item</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Put <code>items</code> in non-descending order, in-place, using TimSort.</p>
+            <div class="docstring"><p>Put <code>items</code> in non-descending order, in-place, using Selection Sort.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Timsort">TimSort</a> is Python's sorting algorithm,
-derived from Insertion Sort and Merge Sort. It is adaptive and stable.</p>
+<p><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a> repeatedly
+selects the smallest unsorted item and moves it to the end of the sorted part.</p>
 
-<p>Complexity: worst O(n log n), best O(n), with n = len(items)</p>
+<p>Complexity: O(n^2) with n = len(items)</p>
 </div>
 
 
