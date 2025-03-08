@@ -52,7 +52,7 @@ class HashTableBag:
     - check membership, i.e. whether a bag contains a given item
     - add or remove more than one copy of an item at once
 
-    >>> from paddles import HashTableBag
+    >>> from paddles.bag import HashTableBag
     >>> text = HashTableBag("picnic")               # create a non-empty bag
     >>> text.size()                                 # number of members
     6

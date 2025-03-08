@@ -5,7 +5,7 @@ from collections.abc import Hashable, Sequence
 
 import pytest
 
-from paddles import HashTableBag
+from paddles.bag import HashTableBag
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 
