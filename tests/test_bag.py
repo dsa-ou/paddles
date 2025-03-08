@@ -13,8 +13,12 @@ BagADT = HashTableBag
 
 pytestmark = [
     pytest.mark.parametrize("Bag", [HashTableBag]),
-    pytest.mark.parametrize("items", ["picnic", range(20), [True] * 10]),
-]
+    pytest.mark.parametrize("items", [
+        "", [], (),                         # empty sequences
+        "x", [1], (2.0,),                   # sequences of length 1
+        "picnic", range(20), [True] * 10    # some/no/all items equal
+    ]),
+]  # fmt: skip
 
 
 def check_is_empty(bag: BagADT) -> None:

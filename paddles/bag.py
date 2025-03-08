@@ -18,12 +18,12 @@ The Bag ADT provides operations to:
 - remove one copy of an existing member
 - count how many copies of a given item are in the bag (0 if it isn't)
 - compute the size of the bag (total number of copies)
-- compute the union of bags A and B: if an item occurs x times in A
-  and y times in B, then it occurs max(x, y) times in the union
-- compute the intersection of bags A and B: if an item occurs x times in A
-  and y times in B, then it occurs min(x, y) times in the intersection
-- compute the difference of bags A and B: if an item occurs x times in A
-  and y times in B, then it occurs max(x - y, 0) times in the difference
+- compute the union of bags A and B: if an item occurs *x* times in A
+  and *y* times in B, then it occurs max(*x*, *y*) times in the union
+- compute the intersection of bags A and B: if an item occurs *x* times in A
+  and *y* times in B, then it occurs min(*x*, *y*) times in the intersection
+- compute the difference of bags A and B: if an item occurs *x* times in A
+  and *y* times in B, then it occurs max(*x* - *y*, 0) times in the difference
 
 ## Applications
 
