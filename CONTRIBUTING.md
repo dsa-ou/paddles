@@ -127,7 +127,7 @@ To check the documents during development, enter `[poetry run] pdoc paddles &`
 to open a live site with the documentation. Any changes to the docstrings of
 the library files are immediately reflected in the site, upon saving the files.
 
-## Comitting
+## Committing
 If you installed the pre-commit hooks when setting up the development environment,
 then every time you commit your code, these steps are done automatically:
 1. test the code with `pytest`

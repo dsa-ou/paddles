@@ -43,7 +43,69 @@ Click twice on 'Difficulty' to sort them from easy to hard.
 Click on 'Show problem tags' to see what ADTs they require.
 """
 
-__all__ = ["selection_sort"]
+__all__ = ["bogo_sort", "bogo_sorted", "bubble_sort", "selection_sort"]
+
+import itertools
+import random
+from collections.abc import Sequence
+
+
+def is_non_decreasing(items: Sequence) -> bool:
+    """Check if items[0] <= items[1] <= ... <= items[-1]."""
+    for index in range(len(items) - 1):
+        if items[index] > items[index + 1]:
+            return False
+    return True
+
+
+def bogo_sort(items: list) -> None:
+    """Put `items` in non-descending order, in-place, using Bogo Sort.
+
+    Non-deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
+    repeatedly shuffles the items until they are in the right order.
+
+    Complexity: O((n+1)!) on average with n = len(items)
+    """
+    while not is_non_decreasing(items):
+        random.shuffle(items)
+
+
+# pytype: disable=bad-return-type
+def bogo_sorted(items: list) -> list:
+    """Return a new list with the items in non-descending order, using Bogo Sort.
+
+    Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
+    exhaustively searches for a permutation of items that is in the right order.
+
+    Complexity: O(n!) with n = len(items)
+    """
+    for permutation in itertools.permutations(items):  # noqa: RET503
+        # Each generated permutation is a tuple, not a list.
+        if is_non_decreasing(permutation):
+            return list(permutation)
+
+
+# pytype: enable=bad-return-type
+
+
+def bubble_sort(items: list) -> None:
+    """Put `items` in non-descending order, in-place, using Bubble Sort.
+
+    [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) repeatedly
+    swaps adjacent items that are in the wrong order.
+
+    Complexity: best O(n), worst O(n^2), with n = len(items)
+    """
+    for scan in range(1, len(items)):
+        swapped = False
+        for index in range(len(items) - scan):
+            if items[index] > items[index + 1]:
+                current = items[index]
+                items[index] = items[index + 1]
+                items[index + 1] = current
+                swapped = True
+        if not swapped:
+            return
 
 
 def selection_sort(items: list) -> None:
@@ -55,10 +117,12 @@ def selection_sort(items: list) -> None:
     Complexity: O(n^2) with n = len(items)
     """
     for first_unsorted in range(len(items) - 1):
+        # find the index of the smallest item among the unsorted ones
         smallest = first_unsorted
         for index in range(smallest + 1, len(items)):
             if items[index] < items[smallest]:
                 smallest = index
+        # swap the smallest unsorted item with the first unsorted item
         unsorted_item = items[first_unsorted]
         items[first_unsorted] = items[smallest]
         items[smallest] = unsorted_item
