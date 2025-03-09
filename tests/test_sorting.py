@@ -38,7 +38,9 @@ OTHER = [
 # Test the sorting algorithms.
 
 
-@pytest.mark.parametrize("sort_function", [bogo_sort, bubble_sort, selection_sort])
+@pytest.mark.parametrize(
+    "sort_function", [bogo_sort, bubble_sort, insertion_sort, selection_sort]
+)
 @pytest.mark.parametrize("to_sort", LISTS)
 def test_sort(sort_function: SortFunction, to_sort: list) -> None:
     """Test a function that sorts a list in-place with the items to sort."""

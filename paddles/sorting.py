@@ -43,7 +43,13 @@ Click twice on 'Difficulty' to sort them from easy to hard.
 Click on 'Show problem tags' to see what ADTs they require.
 """
 
-__all__ = ["bogo_sort", "bogo_sorted", "bubble_sort", "selection_sort"]
+__all__ = [
+    "bogo_sort",
+    "bogo_sorted",
+    "bubble_sort",
+    "insertion_sort",
+    "selection_sort",
+]
 
 import itertools
 import random
@@ -106,6 +112,23 @@ def bubble_sort(items: list) -> None:
                 swapped = True
         if not swapped:
             return
+
+
+def insertion_sort(items: list) -> None:
+    """Put `items` in non-descending order, in-place, using Insertion Sort.
+
+    [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) repeatedly
+    inserts the next unsorted item into its correct position in the sorted part.
+
+    Complexity: best O(n), worst O(n^2), with n = len(items)
+    """
+    for first_unsorted in range(1, len(items)):
+        to_sort = items[first_unsorted]
+        index = first_unsorted
+        while index > 0 and items[index - 1] > to_sort:
+            items[index] = items[index - 1]
+            index = index - 1
+        items[index] = to_sort
 
 
 def selection_sort(items: list) -> None:
