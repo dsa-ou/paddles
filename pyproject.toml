@@ -55,7 +55,7 @@ builtins-allowed-modules = ["queue"]
 convention = "pep257"   # this project's docstrings follow PEP 257
 
 [tool.ruff.lint.per-file-ignores]
-# In test code, don't flag assertions nor missing package docstrings.
-"tests/*py" = ["S101", "D104"]
-# In init files, don't flag unused imports.
-"*/__init__.py" = ["F401"]
+# In test code, don't flag assertions, missing package docstrings, star imports.
+"tests/*py" = ["S101", "D104", "F403", "F405"]
+# In init files, don't flag unused and star imports.
+"*/__init__.py" = ["F401", "F403"]

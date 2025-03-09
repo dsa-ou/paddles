@@ -3,8 +3,8 @@
 - be easy to install, use and understand
 - adhere to good Python coding practices.
 
-`paddles` is a work in progress.
-The current version implements stacks, queues, deques and bags.
+`paddles` is a work in progress. It currently implements
+stacks, queues, deques, bags and several sorting algorithms.
 
 ## Usage
 To use `paddles`, follow these steps:
