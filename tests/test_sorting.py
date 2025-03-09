@@ -1,6 +1,6 @@
 """Closed-box unit tests for all sorting algorithms."""
 
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Iterable, Sequence
 
 import pytest
 
@@ -48,8 +48,26 @@ def test_sort(sort_function: SortFunction, to_sort: list) -> None:
     assert copied == sorted(to_sort)
 
 
-@pytest.mark.parametrize("sorted_function", [bogo_sorted, merge_sorted])
+@pytest.mark.parametrize(
+    "sorted_function", [bogo_sorted, merge_sorted, quick_sorted, quick_sorted_3way]
+)
 @pytest.mark.parametrize("to_sort", LISTS + SEQUENCES)
-def test_sorted(sorted_function: SortedFunction, to_sort: Iterable) -> None:
+def test_sorted(sorted_function: SortedFunction, to_sort: Sequence) -> None:
     """Test a function that returns a new sorted list with the items to sort."""
     assert sorted_function(to_sort) == sorted(to_sort)
+
+
+@pytest.mark.parametrize("items", LISTS + SEQUENCES)
+def test_quick_select(items: Sequence) -> None:
+    """Select the k-th smallest item of a non-empty sequence, for all possible k."""
+    if items:
+        for k, expected in enumerate(sorted(items)):
+            assert quick_select(items, k + 1) == expected
+
+
+@pytest.mark.parametrize("items", LISTS + SEQUENCES)
+def test_quick_select_error(items: Sequence) -> None:
+    """Test selecting the k-th smallest item of an empty sequence or an invalid k."""
+    for k in (-1, 0, len(items) + 1):
+        with pytest.raises(ValueError):  # noqa: PT011
+            quick_select(items, k)

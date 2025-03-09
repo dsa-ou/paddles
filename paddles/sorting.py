@@ -49,6 +49,9 @@ __all__ = [
     "bubble_sort",
     "insertion_sort",
     "merge_sorted",
+    "quick_select",
+    "quick_sorted",
+    "quick_sorted_3way",
     "selection_sort",
 ]
 
@@ -167,6 +170,90 @@ def merge_sorted(items: Sequence) -> list:
     left_sorted = merge_sorted(items[:middle])
     right_sorted = merge_sorted(items[middle:])
     return merge(left_sorted, right_sorted)
+
+
+def quick_sorted(items: Sequence) -> list:
+    """Return a new list with the items in non-decreasing order, using Quick Sort.
+
+    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively
+    selects a pivot, partitions the items around it, and sorts the partitions.
+
+    Complexity: O(n^2) worst case, O(n log n) best case, with n = len(items)
+    """
+    # base case: sequences with 0 or 1 items are sorted
+    if len(items) < 2:  # noqa: PLR2004
+        return list(items)
+    # reduce: select the pivot and create two partitions
+    smaller = []
+    larger = []
+    pivot = items[0]
+    for index in range(1, len(items)):
+        item = items[index]
+        if item < pivot:
+            smaller.append(item)
+        else:
+            larger.append(item)
+    # recur: sort each partition
+    # combine: concatenate the sorted partitions, with the pivot in between
+    return quick_sorted(smaller) + [pivot] + quick_sorted(larger)  # noqa: RUF005
+
+
+def quick_sorted_3way(items: Sequence) -> list:
+    """Return a new list with the items in non-decreasing order, using 3-way Quick Sort.
+
+    [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)
+    partitions the items into three groups: smaller, equal, and larger than the pivot.
+
+    Complexity: O(n^2) worst case, O(n log n) best case, with n = len(items)
+    """
+    if len(items) < 2:  # noqa: PLR2004
+        return list(items)
+    # reduce: partition the items into three groups according to a random pivot
+    pivot = random.choice(items)  # noqa: S311
+    smaller = []
+    equal = []
+    larger = []
+    for item in items:
+        if item < pivot:
+            smaller.append(item)
+        elif item == pivot:
+            equal.append(item)
+        else:
+            larger.append(item)
+    # recur: sort the smaller and larger groups
+    # combine: concatenate the sorted groups
+    return quick_sorted_3way(smaller) + equal + quick_sorted_3way(larger)
+
+
+def quick_select(items: Sequence, k: int) -> object:
+    """Return the k-th smallest item in items, using Quick Select.
+
+    [Quick Select](https://en.wikipedia.org/wiki/Quickselect) is a variant of Quick Sort
+    that only recurses into the partition that contains the k-th smallest item.
+
+    Raise `ValueError` if k isn't within 1 to `len(items)`.
+
+    Complexity: O(n^2) worst case, O(n) expected time, with n = len(items)
+    """
+    if not (0 < k <= len(items)):
+        msg = f"Cannot select {k}th smallest item from {len(items)} items"  # noqa: S608
+        raise ValueError(msg)
+    # reduce: select the pivot and create two partitions
+    smaller = []
+    larger = []
+    pivot = items[0]
+    for index in range(1, len(items)):
+        item = items[index]
+        if item < pivot:
+            smaller.append(item)
+        else:
+            larger.append(item)
+    # recur: select the partition that contains the k-th smallest item
+    if k <= len(smaller):
+        return quick_select(smaller, k)
+    if k == len(smaller) + 1:
+        return pivot
+    return quick_select(larger, k - (len(smaller) + 1))
 
 
 def selection_sort(items: list) -> None:
