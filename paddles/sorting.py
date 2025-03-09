@@ -22,7 +22,7 @@ Adaptive algorithms do the least work if the input is already sorted.
 
 This module provides two kinds of functions:
 - those named `..._sort` take a Python list and sort it in-place
-- those named `..._sorted` take any iterable collection and return a new sorted list.
+- those named `..._sorted` take a sequence and return a new sorted list.
 
 The aim of this module is not to provide flexible sorting functions,
 that can sort in ascending or descending order, using a custom comparison function.
@@ -48,6 +48,7 @@ __all__ = [
     "bogo_sorted",
     "bubble_sort",
     "insertion_sort",
+    "merge_sorted",
     "selection_sort",
 ]
 
@@ -77,7 +78,7 @@ def bogo_sort(items: list) -> None:
 
 
 # pytype: disable=bad-return-type
-def bogo_sorted(items: list) -> list:
+def bogo_sorted(items: Sequence) -> list:
     """Return a new list with the items in non-descending order, using Bogo Sort.
 
     Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
@@ -129,6 +130,43 @@ def insertion_sort(items: list) -> None:
             items[index] = items[index - 1]
             index = index - 1
         items[index] = to_sort
+
+
+def merge(left: Sequence, right: Sequence) -> list:
+    """Return a new non-decreasing list by merging two non-decreasing sequences."""
+    left_index = 0
+    right_index = 0
+    merged = []
+    while left_index < len(left) and right_index < len(right):
+        left_item = left[left_index]
+        right_item = right[right_index]
+        if left_item < right_item:
+            merged.append(left_item)
+            left_index = left_index + 1
+        else:
+            merged.append(right_item)
+            right_index = right_index + 1
+    for index in range(left_index, len(left)):
+        merged.append(left[index])  # noqa: PERF401
+    for index in range(right_index, len(right)):
+        merged.append(right[index])  # noqa: PERF401
+    return merged
+
+
+def merge_sorted(items: Sequence) -> list:
+    """Return a new list with the items in non-decreasing order, using Merge Sort.
+
+    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively
+    divides the list into two halves, sorts each one, and merges them.
+
+    Complexity: O(n log n) with n = len(items)
+    """
+    if len(items) < 2:  # noqa: PLR2004
+        return list(items)
+    middle = len(items) // 2
+    left_sorted = merge_sorted(items[:middle])
+    right_sorted = merge_sorted(items[middle:])
+    return merge(left_sorted, right_sorted)
 
 
 def selection_sort(items: list) -> None:
