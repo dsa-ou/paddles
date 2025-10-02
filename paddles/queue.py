@@ -43,9 +43,12 @@ but a dynamic array may have wasted capacity and requires resizing.
 `paddles` only provides a singly-linked list implementation for the moment.
 
 ## Practice
+
 LeetCode has several [problems about queues](https://leetcode.com/tag/queue).
-Click twice on 'Difficulty' to order them from easy to hard.
-Click on 'Show problem tags' to see what other ADTs they require.
+You can sort or filter the problems by difficulty or other criteria,
+using the up/down or funnel buttons above the list of problems.
+Clicking on the up/down button and then on 'Tags' will show
+the algorithmic techniques and ADTs related to each problem.
 """
 
 from collections.abc import Sequence
