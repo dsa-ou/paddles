@@ -36,11 +36,13 @@ Sorting is a fundamental computational operation, as it makes items easier to lo
 e.g. trains are listed by arrival or departure time, people are listed by name, etc.
 You should consider sorting a collection when you repeatedly need to search it.
 
-## Problems
+## Practice
 
 LeetCode has several [problems about sorting](https://leetcode.com/tag/sorting).
-Click twice on 'Difficulty' to sort them from easy to hard.
-Click on 'Show problem tags' to see what ADTs they require.
+You can sort or filter the problems by difficulty or other criteria,
+using the up/down or funnel buttons above the list of problems.
+Clicking on the up/down button and then on 'Tags' will show
+the algorithmic techniques and ADTs related to each problem.
 """
 
 __all__ = [
