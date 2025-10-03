@@ -4,14 +4,14 @@ repos:
     hooks:
     -   id: test
         name: pytest
-        entry: poetry run pytest    # command line options are in pyproject.toml
+        entry: uv run pytest        # command line options are in pyproject.toml
         language: system
         pass_filenames: false       # run pytest on all files
         types: [python]             # run pytest only if a Python file changed
 
     -   id: typecheck
         name: ty
-        entry: poetry run ty check
+        entry: uv run ty check
         language: system
         pass_filenames: false
         types: [python]
@@ -19,21 +19,21 @@ repos:
     # ruff hooks were adapted from https://github.com/astral-sh/ruff-pre-commit
     -   id: lint
         name: ruff-check
-        entry: poetry run ruff check --force-exclude
+        entry: uv run ruff check --force-exclude
         language: system
         types_or: [python, pyi]
         require_serial: true
 
     -   id: format
         name: ruff-format
-        entry: poetry run ruff format --force-exclude
+        entry: uv run ruff format --force-exclude
         language: system
         types_or: [python, pyi]
         require_serial: true
 
     -   id: docs
         name: pdoc
-        entry: poetry run pdoc -o docs paddles
+        entry: uv run pdoc -o docs paddles
         language: system
         pass_filenames: false
         types: [python]

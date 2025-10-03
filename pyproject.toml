@@ -1,13 +1,16 @@
-[tool.poetry]
+[project]
 name = "paddles"
 version = "0.1.0"
 description = "A pedagogical algorithms and data structures library"
-authors = ["Michel Wermelinger <michel.wermelinger@open.ac.uk>"]
+authors = [{ name = "Michel Wermelinger", email = "michel.wermelinger@open.ac.uk" }]
+requires-python = ">=3.10"
 readme = "README.md"
 license = "BSD-3-Clause"
-homepage = "https://dsa-ou.github.io/paddles/"
-repository = "https://github.com/dsa-ou/paddles"
-keywords = ["algorithms", "data structures", "education"]
+keywords = [
+    "algorithms",
+    "data structures",
+    "education",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Education",
@@ -16,22 +19,29 @@ classifiers = [
     "Topic :: Education",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Operating System :: OS Independent",
-    ]
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
+[project.urls]
+Homepage = "https://dsa-ou.github.io/paddles/"
+Repository = "https://github.com/dsa-ou/paddles"
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"
-pytest-cov = "^6.0.0"
-pre-commit = "^4.1.0"
-ruff = "^0.9.6"
-pdoc = "^15.0.1"
-ty = "^0.0.1a21"
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4,<9",
+    "pytest-cov>=6.0.0,<7",
+    "pre-commit>=4.1.0,<5",
+    "ruff>=0.9.6,<0.10",
+    "pdoc>=15.0.1,<16",
+    "ty>=0.0.1a21,<0.0.2",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.8.22,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "paddles"
+module-root = ""
 
 [tool.pytest.ini_options]
 addopts = "--cov=paddles --cov-report term-missing --doctest-modules"
