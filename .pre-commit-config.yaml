@@ -10,8 +10,8 @@ repos:
         types: [python]             # run pytest only if a Python file changed
 
     -   id: typecheck
-        name: pytype
-        entry: poetry run pytype .
+        name: ty
+        entry: poetry run ty check
         language: system
         pass_filenames: false
         types: [python]
