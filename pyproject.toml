@@ -28,6 +28,7 @@ pre-commit = "^4.1.0"
 ruff = "^0.9.6"
 pytype = "2024.4.11"    # same version as github.com/dsa-ou/algoesup
 pdoc = "^15.0.1"
+ty = "^0.0.1a21"
 
 [build-system]
 requires = ["poetry-core"]

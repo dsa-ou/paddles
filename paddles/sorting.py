@@ -83,7 +83,7 @@ def bogo_sort(items: list) -> None:
 
 
 # pytype: disable=bad-return-type
-def bogo_sorted(items: Sequence) -> list:
+def bogo_sorted(items: Sequence) -> list:  # type: ignore[invalid-return-type]
     """Return a new list with the items in non-descending order, using Bogo Sort.
 
     Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
@@ -91,6 +91,8 @@ def bogo_sorted(items: Sequence) -> list:
 
     Complexity: O(n!) with n = len(items)
     """
+    # Type checkers and linters assume the for-loop may be skipped, returning None.
+    # The `type` comment above and `noqa` comment below remove such error messages.
     for permutation in itertools.permutations(items):  # noqa: RET503
         # Each generated permutation is a tuple, not a list.
         if is_non_decreasing(permutation):
