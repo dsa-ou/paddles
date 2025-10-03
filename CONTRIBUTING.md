@@ -117,8 +117,8 @@ which violates the rule that function names and arguments should be in lowercase
 Finally, enter `[poetry run] ruff format` to format the code.
 
 ## Type checking
-We type check the code with [pytype](https://google.github.io/pytype).
-Enter `[poetry run] pytype .` (note the dot) to type check all code.
+We type check the code with [ty](https://docs.astral.sh/ty/).
+Enter `[poetry run] ty check` to type check all code.
 
 ## Documenting
 We use [pdoc](https://pdoc.dev) to generate the documentation from the docstrings.
@@ -131,7 +131,7 @@ the library files are immediately reflected in the site, upon saving the files.
 If you installed the pre-commit hooks when setting up the development environment,
 then every time you commit your code, these steps are done automatically:
 1. test the code with `pytest`
-2. type check the code with `pytype`
+2. type check the code with `ty`
 3. check (but _don't_ fix) the code with `ruff`
 4. format the code with `ruff`
 5. generate the documentation with `pdoc`.

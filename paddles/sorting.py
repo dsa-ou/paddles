@@ -82,7 +82,6 @@ def bogo_sort(items: list) -> None:
         random.shuffle(items)
 
 
-# pytype: disable=bad-return-type
 def bogo_sorted(items: Sequence) -> list:  # type: ignore[invalid-return-type]
     """Return a new list with the items in non-descending order, using Bogo Sort.
 
@@ -97,9 +96,6 @@ def bogo_sorted(items: Sequence) -> list:  # type: ignore[invalid-return-type]
         # Each generated permutation is a tuple, not a list.
         if is_non_decreasing(permutation):
             return list(permutation)
-
-
-# pytype: enable=bad-return-type
 
 
 def bubble_sort(items: list) -> None:
