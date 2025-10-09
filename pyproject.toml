@@ -40,8 +40,13 @@ requires = ["uv_build>=0.8.22,<0.9.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = "paddles"
-module-root = ""
+module-root = ""  # there's no src/ subdirectory
+
+[[tool.uv.index]]
+name = "test"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
 
 [tool.pytest.ini_options]
 addopts = "--cov=paddles --cov-report term-missing --doctest-modules"
