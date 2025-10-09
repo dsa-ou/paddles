@@ -15,35 +15,27 @@ You may wish to first read the more detailed and beginner-friendly
 as much of it also applies to `paddles`.
 
 ## Development environment
-We use Python 3.10 and the [poetry](https://python-poetry.org) packaging and dependency manager.
+We use Python 3.10 and the [uv](https://docs.astral.sh/uv/) packaging and dependency manager.
 We use an older Python version for development to make sure `paddles` works with it.
 
 To set up the development environment:
 1. if you don't have Python 3.10, [install it](https://www.python.org/downloads/release/python-31011/)
-2. if you don't have `poetry`, [install it](https://python-poetry.org/docs/#installing-with-the-official-installer)
+2. if you don't have `uv`, [install it](https://docs.astral.sh/uv/getting-started/installation/)
 3. [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
   this repository (this creates a copy in *your* GitHub account)
 4. [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
   your forked repository (this makes a local copy on your machine)
 5. open a terminal and go to the folder to where you cloned this project
-6. enter `poetry install`
+6. enter `uv sync`
 
 The last step installs the software needed to develop `paddles`, in a new
 [virtual environment](https://docs.python.org/3/glossary.html#term-virtual-environment),
 in order to not interfere with your existing Python projects.
 
-To use the environment, while developing `paddles`, enter `poetry run C`
+To use the environment, while developing `paddles`, enter `uv run C`
 to execute command `C` in the virtual environment for `paddles`.
 
-Alternatively, you can enter `poetry shell` to activate the environment, and
-then just enter `C` to execute the command.
-To deactivate the environment, enter `exit`.
-
-In the rest of this document, the notation `[poetry run] C` means that you should enter
-- `poetry run C` if you haven't activated the environment with `poetry shell`
-- `C` if you have.
-
-To finish the setup, you may optionally enter `[poetry run] pre-commit install`
+To finish the setup, you may optionally enter `uv run pre-commit install`
 to install pre-commit hooks (scripts that are run when committing changes to a repository).
 Our development environment includes hooks that test, check and format your code and
 generate the documentation before you commit your changes to the repository.
@@ -55,7 +47,7 @@ The project folder contains the following files and subfolders, among others:
 - `CONTRIBUTING.md`: this file
 - `LICENSE`: the code licence
 - `pyproject.toml`: project configuration
-- `poetry.lock`: list of the packages installed by `poetry install`
+- `uv.lock`: list of the packages installed by `uv sync`
 - `.pre-commit-config.yaml`: list of pre-commit hooks
 - `paddles/`: subfolder with the library's code
 - `tests/`: subfolder with the test code
@@ -83,7 +75,7 @@ Additionally, there are simple interactive examples of how to use a class in tha
 in subfolder `paddles`. These are used as [doctests](https://docs.python.org/3.10/library/doctest.html).
 
 To run all tests, i.e. the doctests in `paddles` and the unit tests in `tests`,
-enter `[poetry run] pytest`.
+enter `uv run pytest`.
 
 This will produce a report of which tests passed, which failed, and which
 library code lines weren't executed. (We aim for 100% coverage.)
@@ -94,7 +86,7 @@ for the same exception for the same method, the tests fail.
 
 We check and format all code (library and tests) with [ruff](https://astral.sh/ruff).
 
-To check the code against over 700 style rules, enter `[poetry run] ruff check`.
+To check the code against over 700 style rules, enter `uv run ruff check`.
 If `ruff` reports rule violations, open the [rules page](https://docs.astral.sh/ruff/rules),
 search for the reported rule number (e.g. E713), and click on the rule name
 (e.g. not-in-test) next to it in the page.
@@ -102,11 +94,11 @@ This will open a new page explaining the violated rule with an example,
 like [this](https://docs.astral.sh/ruff/rules/not-in-test/).
 
 To automatically fix violations, when possible,
-enter `[poetry run] ruff check --fix --unsafe-fixes` and double-check
+enter `uv run ruff check --fix --unsafe-fixes` and double-check
 the modifications made by `ruff`.
 
 To automatically ignore the flagged code lines for a particular file,
-enter `[poetry run] ruff check path/to/file.py --add-noqa`.
+enter `uv run ruff check path/to/file.py --add-noqa`.
 This will add comments of the form `# noqa: ...` where `...` is the number of
 the violated rule.
 
@@ -114,16 +106,16 @@ This should be used sparingly. For example, in the test files, the fixtures
 that generate classes are on purpose named with initial uppercase, as classes are,
 which violates the rule that function names and arguments should be in lowercase.
 
-Finally, enter `[poetry run] ruff format` to format the code.
+Finally, enter `uv run ruff format` to format the code.
 
 ## Type checking
 We type check the code with [ty](https://docs.astral.sh/ty/).
-Enter `[poetry run] ty check` to type check all code.
+Enter `uv run ty check` to type check all code.
 
 ## Documenting
 We use [pdoc](https://pdoc.dev) to generate the documentation from the docstrings.
 
-To check the documents during development, enter `[poetry run] pdoc paddles &`
+To check the documents during development, enter `uv run pdoc paddles &`
 to open a live site with the documentation. Any changes to the docstrings of
 the library files are immediately reflected in the site, upon saving the files.
 
