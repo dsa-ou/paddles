@@ -1,6 +1,6 @@
 [project]
 name = "paddles"
-version = "0.1.0"
+version = "0.2.0"
 description = "A pedagogical algorithms and data structures library"
 authors = [{ name = "Michel Wermelinger", email = "michel.wermelinger@open.ac.uk" }]
 requires-python = ">=3.10"
@@ -25,6 +25,7 @@ classifiers = [
 Homepage = "https://dsa-ou.github.io/paddles/"
 Repository = "https://github.com/dsa-ou/paddles"
 Changelog = "https://github.com/dsa-ou/paddles/blob/main/CHANGELOG.md"
+Issues = "https://github.com/dsa-ou/paddles/issues"
 
 [dependency-groups]
 dev = [
