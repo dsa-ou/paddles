@@ -1,40 +1,39 @@
 # Changelog
 
-This file documents notable changes to the `paddles` library.
-The format is based on [Keep a Changelog](https://keepachangelog.com).
-This project does *not* adhere to [Semantic Versioning](https://semver.org).
+This file documents notable user-facing changes to the `paddles` library.
+It does not document trivial updates (e.g. fixing typos) or
+alterations to the development environment and process, including the tests.
+
+The format of this file is based on [Keep a Changelog](https://keepachangelog.com).
+
+This project adheres to [Semantic Versioning](https://semver.org) but note that
+the major version is zero: [anything may change](https://semver.org/#spec-item-4).
 
 <!-- Per release: Added / Changed / Deprecated / Removed / Fixed / Security -->
 
-## [Unreleased](https://github.com/dsa-ou/paddles/compare/v0.1.0...HEAD)
+## [Unreleased](https://github.com/dsa-ou/paddles/compare/v0.1-beta...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/paddles).
 
-Nothing yet.
-
-## [0.1.0](https://github.com/dsa-ou/paddles/releases/tag/v0.1.0) - 2024-10-10
+<!-- Nothing yet. -->
 
 ### Added
-- Initial release of the `paddles` library
-- `DynamicArrayStack`: Stack implementation using Python lists
-- `LinkedListStack`: Stack implementation using singly-linked lists
-- `LinkedListQueue`: Queue implementation using singly-linked lists
-- `LinkedListDeque`: Double-ended queue implementation using doubly-linked lists
-- `HashTableBag`: Bag implementation using Python dictionaries
-- Sorting algorithms: bubble sort, selection sort, insertion sort, merge sort, quick sort, and bogo sort
-- Comprehensive test suite with pytest
-- Complete documentation with docstrings and examples
-- Support for Python 3.10 and higher
+- Implement bags using Python dictionaries
+- Implement bogo, bubble, insertion, selection, merge and quick sort
+- Link to LeetCode problems using stacks, queues and sorting
+- Support direct imports, i.e. `from paddles import <class>`
 
-## [0.1-beta](https://github.com/dsa-ou/paddles/releases/tag/v0.1-beta) - 2024-09-15
+## [0.1-beta](https://github.com/dsa-ou/paddles/compare/v0.1-alpha...v0.1-beta) - 2024-01-05
+This is version 0.1.0 on PyPI.
 
 ### Added
-- Beta release with core data structures
-- Stack, queue, deque, and bag implementations
-- Basic sorting algorithms
-- Initial test coverage
+- Explain each ADT and generate github.io site
 
-## [0.1-alpha](https://github.com/dsa-ou/paddles/releases/tag/v0.1-alpha) - 2024-08-30
+### Changed
+- Improve docstrings and doctests
+
+## [0.1-alpha](https://github.com/dsa-ou/paddles/commits/v0.1-alpha) - 2023-12-28
+This version is not on PyPI.
 
 ### Added
-- Alpha release with initial stack and queue implementations
-- Basic project structure and configuration
+- Implement stacks using Python lists and linked lists
+- Implement queues and deques using linked lists
