@@ -24,6 +24,7 @@ classifiers = [
 [project.urls]
 Homepage = "https://dsa-ou.github.io/paddles/"
 Repository = "https://github.com/dsa-ou/paddles"
+Changelog = "https://github.com/dsa-ou/paddles/blob/main/CHANGELOG.md"
 
 [dependency-groups]
 dev = [
