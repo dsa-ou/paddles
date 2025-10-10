@@ -1,7 +1,7 @@
 # Changelog
 
 This file documents notable user-facing changes to the `paddles` library.
-It does not document trivial updates (e.g. fixing typos) or
+It does *not* document trivial updates (e.g. fixing typos) or
 alterations to the development environment and process, including the tests.
 
 The format of this file is based on [Keep a Changelog](https://keepachangelog.com).
