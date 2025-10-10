@@ -26,10 +26,11 @@ These changes are in the GitHub repository but not on [PyPI](https://pypi.org/pr
 This is version 0.1.0 on PyPI.
 
 ### Added
-- Explain each ADT and generate github.io site
+- Write module docstrings explaining each ADT
+- Create github.io site
 
 ### Changed
-- Improve docstrings and doctests
+- Improve class and method docstrings and doctests
 
 ## [0.1-alpha](https://github.com/dsa-ou/paddles/commits/v0.1-alpha) - 2023-12-28
 This version is not on PyPI.
