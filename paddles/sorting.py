@@ -159,8 +159,8 @@ def merge(left: Sequence, right: Sequence) -> list:
 def merge_sorted(items: Sequence) -> list:
     """Return a new list with `items` in non-decreasing order, using Merge Sort.
 
-    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively
-    divides the list into two halves, sorts each one, and merges them.
+    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)
+    divides the list into two halves, recursively sorts each one, and merges them.
 
     Complexity: O(n log n) with n = `len(items)`
     """
@@ -175,8 +175,8 @@ def merge_sorted(items: Sequence) -> list:
 def quick_sorted(items: Sequence) -> list:
     """Return a new list with `items` in non-decreasing order, using Quick Sort.
 
-    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively
-    selects a pivot, partitions the items around it, and sorts the partitions.
+    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) selects a pivot,
+    partitions the items around it, and recursively sorts the partitions.
 
     Complexity: O(n²), with n = `len(items)`
     """

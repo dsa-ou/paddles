@@ -297,8 +297,8 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="k">def</span><span class="w"> </span><span class="nf">merge_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 </span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Merge Sort.</span>
 </span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>
-</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively</span>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">    divides the list into two halves, sorts each one, and merges them.</span>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">    divides the list into two halves, recursively sorts each one, and merges them.</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>
 </span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="sd">    Complexity: O(n log n) with n = `len(items)`</span>
 </span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -313,8 +313,8 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 </span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Quick Sort.</span>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>
-</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively</span>
-</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a><span class="sd">    selects a pivot, partitions the items around it, and sorts the partitions.</span>
+</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) selects a pivot,</span>
+</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a><span class="sd">    partitions the items around it, and recursively sorts the partitions.</span>
 </span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>
 </span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -583,8 +583,8 @@ inserts the next unsorted item into its correct position in the sorted part.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="merge_sorted-160"><a href="#merge_sorted-160"><span class="linenos">160</span></a><span class="k">def</span><span class="w"> </span><span class="nf">merge_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 </span><span id="merge_sorted-161"><a href="#merge_sorted-161"><span class="linenos">161</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Merge Sort.</span>
 </span><span id="merge_sorted-162"><a href="#merge_sorted-162"><span class="linenos">162</span></a>
-</span><span id="merge_sorted-163"><a href="#merge_sorted-163"><span class="linenos">163</span></a><span class="sd">    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively</span>
-</span><span id="merge_sorted-164"><a href="#merge_sorted-164"><span class="linenos">164</span></a><span class="sd">    divides the list into two halves, sorts each one, and merges them.</span>
+</span><span id="merge_sorted-163"><a href="#merge_sorted-163"><span class="linenos">163</span></a><span class="sd">    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)</span>
+</span><span id="merge_sorted-164"><a href="#merge_sorted-164"><span class="linenos">164</span></a><span class="sd">    divides the list into two halves, recursively sorts each one, and merges them.</span>
 </span><span id="merge_sorted-165"><a href="#merge_sorted-165"><span class="linenos">165</span></a>
 </span><span id="merge_sorted-166"><a href="#merge_sorted-166"><span class="linenos">166</span></a><span class="sd">    Complexity: O(n log n) with n = `len(items)`</span>
 </span><span id="merge_sorted-167"><a href="#merge_sorted-167"><span class="linenos">167</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -599,8 +599,8 @@ inserts the next unsorted item into its correct position in the sorted part.</p>
 
             <div class="docstring"><p>Return a new list with <code>items</code> in non-decreasing order, using Merge Sort.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a> recursively
-divides the list into two halves, sorts each one, and merges them.</p>
+<p><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a>
+divides the list into two halves, recursively sorts each one, and merges them.</p>
 
 <p>Complexity: O(n log n) with n = <code>len(items)</code></p>
 </div>
@@ -676,8 +676,8 @@ that only recurses into the partition that contains the k-th smallest item.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="quick_sorted-176"><a href="#quick_sorted-176"><span class="linenos">176</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 </span><span id="quick_sorted-177"><a href="#quick_sorted-177"><span class="linenos">177</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Quick Sort.</span>
 </span><span id="quick_sorted-178"><a href="#quick_sorted-178"><span class="linenos">178</span></a>
-</span><span id="quick_sorted-179"><a href="#quick_sorted-179"><span class="linenos">179</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively</span>
-</span><span id="quick_sorted-180"><a href="#quick_sorted-180"><span class="linenos">180</span></a><span class="sd">    selects a pivot, partitions the items around it, and sorts the partitions.</span>
+</span><span id="quick_sorted-179"><a href="#quick_sorted-179"><span class="linenos">179</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) selects a pivot,</span>
+</span><span id="quick_sorted-180"><a href="#quick_sorted-180"><span class="linenos">180</span></a><span class="sd">    partitions the items around it, and recursively sorts the partitions.</span>
 </span><span id="quick_sorted-181"><a href="#quick_sorted-181"><span class="linenos">181</span></a>
 </span><span id="quick_sorted-182"><a href="#quick_sorted-182"><span class="linenos">182</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="quick_sorted-183"><a href="#quick_sorted-183"><span class="linenos">183</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -702,8 +702,8 @@ that only recurses into the partition that contains the k-th smallest item.</p>
 
             <div class="docstring"><p>Return a new list with <code>items</code> in non-decreasing order, using Quick Sort.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a> recursively
-selects a pivot, partitions the items around it, and sorts the partitions.</p>
+<p><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a> selects a pivot,
+partitions the items around it, and recursively sorts the partitions.</p>
 
 <p>Complexity: O(n²), with n = <code>len(items)</code></p>
 </div>
