@@ -82,7 +82,7 @@ class LinkedListDeque:
         The members are added to the deque in the order they are in `sequence`.
         To create an empty deque, call `LinkedListDeque()` or `LinkedListDeque([])`.
 
-        Complexity: O(len(`sequence`))
+        Complexity: O(n), with n = `len(sequence)`
         """
         self._head = None
         self._tail = None
@@ -96,7 +96,7 @@ class LinkedListDeque:
 
         The string is 'LinkedListDeque([front member, ..., back member])'.
 
-        Complexity: O(self.size())
+        Complexity: O(n), with n = `self.size()`
         """
         strings = []
         current = self._head

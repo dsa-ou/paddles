@@ -84,7 +84,7 @@ class DynamicArrayStack:
         The members are added to the stack in the order they are in `sequence`.
         To create an empty stack, call `DynamicArrayStack()` or `DynamicArrayStack([])`.
 
-        Complexity: O(len(`sequence`))
+        Complexity: O(n), with n = `len(sequence)`
         """
         self._members = []
         for item in sequence:
@@ -95,7 +95,7 @@ class DynamicArrayStack:
 
         The string is 'DynamicArrayStack([bottom member, ..., top member])'.
 
-        Complexity: O(self.size())
+        Complexity: O(n), with n = `self.size()`
         """
         return f"DynamicArrayStack({self._members})"
 
@@ -170,7 +170,7 @@ class LinkedListStack:
         The members are added to the stack in the order they are in `sequence`.
         To create an empty stack, call `LinkedListStack()` or `LinkedListStack([])`.
 
-        Complexity: O(len(`sequence`))
+        Complexity: O(n), with n = `len(sequence)`
         """
         self._head = None
         self._length = 0
@@ -182,7 +182,7 @@ class LinkedListStack:
 
         The string is 'LinkedListStack([bottom member, ..., top member])'.
 
-        Complexity: O(self.size())
+        Complexity: O(n), with n = `self.size()`
         """
         strings = []
         current = self._head

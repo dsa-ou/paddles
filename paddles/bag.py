@@ -82,7 +82,7 @@ class HashTableBag:
         To create an empty bag, call `HashTableBag()`.
         If `items` is a dictionary, only its keys are added to the bag.
 
-        Complexity: O(len(`items`))
+        Complexity: O(n), with n = `len(items)`
         """
         self._members = {}
         for item in items:
@@ -94,7 +94,7 @@ class HashTableBag:
         The string is 'HashTableBag({member: copies, ...})'.
         The members are listed in the order they were added to the bag.
 
-        Complexity: O(n), where n is the number of unique members in the bag.
+        Complexity: O(n), with n the number of unique members in the bag
         """
         return f"HashTableBag({self._members})"
 
@@ -150,7 +150,7 @@ class HashTableBag:
     def size(self) -> int:
         """Return how many members (total copies) the bag has.
 
-        Complexity: O(n), where n is the number of unique members in the bag.
+        Complexity: O(n), with n the number of unique members in the bag
         """
         total = 0
         for item in self._members:
@@ -160,7 +160,7 @@ class HashTableBag:
     def unique(self) -> set:
         """Return the set of the unique members in the bag.
 
-        Complexity: O(n), where n is the number of unique members in the bag.
+        Complexity: O(n), with n the number of unique members in the bag
         """
         return set(self._members)
 
@@ -170,7 +170,7 @@ class HashTableBag:
         The frequency of `item` in the union is
         `max(self.frequency(item), other.frequency(item))`.
 
-        Complexity: O(s + o), where s and o are the number of unique members in
+        Complexity: O(s + o), with s and o the number of unique members in
         this bag and `other`, respectively.
         """
         new_bag = HashTableBag()
@@ -184,7 +184,7 @@ class HashTableBag:
         The frequency of `item` in the intersection is
         `min(self.frequency(item), other.frequency(item))`.
 
-        Complexity: O(s + o), where s and o are the number of unique members in
+        Complexity: O(s + o), with s and o the number of unique members in
         this bag and `other`, respectively.
         """
         new_bag = HashTableBag()

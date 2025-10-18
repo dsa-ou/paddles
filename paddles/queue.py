@@ -88,7 +88,7 @@ class LinkedListQueue:
         The members are added to the queue in the order they are in `sequence`.
         To create an empty queue, call `LinkedListQueue()` or `LinkedListQueue([])`.
 
-        Complexity: O(len(`sequence`))
+        Complexity: O(n), with n = `len(sequence)`
         """
         self._head = None
         self._tail = None
@@ -102,7 +102,7 @@ class LinkedListQueue:
 
         The string is 'LinkedListQueue([front member, ..., back member])'.
 
-        Complexity: O(self.size())
+        Complexity: O(n), with n = `self.size()`
         """
         strings = []
         current = self._head

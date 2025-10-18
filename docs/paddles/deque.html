@@ -222,7 +222,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="sd">        The members are added to the deque in the order they are in `sequence`.</span>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="sd">        To create an empty deque, call `LinkedListDeque()` or `LinkedListDeque([])`.</span>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        Complexity: O(len(`sequence`))</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
@@ -236,7 +236,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        The string is &#39;LinkedListDeque([front member, ..., back member])&#39;.</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        Complexity: O(self.size())</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
@@ -383,7 +383,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque-83"><a href="#LinkedListDeque-83"><span class="linenos"> 83</span></a><span class="sd">        The members are added to the deque in the order they are in `sequence`.</span>
 </span><span id="LinkedListDeque-84"><a href="#LinkedListDeque-84"><span class="linenos"> 84</span></a><span class="sd">        To create an empty deque, call `LinkedListDeque()` or `LinkedListDeque([])`.</span>
 </span><span id="LinkedListDeque-85"><a href="#LinkedListDeque-85"><span class="linenos"> 85</span></a>
-</span><span id="LinkedListDeque-86"><a href="#LinkedListDeque-86"><span class="linenos"> 86</span></a><span class="sd">        Complexity: O(len(`sequence`))</span>
+</span><span id="LinkedListDeque-86"><a href="#LinkedListDeque-86"><span class="linenos"> 86</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="LinkedListDeque-87"><a href="#LinkedListDeque-87"><span class="linenos"> 87</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListDeque-88"><a href="#LinkedListDeque-88"><span class="linenos"> 88</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="LinkedListDeque-89"><a href="#LinkedListDeque-89"><span class="linenos"> 89</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
@@ -397,7 +397,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque-97"><a href="#LinkedListDeque-97"><span class="linenos"> 97</span></a>
 </span><span id="LinkedListDeque-98"><a href="#LinkedListDeque-98"><span class="linenos"> 98</span></a><span class="sd">        The string is &#39;LinkedListDeque([front member, ..., back member])&#39;.</span>
 </span><span id="LinkedListDeque-99"><a href="#LinkedListDeque-99"><span class="linenos"> 99</span></a>
-</span><span id="LinkedListDeque-100"><a href="#LinkedListDeque-100"><span class="linenos">100</span></a><span class="sd">        Complexity: O(self.size())</span>
+</span><span id="LinkedListDeque-100"><a href="#LinkedListDeque-100"><span class="linenos">100</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
 </span><span id="LinkedListDeque-101"><a href="#LinkedListDeque-101"><span class="linenos">101</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListDeque-102"><a href="#LinkedListDeque-102"><span class="linenos">102</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="LinkedListDeque-103"><a href="#LinkedListDeque-103"><span class="linenos">103</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
@@ -548,7 +548,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque.__init__-83"><a href="#LinkedListDeque.__init__-83"><span class="linenos">83</span></a><span class="sd">        The members are added to the deque in the order they are in `sequence`.</span>
 </span><span id="LinkedListDeque.__init__-84"><a href="#LinkedListDeque.__init__-84"><span class="linenos">84</span></a><span class="sd">        To create an empty deque, call `LinkedListDeque()` or `LinkedListDeque([])`.</span>
 </span><span id="LinkedListDeque.__init__-85"><a href="#LinkedListDeque.__init__-85"><span class="linenos">85</span></a>
-</span><span id="LinkedListDeque.__init__-86"><a href="#LinkedListDeque.__init__-86"><span class="linenos">86</span></a><span class="sd">        Complexity: O(len(`sequence`))</span>
+</span><span id="LinkedListDeque.__init__-86"><a href="#LinkedListDeque.__init__-86"><span class="linenos">86</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="LinkedListDeque.__init__-87"><a href="#LinkedListDeque.__init__-87"><span class="linenos">87</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListDeque.__init__-88"><a href="#LinkedListDeque.__init__-88"><span class="linenos">88</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="LinkedListDeque.__init__-89"><a href="#LinkedListDeque.__init__-89"><span class="linenos">89</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
@@ -564,7 +564,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 <p>The members are added to the deque in the order they are in <code>sequence</code>.
 To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque()</a></code> or <code>LinkedListDeque([])</code>.</p>
 
-<p>Complexity: O(len(<code>sequence</code>))</p>
+<p>Complexity: O(n), with n = <code>len(sequence)</code></p>
 </div>
 
 
