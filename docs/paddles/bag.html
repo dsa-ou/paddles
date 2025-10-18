@@ -134,9 +134,9 @@ e.g. how many times each word appears in a text.</p>
 
 <h2 id="implementations">Implementations</h2>
 
-<p>A bag can be represented as a map of items to their frequency.
-The map can be implemented with a hash table (if items are hashable) or
-with a binary search tree (if items are comparable).
+<p>A bag can be represented as a map of members to their frequency.
+The map can be implemented with a hash table (if members are hashable) or
+with a binary search tree (if members are comparable).
 <code><a href="../paddles.html">paddles</a></code> only provides a hash table implementation for the moment.</p>
 </div>
 
@@ -178,9 +178,9 @@ with a binary search tree (if items are comparable).
 </span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>
 </span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="sd">## Implementations</span>
 </span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">A bag can be represented as a map of items to their frequency.</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">The map can be implemented with a hash table (if items are hashable) or</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">with a binary search tree (if items are comparable).</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">A bag can be represented as a map of members to their frequency.</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">The map can be implemented with a hash table (if members are hashable) or</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">with a binary search tree (if members are comparable).</span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a><span class="sd">`paddles` only provides a hash table implementation for the moment.</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
@@ -240,7 +240,7 @@ with a binary search tree (if items are comparable).
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="sd">        The string is &#39;HashTableBag({member: copies, ...})&#39;.</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="sd">        The members are listed in the order they were added to the bag.</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;HashTableBag(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="si">}</span><span class="s2">)&quot;</span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>
@@ -296,7 +296,7 @@ with a binary search tree (if items are comparable).
 </span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 </span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members (total copies) the bag has.</span>
 </span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>
-</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
@@ -306,17 +306,17 @@ with a binary search tree (if items are comparable).
 </span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">unique</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">:</span>
 </span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the set of the unique members in the bag.</span>
 </span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
 </span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>
 </span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">:</span>
-</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the items that occur in either bag.</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the members that occur in either bag.</span>
 </span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>
 </span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a><span class="sd">        The frequency of `item` in the union is</span>
 </span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a><span class="sd">        `max(self.frequency(item), other.frequency(item))`.</span>
 </span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>
-</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique items in</span>
+</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique members in</span>
 </span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">        this bag and `other`, respectively.</span>
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
@@ -330,7 +330,7 @@ with a binary search tree (if items are comparable).
 </span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="sd">        The frequency of `item` in the intersection is</span>
 </span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a><span class="sd">        `min(self.frequency(item), other.frequency(item))`.</span>
 </span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>
-</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique items in</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique members in</span>
 </span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a><span class="sd">        this bag and `other`, respectively.</span>
 </span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
@@ -341,7 +341,7 @@ with a binary search tree (if items are comparable).
 </span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">:</span>
 </span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the members of this bag that aren&#39;t in `other`.</span>
 </span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>
-</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
 </span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a>        <span class="c1"># The difference is the &#39;extra&#39; occurrences beyond those in `other`.</span>
@@ -354,7 +354,7 @@ with a binary search tree (if items are comparable).
 </span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">equal_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if this bag has the same members as `other`.</span>
 </span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>
-</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
 </span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">):</span>
@@ -364,7 +364,7 @@ with a binary search tree (if items are comparable).
 </span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">included_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if all members of this bag are members of `other`.</span>
 </span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>
-</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
 </span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">):</span>
@@ -436,7 +436,7 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-95"><a href="#HashTableBag-95"><span class="linenos"> 95</span></a><span class="sd">        The string is &#39;HashTableBag({member: copies, ...})&#39;.</span>
 </span><span id="HashTableBag-96"><a href="#HashTableBag-96"><span class="linenos"> 96</span></a><span class="sd">        The members are listed in the order they were added to the bag.</span>
 </span><span id="HashTableBag-97"><a href="#HashTableBag-97"><span class="linenos"> 97</span></a>
-</span><span id="HashTableBag-98"><a href="#HashTableBag-98"><span class="linenos"> 98</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="HashTableBag-98"><a href="#HashTableBag-98"><span class="linenos"> 98</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="HashTableBag-99"><a href="#HashTableBag-99"><span class="linenos"> 99</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-100"><a href="#HashTableBag-100"><span class="linenos">100</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;HashTableBag(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="si">}</span><span class="s2">)&quot;</span>
 </span><span id="HashTableBag-101"><a href="#HashTableBag-101"><span class="linenos">101</span></a>
@@ -492,7 +492,7 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-151"><a href="#HashTableBag-151"><span class="linenos">151</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 </span><span id="HashTableBag-152"><a href="#HashTableBag-152"><span class="linenos">152</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members (total copies) the bag has.</span>
 </span><span id="HashTableBag-153"><a href="#HashTableBag-153"><span class="linenos">153</span></a>
-</span><span id="HashTableBag-154"><a href="#HashTableBag-154"><span class="linenos">154</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="HashTableBag-154"><a href="#HashTableBag-154"><span class="linenos">154</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="HashTableBag-155"><a href="#HashTableBag-155"><span class="linenos">155</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-156"><a href="#HashTableBag-156"><span class="linenos">156</span></a>        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span id="HashTableBag-157"><a href="#HashTableBag-157"><span class="linenos">157</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
@@ -502,17 +502,17 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-161"><a href="#HashTableBag-161"><span class="linenos">161</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">unique</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">:</span>
 </span><span id="HashTableBag-162"><a href="#HashTableBag-162"><span class="linenos">162</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the set of the unique members in the bag.</span>
 </span><span id="HashTableBag-163"><a href="#HashTableBag-163"><span class="linenos">163</span></a>
-</span><span id="HashTableBag-164"><a href="#HashTableBag-164"><span class="linenos">164</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="HashTableBag-164"><a href="#HashTableBag-164"><span class="linenos">164</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="HashTableBag-165"><a href="#HashTableBag-165"><span class="linenos">165</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-166"><a href="#HashTableBag-166"><span class="linenos">166</span></a>        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
 </span><span id="HashTableBag-167"><a href="#HashTableBag-167"><span class="linenos">167</span></a>
 </span><span id="HashTableBag-168"><a href="#HashTableBag-168"><span class="linenos">168</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">:</span>
-</span><span id="HashTableBag-169"><a href="#HashTableBag-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the items that occur in either bag.</span>
+</span><span id="HashTableBag-169"><a href="#HashTableBag-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the members that occur in either bag.</span>
 </span><span id="HashTableBag-170"><a href="#HashTableBag-170"><span class="linenos">170</span></a>
 </span><span id="HashTableBag-171"><a href="#HashTableBag-171"><span class="linenos">171</span></a><span class="sd">        The frequency of `item` in the union is</span>
 </span><span id="HashTableBag-172"><a href="#HashTableBag-172"><span class="linenos">172</span></a><span class="sd">        `max(self.frequency(item), other.frequency(item))`.</span>
 </span><span id="HashTableBag-173"><a href="#HashTableBag-173"><span class="linenos">173</span></a>
-</span><span id="HashTableBag-174"><a href="#HashTableBag-174"><span class="linenos">174</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique items in</span>
+</span><span id="HashTableBag-174"><a href="#HashTableBag-174"><span class="linenos">174</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique members in</span>
 </span><span id="HashTableBag-175"><a href="#HashTableBag-175"><span class="linenos">175</span></a><span class="sd">        this bag and `other`, respectively.</span>
 </span><span id="HashTableBag-176"><a href="#HashTableBag-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-177"><a href="#HashTableBag-177"><span class="linenos">177</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
@@ -526,7 +526,7 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-185"><a href="#HashTableBag-185"><span class="linenos">185</span></a><span class="sd">        The frequency of `item` in the intersection is</span>
 </span><span id="HashTableBag-186"><a href="#HashTableBag-186"><span class="linenos">186</span></a><span class="sd">        `min(self.frequency(item), other.frequency(item))`.</span>
 </span><span id="HashTableBag-187"><a href="#HashTableBag-187"><span class="linenos">187</span></a>
-</span><span id="HashTableBag-188"><a href="#HashTableBag-188"><span class="linenos">188</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique items in</span>
+</span><span id="HashTableBag-188"><a href="#HashTableBag-188"><span class="linenos">188</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique members in</span>
 </span><span id="HashTableBag-189"><a href="#HashTableBag-189"><span class="linenos">189</span></a><span class="sd">        this bag and `other`, respectively.</span>
 </span><span id="HashTableBag-190"><a href="#HashTableBag-190"><span class="linenos">190</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-191"><a href="#HashTableBag-191"><span class="linenos">191</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
@@ -537,7 +537,7 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-196"><a href="#HashTableBag-196"><span class="linenos">196</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">:</span>
 </span><span id="HashTableBag-197"><a href="#HashTableBag-197"><span class="linenos">197</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the members of this bag that aren&#39;t in `other`.</span>
 </span><span id="HashTableBag-198"><a href="#HashTableBag-198"><span class="linenos">198</span></a>
-</span><span id="HashTableBag-199"><a href="#HashTableBag-199"><span class="linenos">199</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="HashTableBag-199"><a href="#HashTableBag-199"><span class="linenos">199</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="HashTableBag-200"><a href="#HashTableBag-200"><span class="linenos">200</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-201"><a href="#HashTableBag-201"><span class="linenos">201</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
 </span><span id="HashTableBag-202"><a href="#HashTableBag-202"><span class="linenos">202</span></a>        <span class="c1"># The difference is the &#39;extra&#39; occurrences beyond those in `other`.</span>
@@ -550,7 +550,7 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-209"><a href="#HashTableBag-209"><span class="linenos">209</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">equal_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="HashTableBag-210"><a href="#HashTableBag-210"><span class="linenos">210</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if this bag has the same members as `other`.</span>
 </span><span id="HashTableBag-211"><a href="#HashTableBag-211"><span class="linenos">211</span></a>
-</span><span id="HashTableBag-212"><a href="#HashTableBag-212"><span class="linenos">212</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="HashTableBag-212"><a href="#HashTableBag-212"><span class="linenos">212</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="HashTableBag-213"><a href="#HashTableBag-213"><span class="linenos">213</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-214"><a href="#HashTableBag-214"><span class="linenos">214</span></a>        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
 </span><span id="HashTableBag-215"><a href="#HashTableBag-215"><span class="linenos">215</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">):</span>
@@ -560,7 +560,7 @@ with a binary search tree (if items are comparable).
 </span><span id="HashTableBag-219"><a href="#HashTableBag-219"><span class="linenos">219</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">included_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="HashTableBag-220"><a href="#HashTableBag-220"><span class="linenos">220</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if all members of this bag are members of `other`.</span>
 </span><span id="HashTableBag-221"><a href="#HashTableBag-221"><span class="linenos">221</span></a>
-</span><span id="HashTableBag-222"><a href="#HashTableBag-222"><span class="linenos">222</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="HashTableBag-222"><a href="#HashTableBag-222"><span class="linenos">222</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="HashTableBag-223"><a href="#HashTableBag-223"><span class="linenos">223</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag-224"><a href="#HashTableBag-224"><span class="linenos">224</span></a>        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
 </span><span id="HashTableBag-225"><a href="#HashTableBag-225"><span class="linenos">225</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">):</span>
@@ -790,7 +790,7 @@ Raise <code>ValueError</code> if <code>copies</code> is not positive.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="HashTableBag.size-151"><a href="#HashTableBag.size-151"><span class="linenos">151</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 </span><span id="HashTableBag.size-152"><a href="#HashTableBag.size-152"><span class="linenos">152</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members (total copies) the bag has.</span>
 </span><span id="HashTableBag.size-153"><a href="#HashTableBag.size-153"><span class="linenos">153</span></a>
-</span><span id="HashTableBag.size-154"><a href="#HashTableBag.size-154"><span class="linenos">154</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="HashTableBag.size-154"><a href="#HashTableBag.size-154"><span class="linenos">154</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="HashTableBag.size-155"><a href="#HashTableBag.size-155"><span class="linenos">155</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.size-156"><a href="#HashTableBag.size-156"><span class="linenos">156</span></a>        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span id="HashTableBag.size-157"><a href="#HashTableBag.size-157"><span class="linenos">157</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
@@ -801,7 +801,7 @@ Raise <code>ValueError</code> if <code>copies</code> is not positive.</p>
 
             <div class="docstring"><p>Return how many members (total copies) the bag has.</p>
 
-<p>Complexity: O(n), where n is the number of unique items in the bag.</p>
+<p>Complexity: O(n), where n is the number of unique members in the bag.</p>
 </div>
 
 
@@ -820,7 +820,7 @@ Raise <code>ValueError</code> if <code>copies</code> is not positive.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="HashTableBag.unique-161"><a href="#HashTableBag.unique-161"><span class="linenos">161</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">unique</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">:</span>
 </span><span id="HashTableBag.unique-162"><a href="#HashTableBag.unique-162"><span class="linenos">162</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the set of the unique members in the bag.</span>
 </span><span id="HashTableBag.unique-163"><a href="#HashTableBag.unique-163"><span class="linenos">163</span></a>
-</span><span id="HashTableBag.unique-164"><a href="#HashTableBag.unique-164"><span class="linenos">164</span></a><span class="sd">        Complexity: O(n), where n is the number of unique items in the bag.</span>
+</span><span id="HashTableBag.unique-164"><a href="#HashTableBag.unique-164"><span class="linenos">164</span></a><span class="sd">        Complexity: O(n), where n is the number of unique members in the bag.</span>
 </span><span id="HashTableBag.unique-165"><a href="#HashTableBag.unique-165"><span class="linenos">165</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.unique-166"><a href="#HashTableBag.unique-166"><span class="linenos">166</span></a>        <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
 </span></pre></div>
@@ -828,7 +828,7 @@ Raise <code>ValueError</code> if <code>copies</code> is not positive.</p>
 
             <div class="docstring"><p>Return the set of the unique members in the bag.</p>
 
-<p>Complexity: O(n), where n is the number of unique items in the bag.</p>
+<p>Complexity: O(n), where n is the number of unique members in the bag.</p>
 </div>
 
 
@@ -845,12 +845,12 @@ Raise <code>ValueError</code> if <code>copies</code> is not positive.</p>
     </div>
     <a class="headerlink" href="#HashTableBag.union"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="HashTableBag.union-168"><a href="#HashTableBag.union-168"><span class="linenos">168</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">:</span>
-</span><span id="HashTableBag.union-169"><a href="#HashTableBag.union-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the items that occur in either bag.</span>
+</span><span id="HashTableBag.union-169"><a href="#HashTableBag.union-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the members that occur in either bag.</span>
 </span><span id="HashTableBag.union-170"><a href="#HashTableBag.union-170"><span class="linenos">170</span></a>
 </span><span id="HashTableBag.union-171"><a href="#HashTableBag.union-171"><span class="linenos">171</span></a><span class="sd">        The frequency of `item` in the union is</span>
 </span><span id="HashTableBag.union-172"><a href="#HashTableBag.union-172"><span class="linenos">172</span></a><span class="sd">        `max(self.frequency(item), other.frequency(item))`.</span>
 </span><span id="HashTableBag.union-173"><a href="#HashTableBag.union-173"><span class="linenos">173</span></a>
-</span><span id="HashTableBag.union-174"><a href="#HashTableBag.union-174"><span class="linenos">174</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique items in</span>
+</span><span id="HashTableBag.union-174"><a href="#HashTableBag.union-174"><span class="linenos">174</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique members in</span>
 </span><span id="HashTableBag.union-175"><a href="#HashTableBag.union-175"><span class="linenos">175</span></a><span class="sd">        this bag and `other`, respectively.</span>
 </span><span id="HashTableBag.union-176"><a href="#HashTableBag.union-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.union-177"><a href="#HashTableBag.union-177"><span class="linenos">177</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
@@ -860,12 +860,12 @@ Raise <code>ValueError</code> if <code>copies</code> is not positive.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return a new bag with the items that occur in either bag.</p>
+            <div class="docstring"><p>Return a new bag with the members that occur in either bag.</p>
 
 <p>The frequency of <code>item</code> in the union is
 <code>max(self.frequency(item), other.frequency(item))</code>.</p>
 
-<p>Complexity: O(s + o), where s and o are the number of unique items in
+<p>Complexity: O(s + o), where s and o are the number of unique members in
 this bag and <code>other</code>, respectively.</p>
 </div>
 
@@ -888,7 +888,7 @@ this bag and <code>other</code>, respectively.</p>
 </span><span id="HashTableBag.intersection-185"><a href="#HashTableBag.intersection-185"><span class="linenos">185</span></a><span class="sd">        The frequency of `item` in the intersection is</span>
 </span><span id="HashTableBag.intersection-186"><a href="#HashTableBag.intersection-186"><span class="linenos">186</span></a><span class="sd">        `min(self.frequency(item), other.frequency(item))`.</span>
 </span><span id="HashTableBag.intersection-187"><a href="#HashTableBag.intersection-187"><span class="linenos">187</span></a>
-</span><span id="HashTableBag.intersection-188"><a href="#HashTableBag.intersection-188"><span class="linenos">188</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique items in</span>
+</span><span id="HashTableBag.intersection-188"><a href="#HashTableBag.intersection-188"><span class="linenos">188</span></a><span class="sd">        Complexity: O(s + o), where s and o are the number of unique members in</span>
 </span><span id="HashTableBag.intersection-189"><a href="#HashTableBag.intersection-189"><span class="linenos">189</span></a><span class="sd">        this bag and `other`, respectively.</span>
 </span><span id="HashTableBag.intersection-190"><a href="#HashTableBag.intersection-190"><span class="linenos">190</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.intersection-191"><a href="#HashTableBag.intersection-191"><span class="linenos">191</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
@@ -903,7 +903,7 @@ this bag and <code>other</code>, respectively.</p>
 <p>The frequency of <code>item</code> in the intersection is
 <code>min(self.frequency(item), other.frequency(item))</code>.</p>
 
-<p>Complexity: O(s + o), where s and o are the number of unique items in
+<p>Complexity: O(s + o), where s and o are the number of unique members in
 this bag and <code>other</code>, respectively.</p>
 </div>
 
@@ -923,7 +923,7 @@ this bag and <code>other</code>, respectively.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="HashTableBag.difference-196"><a href="#HashTableBag.difference-196"><span class="linenos">196</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">difference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">:</span>
 </span><span id="HashTableBag.difference-197"><a href="#HashTableBag.difference-197"><span class="linenos">197</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a new bag with the members of this bag that aren&#39;t in `other`.</span>
 </span><span id="HashTableBag.difference-198"><a href="#HashTableBag.difference-198"><span class="linenos">198</span></a>
-</span><span id="HashTableBag.difference-199"><a href="#HashTableBag.difference-199"><span class="linenos">199</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="HashTableBag.difference-199"><a href="#HashTableBag.difference-199"><span class="linenos">199</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="HashTableBag.difference-200"><a href="#HashTableBag.difference-200"><span class="linenos">200</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.difference-201"><a href="#HashTableBag.difference-201"><span class="linenos">201</span></a>        <span class="n">new_bag</span> <span class="o">=</span> <span class="n">HashTableBag</span><span class="p">()</span>
 </span><span id="HashTableBag.difference-202"><a href="#HashTableBag.difference-202"><span class="linenos">202</span></a>        <span class="c1"># The difference is the &#39;extra&#39; occurrences beyond those in `other`.</span>
@@ -937,7 +937,7 @@ this bag and <code>other</code>, respectively.</p>
 
             <div class="docstring"><p>Return a new bag with the members of this bag that aren't in <code>other</code>.</p>
 
-<p>Complexity: O(n), with n the number of unique items in this bag</p>
+<p>Complexity: O(n), with n the number of unique members in this bag</p>
 </div>
 
 
@@ -956,7 +956,7 @@ this bag and <code>other</code>, respectively.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="HashTableBag.equal_to-209"><a href="#HashTableBag.equal_to-209"><span class="linenos">209</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">equal_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="HashTableBag.equal_to-210"><a href="#HashTableBag.equal_to-210"><span class="linenos">210</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if this bag has the same members as `other`.</span>
 </span><span id="HashTableBag.equal_to-211"><a href="#HashTableBag.equal_to-211"><span class="linenos">211</span></a>
-</span><span id="HashTableBag.equal_to-212"><a href="#HashTableBag.equal_to-212"><span class="linenos">212</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="HashTableBag.equal_to-212"><a href="#HashTableBag.equal_to-212"><span class="linenos">212</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="HashTableBag.equal_to-213"><a href="#HashTableBag.equal_to-213"><span class="linenos">213</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.equal_to-214"><a href="#HashTableBag.equal_to-214"><span class="linenos">214</span></a>        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
 </span><span id="HashTableBag.equal_to-215"><a href="#HashTableBag.equal_to-215"><span class="linenos">215</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">):</span>
@@ -967,7 +967,7 @@ this bag and <code>other</code>, respectively.</p>
 
             <div class="docstring"><p>Check if this bag has the same members as <code>other</code>.</p>
 
-<p>Complexity: O(n), with n the number of unique items in this bag</p>
+<p>Complexity: O(n), with n the number of unique members in this bag</p>
 </div>
 
 
@@ -986,7 +986,7 @@ this bag and <code>other</code>, respectively.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="HashTableBag.included_in-219"><a href="#HashTableBag.included_in-219"><span class="linenos">219</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">included_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s2">&quot;HashTableBag&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 </span><span id="HashTableBag.included_in-220"><a href="#HashTableBag.included_in-220"><span class="linenos">220</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if all members of this bag are members of `other`.</span>
 </span><span id="HashTableBag.included_in-221"><a href="#HashTableBag.included_in-221"><span class="linenos">221</span></a>
-</span><span id="HashTableBag.included_in-222"><a href="#HashTableBag.included_in-222"><span class="linenos">222</span></a><span class="sd">        Complexity: O(n), with n the number of unique items in this bag</span>
+</span><span id="HashTableBag.included_in-222"><a href="#HashTableBag.included_in-222"><span class="linenos">222</span></a><span class="sd">        Complexity: O(n), with n the number of unique members in this bag</span>
 </span><span id="HashTableBag.included_in-223"><a href="#HashTableBag.included_in-223"><span class="linenos">223</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="HashTableBag.included_in-224"><a href="#HashTableBag.included_in-224"><span class="linenos">224</span></a>        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">:</span>
 </span><span id="HashTableBag.included_in-225"><a href="#HashTableBag.included_in-225"><span class="linenos">225</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">frequency</span><span class="p">(</span><span class="n">member</span><span class="p">):</span>
@@ -997,7 +997,7 @@ this bag and <code>other</code>, respectively.</p>
 
             <div class="docstring"><p>Check if all members of this bag are members of <code>other</code>.</p>
 
-<p>Complexity: O(n), with n the number of unique items in this bag</p>
+<p>Complexity: O(n), with n the number of unique members in this bag</p>
 </div>
 
 

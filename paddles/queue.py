@@ -56,7 +56,7 @@ from typing import Any
 
 __all__ = ["LinkedListQueue"]
 
-# Each linked list node is a list [item, next].
+# Each linked list node is a list [member, next].
 # These constants make the code more readable.
 DATA = 0
 NEXT = 1
@@ -145,7 +145,7 @@ class LinkedListQueue:
         self._length += 1
 
     def dequeue(self) -> Any:
-        """Remove and return the item at the front of the queue.
+        """Remove and return the member at the front of the queue.
 
         Raise `ValueError` if the queue is empty.
 

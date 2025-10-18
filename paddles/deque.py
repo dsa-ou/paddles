@@ -113,7 +113,7 @@ class LinkedListDeque:
         return self._length
 
     def front(self) -> Any:
-        """Return the item at the front of the deque, without removing it.
+        """Return the member at the front of the deque, without removing it.
 
         Raise `ValueError` if the deque is empty.
 
@@ -125,7 +125,7 @@ class LinkedListDeque:
         return self._head[DATA]
 
     def back(self) -> Any:
-        """Return the item at the back of the deque, without removing it.
+        """Return the member at the back of the deque, without removing it.
 
         Raise `ValueError` if the deque is empty.
 
@@ -163,7 +163,7 @@ class LinkedListDeque:
         self._length += 1
 
     def take_front(self) -> Any:
-        """Remove and return the item at the front of the deque.
+        """Remove and return the member at the front of the deque.
 
         Raise `ValueError` if the deque is empty.
 
@@ -182,7 +182,7 @@ class LinkedListDeque:
         return item
 
     def take_back(self) -> Any:
-        """Remove and return the item at the back of the deque.
+        """Remove and return the member at the back of the deque.
 
         Raise `ValueError` if the deque is empty.
 

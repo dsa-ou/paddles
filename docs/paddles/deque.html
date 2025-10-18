@@ -253,7 +253,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
 </span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">front</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the item at the front of the deque, without removing it.</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the front of the deque, without removing it.</span>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>
 </span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>
@@ -265,7 +265,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the item at the back of the deque, without removing it.</span>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the back of the deque, without removing it.</span>
 </span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>
@@ -303,7 +303,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>
 </span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_front</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the front of the deque.</span>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the front of the deque.</span>
 </span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>
 </span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>
@@ -322,7 +322,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>        <span class="k">return</span> <span class="n">item</span>
 </span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>
 </span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the back of the deque.</span>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the back of the deque.</span>
 </span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>
 </span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>
@@ -414,7 +414,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque-114"><a href="#LinkedListDeque-114"><span class="linenos">114</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
 </span><span id="LinkedListDeque-115"><a href="#LinkedListDeque-115"><span class="linenos">115</span></a>
 </span><span id="LinkedListDeque-116"><a href="#LinkedListDeque-116"><span class="linenos">116</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">front</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque-117"><a href="#LinkedListDeque-117"><span class="linenos">117</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the item at the front of the deque, without removing it.</span>
+</span><span id="LinkedListDeque-117"><a href="#LinkedListDeque-117"><span class="linenos">117</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the front of the deque, without removing it.</span>
 </span><span id="LinkedListDeque-118"><a href="#LinkedListDeque-118"><span class="linenos">118</span></a>
 </span><span id="LinkedListDeque-119"><a href="#LinkedListDeque-119"><span class="linenos">119</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque-120"><a href="#LinkedListDeque-120"><span class="linenos">120</span></a>
@@ -426,7 +426,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque-126"><a href="#LinkedListDeque-126"><span class="linenos">126</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span><span id="LinkedListDeque-127"><a href="#LinkedListDeque-127"><span class="linenos">127</span></a>
 </span><span id="LinkedListDeque-128"><a href="#LinkedListDeque-128"><span class="linenos">128</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque-129"><a href="#LinkedListDeque-129"><span class="linenos">129</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the item at the back of the deque, without removing it.</span>
+</span><span id="LinkedListDeque-129"><a href="#LinkedListDeque-129"><span class="linenos">129</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the back of the deque, without removing it.</span>
 </span><span id="LinkedListDeque-130"><a href="#LinkedListDeque-130"><span class="linenos">130</span></a>
 </span><span id="LinkedListDeque-131"><a href="#LinkedListDeque-131"><span class="linenos">131</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque-132"><a href="#LinkedListDeque-132"><span class="linenos">132</span></a>
@@ -464,7 +464,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque-164"><a href="#LinkedListDeque-164"><span class="linenos">164</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span id="LinkedListDeque-165"><a href="#LinkedListDeque-165"><span class="linenos">165</span></a>
 </span><span id="LinkedListDeque-166"><a href="#LinkedListDeque-166"><span class="linenos">166</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_front</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque-167"><a href="#LinkedListDeque-167"><span class="linenos">167</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the front of the deque.</span>
+</span><span id="LinkedListDeque-167"><a href="#LinkedListDeque-167"><span class="linenos">167</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the front of the deque.</span>
 </span><span id="LinkedListDeque-168"><a href="#LinkedListDeque-168"><span class="linenos">168</span></a>
 </span><span id="LinkedListDeque-169"><a href="#LinkedListDeque-169"><span class="linenos">169</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque-170"><a href="#LinkedListDeque-170"><span class="linenos">170</span></a>
@@ -483,7 +483,7 @@ but a dynamic array may have wasted capacity and requires resizing.
 </span><span id="LinkedListDeque-183"><a href="#LinkedListDeque-183"><span class="linenos">183</span></a>        <span class="k">return</span> <span class="n">item</span>
 </span><span id="LinkedListDeque-184"><a href="#LinkedListDeque-184"><span class="linenos">184</span></a>
 </span><span id="LinkedListDeque-185"><a href="#LinkedListDeque-185"><span class="linenos">185</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque-186"><a href="#LinkedListDeque-186"><span class="linenos">186</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the back of the deque.</span>
+</span><span id="LinkedListDeque-186"><a href="#LinkedListDeque-186"><span class="linenos">186</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the back of the deque.</span>
 </span><span id="LinkedListDeque-187"><a href="#LinkedListDeque-187"><span class="linenos">187</span></a>
 </span><span id="LinkedListDeque-188"><a href="#LinkedListDeque-188"><span class="linenos">188</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque-189"><a href="#LinkedListDeque-189"><span class="linenos">189</span></a>
@@ -608,7 +608,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
     </div>
     <a class="headerlink" href="#LinkedListDeque.front"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListDeque.front-116"><a href="#LinkedListDeque.front-116"><span class="linenos">116</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">front</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque.front-117"><a href="#LinkedListDeque.front-117"><span class="linenos">117</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the item at the front of the deque, without removing it.</span>
+</span><span id="LinkedListDeque.front-117"><a href="#LinkedListDeque.front-117"><span class="linenos">117</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the front of the deque, without removing it.</span>
 </span><span id="LinkedListDeque.front-118"><a href="#LinkedListDeque.front-118"><span class="linenos">118</span></a>
 </span><span id="LinkedListDeque.front-119"><a href="#LinkedListDeque.front-119"><span class="linenos">119</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque.front-120"><a href="#LinkedListDeque.front-120"><span class="linenos">120</span></a>
@@ -621,7 +621,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return the item at the front of the deque, without removing it.</p>
+            <div class="docstring"><p>Return the member at the front of the deque, without removing it.</p>
 
 <p>Raise <code>ValueError</code> if the deque is empty.</p>
 
@@ -642,7 +642,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
     </div>
     <a class="headerlink" href="#LinkedListDeque.back"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListDeque.back-128"><a href="#LinkedListDeque.back-128"><span class="linenos">128</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque.back-129"><a href="#LinkedListDeque.back-129"><span class="linenos">129</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the item at the back of the deque, without removing it.</span>
+</span><span id="LinkedListDeque.back-129"><a href="#LinkedListDeque.back-129"><span class="linenos">129</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the back of the deque, without removing it.</span>
 </span><span id="LinkedListDeque.back-130"><a href="#LinkedListDeque.back-130"><span class="linenos">130</span></a>
 </span><span id="LinkedListDeque.back-131"><a href="#LinkedListDeque.back-131"><span class="linenos">131</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque.back-132"><a href="#LinkedListDeque.back-132"><span class="linenos">132</span></a>
@@ -655,7 +655,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return the item at the back of the deque, without removing it.</p>
+            <div class="docstring"><p>Return the member at the back of the deque, without removing it.</p>
 
 <p>Raise <code>ValueError</code> if the deque is empty.</p>
 
@@ -742,7 +742,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
     </div>
     <a class="headerlink" href="#LinkedListDeque.take_front"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListDeque.take_front-166"><a href="#LinkedListDeque.take_front-166"><span class="linenos">166</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_front</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque.take_front-167"><a href="#LinkedListDeque.take_front-167"><span class="linenos">167</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the front of the deque.</span>
+</span><span id="LinkedListDeque.take_front-167"><a href="#LinkedListDeque.take_front-167"><span class="linenos">167</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the front of the deque.</span>
 </span><span id="LinkedListDeque.take_front-168"><a href="#LinkedListDeque.take_front-168"><span class="linenos">168</span></a>
 </span><span id="LinkedListDeque.take_front-169"><a href="#LinkedListDeque.take_front-169"><span class="linenos">169</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque.take_front-170"><a href="#LinkedListDeque.take_front-170"><span class="linenos">170</span></a>
@@ -762,7 +762,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
 </span></pre></div>
 
 
-            <div class="docstring"><p>Remove and return the item at the front of the deque.</p>
+            <div class="docstring"><p>Remove and return the member at the front of the deque.</p>
 
 <p>Raise <code>ValueError</code> if the deque is empty.</p>
 
@@ -783,7 +783,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
     </div>
     <a class="headerlink" href="#LinkedListDeque.take_back"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListDeque.take_back-185"><a href="#LinkedListDeque.take_back-185"><span class="linenos">185</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_back</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListDeque.take_back-186"><a href="#LinkedListDeque.take_back-186"><span class="linenos">186</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the back of the deque.</span>
+</span><span id="LinkedListDeque.take_back-186"><a href="#LinkedListDeque.take_back-186"><span class="linenos">186</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the back of the deque.</span>
 </span><span id="LinkedListDeque.take_back-187"><a href="#LinkedListDeque.take_back-187"><span class="linenos">187</span></a>
 </span><span id="LinkedListDeque.take_back-188"><a href="#LinkedListDeque.take_back-188"><span class="linenos">188</span></a><span class="sd">        Raise `ValueError` if the deque is empty.</span>
 </span><span id="LinkedListDeque.take_back-189"><a href="#LinkedListDeque.take_back-189"><span class="linenos">189</span></a>
@@ -803,7 +803,7 @@ To create an empty deque, call <code><a href="#LinkedListDeque">LinkedListDeque(
 </span></pre></div>
 
 
-            <div class="docstring"><p>Remove and return the item at the back of the deque.</p>
+            <div class="docstring"><p>Remove and return the member at the back of the deque.</p>
 
 <p>Raise <code>ValueError</code> if the deque is empty.</p>
 
