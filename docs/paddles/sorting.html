@@ -220,7 +220,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="k">def</span><span class="w"> </span><span class="nf">bogo_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># type: ignore[invalid-return-type] # noqa: RET503</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="k">def</span><span class="w"> </span><span class="nf">bogo_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># ty: ignore[invalid-return-type] # noqa: RET503</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-descending order, using Bogo Sort.</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">    Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)</span>
@@ -229,7 +229,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">    Complexity: O(n!) with n = `len(items)`</span>
 </span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>    <span class="c1"># Type checkers and linters assume the for-loop may be skipped, returning None.</span>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="c1"># The `type` comment above and `noqa` comment below remove such error messages.</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="c1"># The `ty` and `noqa` comments above remove such error messages.</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>    <span class="k">for</span> <span class="n">permutation</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>        <span class="c1"># Each generated permutation is a tuple, not a list.</span>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>        <span class="k">if</span> <span class="n">is_non_decreasing</span><span class="p">(</span><span class="n">permutation</span><span class="p">):</span>
@@ -461,7 +461,7 @@ repeatedly shuffles the items until they are in the right order.</p>
 
     </div>
     <a class="headerlink" href="#bogo_sorted"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="bogo_sorted-86"><a href="#bogo_sorted-86"><span class="linenos">86</span></a><span class="k">def</span><span class="w"> </span><span class="nf">bogo_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># type: ignore[invalid-return-type] # noqa: RET503</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="bogo_sorted-86"><a href="#bogo_sorted-86"><span class="linenos">86</span></a><span class="k">def</span><span class="w"> </span><span class="nf">bogo_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># ty: ignore[invalid-return-type] # noqa: RET503</span>
 </span><span id="bogo_sorted-87"><a href="#bogo_sorted-87"><span class="linenos">87</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-descending order, using Bogo Sort.</span>
 </span><span id="bogo_sorted-88"><a href="#bogo_sorted-88"><span class="linenos">88</span></a>
 </span><span id="bogo_sorted-89"><a href="#bogo_sorted-89"><span class="linenos">89</span></a><span class="sd">    Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)</span>
@@ -470,7 +470,7 @@ repeatedly shuffles the items until they are in the right order.</p>
 </span><span id="bogo_sorted-92"><a href="#bogo_sorted-92"><span class="linenos">92</span></a><span class="sd">    Complexity: O(n!) with n = `len(items)`</span>
 </span><span id="bogo_sorted-93"><a href="#bogo_sorted-93"><span class="linenos">93</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="bogo_sorted-94"><a href="#bogo_sorted-94"><span class="linenos">94</span></a>    <span class="c1"># Type checkers and linters assume the for-loop may be skipped, returning None.</span>
-</span><span id="bogo_sorted-95"><a href="#bogo_sorted-95"><span class="linenos">95</span></a>    <span class="c1"># The `type` comment above and `noqa` comment below remove such error messages.</span>
+</span><span id="bogo_sorted-95"><a href="#bogo_sorted-95"><span class="linenos">95</span></a>    <span class="c1"># The `ty` and `noqa` comments above remove such error messages.</span>
 </span><span id="bogo_sorted-96"><a href="#bogo_sorted-96"><span class="linenos">96</span></a>    <span class="k">for</span> <span class="n">permutation</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
 </span><span id="bogo_sorted-97"><a href="#bogo_sorted-97"><span class="linenos">97</span></a>        <span class="c1"># Each generated permutation is a tuple, not a list.</span>
 </span><span id="bogo_sorted-98"><a href="#bogo_sorted-98"><span class="linenos">98</span></a>        <span class="k">if</span> <span class="n">is_non_decreasing</span><span class="p">(</span><span class="n">permutation</span><span class="p">):</span>
