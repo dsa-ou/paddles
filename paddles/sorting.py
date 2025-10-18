@@ -104,7 +104,7 @@ def bubble_sort(items: list) -> None:
     [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) repeatedly
     swaps adjacent items that are in the wrong order.
 
-    Complexity: best O(n), worst O(n^2), with n = `len(items)`
+    Complexity: O(n²), with n = `len(items)`
     """
     for scan in range(1, len(items)):
         swapped = False
@@ -124,7 +124,7 @@ def insertion_sort(items: list) -> None:
     [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) repeatedly
     inserts the next unsorted item into its correct position in the sorted part.
 
-    Complexity: best O(n), worst O(n^2), with n = `len(items)`
+    Complexity: O(n²), with n = `len(items)`
     """
     for first_unsorted in range(1, len(items)):
         to_sort = items[first_unsorted]
@@ -178,7 +178,7 @@ def quick_sorted(items: Sequence) -> list:
     [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively
     selects a pivot, partitions the items around it, and sorts the partitions.
 
-    Complexity: O(n^2) worst case, O(n log n) best case, with n = `len(items)`
+    Complexity: O(n²), with n = `len(items)`
     """
     # base case: sequences with 0 or 1 items are sorted
     if len(items) < 2:  # noqa: PLR2004
@@ -204,7 +204,7 @@ def quick_sorted_3way(items: Sequence) -> list:
     [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)
     partitions the items into three groups: smaller, equal, and larger than the pivot.
 
-    Complexity: O(n^2) worst case, O(n log n) best case, with n = `len(items)`
+    Complexity: O(n²), with n = `len(items)`
     """
     if len(items) < 2:  # noqa: PLR2004
         return list(items)
@@ -233,7 +233,7 @@ def quick_select(items: Sequence, k: int) -> object:
 
     Raise `ValueError` if `k` isn't a value from 1 to `len(items)`.
 
-    Complexity: O(n^2) worst case, O(n) expected time, with n = `len(items)`
+    Complexity: O(n²), with n = `len(items)`
     """
     if not (0 < k <= len(items)):
         msg = f"Cannot select {k}th smallest item from {len(items)} items"  # noqa: S608
@@ -262,7 +262,7 @@ def selection_sort(items: list) -> None:
     [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) repeatedly
     selects the smallest unsorted item and moves it to the end of the sorted part.
 
-    Complexity: O(n^2) with n = `len(items)`
+    Complexity: O(n²) with n = `len(items)`
     """
     for first_unsorted in range(len(items) - 1):
         # find the index of the smallest item among the unsorted ones

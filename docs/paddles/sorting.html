@@ -242,7 +242,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="sd">    [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) repeatedly</span>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">    swaps adjacent items that are in the wrong order.</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>
-</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">    Complexity: best O(n), worst O(n^2), with n = `len(items)`</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>    <span class="k">for</span> <span class="n">scan</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>        <span class="n">swapped</span> <span class="o">=</span> <span class="kc">False</span>
@@ -262,7 +262,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a><span class="sd">    [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) repeatedly</span>
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a><span class="sd">    inserts the next unsorted item into its correct position in the sorted part.</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a><span class="sd">    Complexity: best O(n), worst O(n^2), with n = `len(items)`</span>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>    <span class="k">for</span> <span class="n">first_unsorted</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>        <span class="n">to_sort</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">first_unsorted</span><span class="p">]</span>
@@ -316,7 +316,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively</span>
 </span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a><span class="sd">    selects a pivot, partitions the items around it, and sorts the partitions.</span>
 </span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>
-</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n log n) best case, with n = `len(items)`</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>    <span class="c1"># base case: sequences with 0 or 1 items are sorted</span>
 </span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># noqa: PLR2004</span>
@@ -342,7 +342,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="sd">    [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)</span>
 </span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">    partitions the items into three groups: smaller, equal, and larger than the pivot.</span>
 </span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>
-</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n log n) best case, with n = `len(items)`</span>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># noqa: PLR2004</span>
 </span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
@@ -371,7 +371,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>
 </span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a><span class="sd">    Raise `ValueError` if `k` isn&#39;t a value from 1 to `len(items)`.</span>
 </span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>
-</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n) expected time, with n = `len(items)`</span>
+</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a>        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Cannot select </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">th smallest item from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="si">}</span><span class="s2"> items&quot;</span>  <span class="c1"># noqa: S608</span>
@@ -400,7 +400,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a><span class="sd">    [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) repeatedly</span>
 </span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a><span class="sd">    selects the smallest unsorted item and moves it to the end of the sorted part.</span>
 </span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a>
-</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a><span class="sd">    Complexity: O(n^2) with n = `len(items)`</span>
+</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a><span class="sd">    Complexity: O(n²) with n = `len(items)`</span>
 </span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a>    <span class="k">for</span> <span class="n">first_unsorted</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
 </span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a>        <span class="c1"># find the index of the smallest item among the unsorted ones</span>
@@ -505,7 +505,7 @@ exhaustively searches for a permutation of items that is in the right order.</p>
 </span><span id="bubble_sort-105"><a href="#bubble_sort-105"><span class="linenos">105</span></a><span class="sd">    [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort) repeatedly</span>
 </span><span id="bubble_sort-106"><a href="#bubble_sort-106"><span class="linenos">106</span></a><span class="sd">    swaps adjacent items that are in the wrong order.</span>
 </span><span id="bubble_sort-107"><a href="#bubble_sort-107"><span class="linenos">107</span></a>
-</span><span id="bubble_sort-108"><a href="#bubble_sort-108"><span class="linenos">108</span></a><span class="sd">    Complexity: best O(n), worst O(n^2), with n = `len(items)`</span>
+</span><span id="bubble_sort-108"><a href="#bubble_sort-108"><span class="linenos">108</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="bubble_sort-109"><a href="#bubble_sort-109"><span class="linenos">109</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="bubble_sort-110"><a href="#bubble_sort-110"><span class="linenos">110</span></a>    <span class="k">for</span> <span class="n">scan</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span><span id="bubble_sort-111"><a href="#bubble_sort-111"><span class="linenos">111</span></a>        <span class="n">swapped</span> <span class="o">=</span> <span class="kc">False</span>
@@ -525,7 +525,7 @@ exhaustively searches for a permutation of items that is in the right order.</p>
 <p><a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort</a> repeatedly
 swaps adjacent items that are in the wrong order.</p>
 
-<p>Complexity: best O(n), worst O(n^2), with n = <code>len(items)</code></p>
+<p>Complexity: O(n²), with n = <code>len(items)</code></p>
 </div>
 
 
@@ -547,7 +547,7 @@ swaps adjacent items that are in the wrong order.</p>
 </span><span id="insertion_sort-125"><a href="#insertion_sort-125"><span class="linenos">125</span></a><span class="sd">    [Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort) repeatedly</span>
 </span><span id="insertion_sort-126"><a href="#insertion_sort-126"><span class="linenos">126</span></a><span class="sd">    inserts the next unsorted item into its correct position in the sorted part.</span>
 </span><span id="insertion_sort-127"><a href="#insertion_sort-127"><span class="linenos">127</span></a>
-</span><span id="insertion_sort-128"><a href="#insertion_sort-128"><span class="linenos">128</span></a><span class="sd">    Complexity: best O(n), worst O(n^2), with n = `len(items)`</span>
+</span><span id="insertion_sort-128"><a href="#insertion_sort-128"><span class="linenos">128</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="insertion_sort-129"><a href="#insertion_sort-129"><span class="linenos">129</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="insertion_sort-130"><a href="#insertion_sort-130"><span class="linenos">130</span></a>    <span class="k">for</span> <span class="n">first_unsorted</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span><span id="insertion_sort-131"><a href="#insertion_sort-131"><span class="linenos">131</span></a>        <span class="n">to_sort</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">first_unsorted</span><span class="p">]</span>
@@ -564,7 +564,7 @@ swaps adjacent items that are in the wrong order.</p>
 <p><a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a> repeatedly
 inserts the next unsorted item into its correct position in the sorted part.</p>
 
-<p>Complexity: best O(n), worst O(n^2), with n = <code>len(items)</code></p>
+<p>Complexity: O(n²), with n = <code>len(items)</code></p>
 </div>
 
 
@@ -626,7 +626,7 @@ divides the list into two halves, sorts each one, and merges them.</p>
 </span><span id="quick_select-234"><a href="#quick_select-234"><span class="linenos">234</span></a>
 </span><span id="quick_select-235"><a href="#quick_select-235"><span class="linenos">235</span></a><span class="sd">    Raise `ValueError` if `k` isn&#39;t a value from 1 to `len(items)`.</span>
 </span><span id="quick_select-236"><a href="#quick_select-236"><span class="linenos">236</span></a>
-</span><span id="quick_select-237"><a href="#quick_select-237"><span class="linenos">237</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n) expected time, with n = `len(items)`</span>
+</span><span id="quick_select-237"><a href="#quick_select-237"><span class="linenos">237</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="quick_select-238"><a href="#quick_select-238"><span class="linenos">238</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="quick_select-239"><a href="#quick_select-239"><span class="linenos">239</span></a>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
 </span><span id="quick_select-240"><a href="#quick_select-240"><span class="linenos">240</span></a>        <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Cannot select </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">th smallest item from </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="si">}</span><span class="s2"> items&quot;</span>  <span class="c1"># noqa: S608</span>
@@ -657,7 +657,7 @@ that only recurses into the partition that contains the k-th smallest item.</p>
 
 <p>Raise <code>ValueError</code> if <code>k</code> isn't a value from 1 to <code>len(items)</code>.</p>
 
-<p>Complexity: O(n^2) worst case, O(n) expected time, with n = <code>len(items)</code></p>
+<p>Complexity: O(n²), with n = <code>len(items)</code></p>
 </div>
 
 
@@ -679,7 +679,7 @@ that only recurses into the partition that contains the k-th smallest item.</p>
 </span><span id="quick_sorted-179"><a href="#quick_sorted-179"><span class="linenos">179</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively</span>
 </span><span id="quick_sorted-180"><a href="#quick_sorted-180"><span class="linenos">180</span></a><span class="sd">    selects a pivot, partitions the items around it, and sorts the partitions.</span>
 </span><span id="quick_sorted-181"><a href="#quick_sorted-181"><span class="linenos">181</span></a>
-</span><span id="quick_sorted-182"><a href="#quick_sorted-182"><span class="linenos">182</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n log n) best case, with n = `len(items)`</span>
+</span><span id="quick_sorted-182"><a href="#quick_sorted-182"><span class="linenos">182</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="quick_sorted-183"><a href="#quick_sorted-183"><span class="linenos">183</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="quick_sorted-184"><a href="#quick_sorted-184"><span class="linenos">184</span></a>    <span class="c1"># base case: sequences with 0 or 1 items are sorted</span>
 </span><span id="quick_sorted-185"><a href="#quick_sorted-185"><span class="linenos">185</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># noqa: PLR2004</span>
@@ -705,7 +705,7 @@ that only recurses into the partition that contains the k-th smallest item.</p>
 <p><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a> recursively
 selects a pivot, partitions the items around it, and sorts the partitions.</p>
 
-<p>Complexity: O(n^2) worst case, O(n log n) best case, with n = <code>len(items)</code></p>
+<p>Complexity: O(n²), with n = <code>len(items)</code></p>
 </div>
 
 
@@ -727,7 +727,7 @@ selects a pivot, partitions the items around it, and sorts the partitions.</p>
 </span><span id="quick_sorted_3way-205"><a href="#quick_sorted_3way-205"><span class="linenos">205</span></a><span class="sd">    [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)</span>
 </span><span id="quick_sorted_3way-206"><a href="#quick_sorted_3way-206"><span class="linenos">206</span></a><span class="sd">    partitions the items into three groups: smaller, equal, and larger than the pivot.</span>
 </span><span id="quick_sorted_3way-207"><a href="#quick_sorted_3way-207"><span class="linenos">207</span></a>
-</span><span id="quick_sorted_3way-208"><a href="#quick_sorted_3way-208"><span class="linenos">208</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n log n) best case, with n = `len(items)`</span>
+</span><span id="quick_sorted_3way-208"><a href="#quick_sorted_3way-208"><span class="linenos">208</span></a><span class="sd">    Complexity: O(n²), with n = `len(items)`</span>
 </span><span id="quick_sorted_3way-209"><a href="#quick_sorted_3way-209"><span class="linenos">209</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="quick_sorted_3way-210"><a href="#quick_sorted_3way-210"><span class="linenos">210</span></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># noqa: PLR2004</span>
 </span><span id="quick_sorted_3way-211"><a href="#quick_sorted_3way-211"><span class="linenos">211</span></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
@@ -754,7 +754,7 @@ selects a pivot, partitions the items around it, and sorts the partitions.</p>
 <p><a href="https://en.wikipedia.org/wiki/Dutch_national_flag_problem">3-way Quick Sort</a>
 partitions the items into three groups: smaller, equal, and larger than the pivot.</p>
 
-<p>Complexity: O(n^2) worst case, O(n log n) best case, with n = <code>len(items)</code></p>
+<p>Complexity: O(n²), with n = <code>len(items)</code></p>
 </div>
 
 
@@ -776,7 +776,7 @@ partitions the items into three groups: smaller, equal, and larger than the pivo
 </span><span id="selection_sort-263"><a href="#selection_sort-263"><span class="linenos">263</span></a><span class="sd">    [Selection Sort](https://en.wikipedia.org/wiki/Selection_sort) repeatedly</span>
 </span><span id="selection_sort-264"><a href="#selection_sort-264"><span class="linenos">264</span></a><span class="sd">    selects the smallest unsorted item and moves it to the end of the sorted part.</span>
 </span><span id="selection_sort-265"><a href="#selection_sort-265"><span class="linenos">265</span></a>
-</span><span id="selection_sort-266"><a href="#selection_sort-266"><span class="linenos">266</span></a><span class="sd">    Complexity: O(n^2) with n = `len(items)`</span>
+</span><span id="selection_sort-266"><a href="#selection_sort-266"><span class="linenos">266</span></a><span class="sd">    Complexity: O(n²) with n = `len(items)`</span>
 </span><span id="selection_sort-267"><a href="#selection_sort-267"><span class="linenos">267</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="selection_sort-268"><a href="#selection_sort-268"><span class="linenos">268</span></a>    <span class="k">for</span> <span class="n">first_unsorted</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
 </span><span id="selection_sort-269"><a href="#selection_sort-269"><span class="linenos">269</span></a>        <span class="c1"># find the index of the smallest item among the unsorted ones</span>
@@ -796,7 +796,7 @@ partitions the items into three groups: smaller, equal, and larger than the pivo
 <p><a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a> repeatedly
 selects the smallest unsorted item and moves it to the end of the sorted part.</p>
 
-<p>Complexity: O(n^2) with n = <code>len(items)</code></p>
+<p>Complexity: O(n²) with n = <code>len(items)</code></p>
 </div>
 
 
