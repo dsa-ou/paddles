@@ -29,12 +29,12 @@ Issues = "https://github.com/dsa-ou/paddles/issues"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.4,<9",
-    "pytest-cov>=6.0.0,<7",
-    "pre-commit>=4.1.0,<5",
-    "ruff>=0.9.6,<0.10",
-    "pdoc>=15.0.1,<16",
-    "ty>=0.0.1a21,<0.0.2",
+    "pytest",
+    "pytest-cov",
+    "pre-commit",
+    "ruff",
+    "pdoc",
+    "ty",
 ]
 
 [build-system]
