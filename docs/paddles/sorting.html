@@ -201,7 +201,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>
 </span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>
 </span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="k">def</span><span class="w"> </span><span class="nf">is_non_decreasing</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if items[0] &lt;= items[1] &lt;= ... &lt;= items[-1].&quot;&quot;&quot;</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if `items[0] &lt;= items[1] &lt;= ... &lt;= items[-1]`.&quot;&quot;&quot;</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>        <span class="k">if</span> <span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">items</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>            <span class="k">return</span> <span class="kc">False</span>
@@ -221,7 +221,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="k">def</span><span class="w"> </span><span class="nf">bogo_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># type: ignore[invalid-return-type]</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-descending order, using Bogo Sort.</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-descending order, using Bogo Sort.</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">    Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">    exhaustively searches for a permutation of items that is in the right order.</span>
@@ -295,7 +295,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a>
 </span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>
 </span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="k">def</span><span class="w"> </span><span class="nf">merge_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-decreasing order, using Merge Sort.</span>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Merge Sort.</span>
 </span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>
 </span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively</span>
 </span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">    divides the list into two halves, sorts each one, and merges them.</span>
@@ -311,7 +311,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a>
 </span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a>
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-decreasing order, using Quick Sort.</span>
+</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Quick Sort.</span>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>
 </span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively</span>
 </span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a><span class="sd">    selects a pivot, partitions the items around it, and sorts the partitions.</span>
@@ -337,7 +337,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a>
 </span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>
 </span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_sorted_3way</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-decreasing order, using 3-way Quick Sort.</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using 3-way Quick Sort.</span>
 </span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a>
 </span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="sd">    [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)</span>
 </span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">    partitions the items into three groups: smaller, equal, and larger than the pivot.</span>
@@ -364,12 +364,12 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>
 </span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>
 </span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_select</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
-</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the k-th smallest item in items, using Quick Select.</span>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the `k`-th smallest item in `items`, using Quick Select.</span>
 </span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>
 </span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a><span class="sd">    [Quick Select](https://en.wikipedia.org/wiki/Quickselect) is a variant of Quick Sort</span>
 </span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a><span class="sd">    that only recurses into the partition that contains the k-th smallest item.</span>
 </span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>
-</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a><span class="sd">    Raise `ValueError` if k isn&#39;t within 1 to `len(items)`.</span>
+</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a><span class="sd">    Raise `ValueError` if `k` isn&#39;t a value from 1 to `len(items)`.</span>
 </span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>
 </span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n) expected time, with n = `len(items)`</span>
 </span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -462,7 +462,7 @@ repeatedly shuffles the items until they are in the right order.</p>
     </div>
     <a class="headerlink" href="#bogo_sorted"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="bogo_sorted-86"><a href="#bogo_sorted-86"><span class="linenos">86</span></a><span class="k">def</span><span class="w"> </span><span class="nf">bogo_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># type: ignore[invalid-return-type]</span>
-</span><span id="bogo_sorted-87"><a href="#bogo_sorted-87"><span class="linenos">87</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-descending order, using Bogo Sort.</span>
+</span><span id="bogo_sorted-87"><a href="#bogo_sorted-87"><span class="linenos">87</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-descending order, using Bogo Sort.</span>
 </span><span id="bogo_sorted-88"><a href="#bogo_sorted-88"><span class="linenos">88</span></a>
 </span><span id="bogo_sorted-89"><a href="#bogo_sorted-89"><span class="linenos">89</span></a><span class="sd">    Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)</span>
 </span><span id="bogo_sorted-90"><a href="#bogo_sorted-90"><span class="linenos">90</span></a><span class="sd">    exhaustively searches for a permutation of items that is in the right order.</span>
@@ -478,7 +478,7 @@ repeatedly shuffles the items until they are in the right order.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return a new list with the items in non-descending order, using Bogo Sort.</p>
+            <div class="docstring"><p>Return a new list with <code>items</code> in non-descending order, using Bogo Sort.</p>
 
 <p>Deterministic <a href="https://en.wikipedia.org/wiki/Bogosort">Bogo Sort</a>
 exhaustively searches for a permutation of items that is in the right order.</p>
@@ -581,7 +581,7 @@ inserts the next unsorted item into its correct position in the sorted part.</p>
     </div>
     <a class="headerlink" href="#merge_sorted"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="merge_sorted-160"><a href="#merge_sorted-160"><span class="linenos">160</span></a><span class="k">def</span><span class="w"> </span><span class="nf">merge_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="merge_sorted-161"><a href="#merge_sorted-161"><span class="linenos">161</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-decreasing order, using Merge Sort.</span>
+</span><span id="merge_sorted-161"><a href="#merge_sorted-161"><span class="linenos">161</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Merge Sort.</span>
 </span><span id="merge_sorted-162"><a href="#merge_sorted-162"><span class="linenos">162</span></a>
 </span><span id="merge_sorted-163"><a href="#merge_sorted-163"><span class="linenos">163</span></a><span class="sd">    [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively</span>
 </span><span id="merge_sorted-164"><a href="#merge_sorted-164"><span class="linenos">164</span></a><span class="sd">    divides the list into two halves, sorts each one, and merges them.</span>
@@ -597,7 +597,7 @@ inserts the next unsorted item into its correct position in the sorted part.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return a new list with the items in non-decreasing order, using Merge Sort.</p>
+            <div class="docstring"><p>Return a new list with <code>items</code> in non-decreasing order, using Merge Sort.</p>
 
 <p><a href="https://en.wikipedia.org/wiki/Merge_sort">Merge Sort</a> recursively
 divides the list into two halves, sorts each one, and merges them.</p>
@@ -619,12 +619,12 @@ divides the list into two halves, sorts each one, and merges them.</p>
     </div>
     <a class="headerlink" href="#quick_select"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="quick_select-229"><a href="#quick_select-229"><span class="linenos">229</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_select</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
-</span><span id="quick_select-230"><a href="#quick_select-230"><span class="linenos">230</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the k-th smallest item in items, using Quick Select.</span>
+</span><span id="quick_select-230"><a href="#quick_select-230"><span class="linenos">230</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the `k`-th smallest item in `items`, using Quick Select.</span>
 </span><span id="quick_select-231"><a href="#quick_select-231"><span class="linenos">231</span></a>
 </span><span id="quick_select-232"><a href="#quick_select-232"><span class="linenos">232</span></a><span class="sd">    [Quick Select](https://en.wikipedia.org/wiki/Quickselect) is a variant of Quick Sort</span>
 </span><span id="quick_select-233"><a href="#quick_select-233"><span class="linenos">233</span></a><span class="sd">    that only recurses into the partition that contains the k-th smallest item.</span>
 </span><span id="quick_select-234"><a href="#quick_select-234"><span class="linenos">234</span></a>
-</span><span id="quick_select-235"><a href="#quick_select-235"><span class="linenos">235</span></a><span class="sd">    Raise `ValueError` if k isn&#39;t within 1 to `len(items)`.</span>
+</span><span id="quick_select-235"><a href="#quick_select-235"><span class="linenos">235</span></a><span class="sd">    Raise `ValueError` if `k` isn&#39;t a value from 1 to `len(items)`.</span>
 </span><span id="quick_select-236"><a href="#quick_select-236"><span class="linenos">236</span></a>
 </span><span id="quick_select-237"><a href="#quick_select-237"><span class="linenos">237</span></a><span class="sd">    Complexity: O(n^2) worst case, O(n) expected time, with n = `len(items)`</span>
 </span><span id="quick_select-238"><a href="#quick_select-238"><span class="linenos">238</span></a><span class="sd">    &quot;&quot;&quot;</span>
@@ -650,12 +650,12 @@ divides the list into two halves, sorts each one, and merges them.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return the k-th smallest item in items, using Quick Select.</p>
+            <div class="docstring"><p>Return the <code>k</code>-th smallest item in <code>items</code>, using Quick Select.</p>
 
 <p><a href="https://en.wikipedia.org/wiki/Quickselect">Quick Select</a> is a variant of Quick Sort
 that only recurses into the partition that contains the k-th smallest item.</p>
 
-<p>Raise <code>ValueError</code> if k isn't within 1 to <code>len(items)</code>.</p>
+<p>Raise <code>ValueError</code> if <code>k</code> isn't a value from 1 to <code>len(items)</code>.</p>
 
 <p>Complexity: O(n^2) worst case, O(n) expected time, with n = <code>len(items)</code></p>
 </div>
@@ -674,7 +674,7 @@ that only recurses into the partition that contains the k-th smallest item.</p>
     </div>
     <a class="headerlink" href="#quick_sorted"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="quick_sorted-176"><a href="#quick_sorted-176"><span class="linenos">176</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_sorted</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="quick_sorted-177"><a href="#quick_sorted-177"><span class="linenos">177</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-decreasing order, using Quick Sort.</span>
+</span><span id="quick_sorted-177"><a href="#quick_sorted-177"><span class="linenos">177</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using Quick Sort.</span>
 </span><span id="quick_sorted-178"><a href="#quick_sorted-178"><span class="linenos">178</span></a>
 </span><span id="quick_sorted-179"><a href="#quick_sorted-179"><span class="linenos">179</span></a><span class="sd">    [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively</span>
 </span><span id="quick_sorted-180"><a href="#quick_sorted-180"><span class="linenos">180</span></a><span class="sd">    selects a pivot, partitions the items around it, and sorts the partitions.</span>
@@ -700,7 +700,7 @@ that only recurses into the partition that contains the k-th smallest item.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return a new list with the items in non-decreasing order, using Quick Sort.</p>
+            <div class="docstring"><p>Return a new list with <code>items</code> in non-decreasing order, using Quick Sort.</p>
 
 <p><a href="https://en.wikipedia.org/wiki/Quicksort">Quick Sort</a> recursively
 selects a pivot, partitions the items around it, and sorts the partitions.</p>
@@ -722,7 +722,7 @@ selects a pivot, partitions the items around it, and sorts the partitions.</p>
     </div>
     <a class="headerlink" href="#quick_sorted_3way"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="quick_sorted_3way-202"><a href="#quick_sorted_3way-202"><span class="linenos">202</span></a><span class="k">def</span><span class="w"> </span><span class="nf">quick_sorted_3way</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-</span><span id="quick_sorted_3way-203"><a href="#quick_sorted_3way-203"><span class="linenos">203</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with the items in non-decreasing order, using 3-way Quick Sort.</span>
+</span><span id="quick_sorted_3way-203"><a href="#quick_sorted_3way-203"><span class="linenos">203</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a new list with `items` in non-decreasing order, using 3-way Quick Sort.</span>
 </span><span id="quick_sorted_3way-204"><a href="#quick_sorted_3way-204"><span class="linenos">204</span></a>
 </span><span id="quick_sorted_3way-205"><a href="#quick_sorted_3way-205"><span class="linenos">205</span></a><span class="sd">    [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)</span>
 </span><span id="quick_sorted_3way-206"><a href="#quick_sorted_3way-206"><span class="linenos">206</span></a><span class="sd">    partitions the items into three groups: smaller, equal, and larger than the pivot.</span>
@@ -749,7 +749,7 @@ selects a pivot, partitions the items around it, and sorts the partitions.</p>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Return a new list with the items in non-decreasing order, using 3-way Quick Sort.</p>
+            <div class="docstring"><p>Return a new list with <code>items</code> in non-decreasing order, using 3-way Quick Sort.</p>
 
 <p><a href="https://en.wikipedia.org/wiki/Dutch_national_flag_problem">3-way Quick Sort</a>
 partitions the items into three groups: smaller, equal, and larger than the pivot.</p>

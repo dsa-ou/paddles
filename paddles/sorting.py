@@ -63,7 +63,7 @@ from collections.abc import Sequence
 
 
 def is_non_decreasing(items: Sequence) -> bool:
-    """Check if items[0] <= items[1] <= ... <= items[-1]."""
+    """Check if `items[0] <= items[1] <= ... <= items[-1]`."""
     for index in range(len(items) - 1):
         if items[index] > items[index + 1]:
             return False
@@ -83,7 +83,7 @@ def bogo_sort(items: list) -> None:
 
 
 def bogo_sorted(items: Sequence) -> list:  # type: ignore[invalid-return-type]
-    """Return a new list with the items in non-descending order, using Bogo Sort.
+    """Return a new list with `items` in non-descending order, using Bogo Sort.
 
     Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
     exhaustively searches for a permutation of items that is in the right order.
@@ -157,7 +157,7 @@ def merge(left: Sequence, right: Sequence) -> list:
 
 
 def merge_sorted(items: Sequence) -> list:
-    """Return a new list with the items in non-decreasing order, using Merge Sort.
+    """Return a new list with `items` in non-decreasing order, using Merge Sort.
 
     [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort) recursively
     divides the list into two halves, sorts each one, and merges them.
@@ -173,7 +173,7 @@ def merge_sorted(items: Sequence) -> list:
 
 
 def quick_sorted(items: Sequence) -> list:
-    """Return a new list with the items in non-decreasing order, using Quick Sort.
+    """Return a new list with `items` in non-decreasing order, using Quick Sort.
 
     [Quick Sort](https://en.wikipedia.org/wiki/Quicksort) recursively
     selects a pivot, partitions the items around it, and sorts the partitions.
@@ -199,7 +199,7 @@ def quick_sorted(items: Sequence) -> list:
 
 
 def quick_sorted_3way(items: Sequence) -> list:
-    """Return a new list with the items in non-decreasing order, using 3-way Quick Sort.
+    """Return a new list with `items` in non-decreasing order, using 3-way Quick Sort.
 
     [3-way Quick Sort](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)
     partitions the items into three groups: smaller, equal, and larger than the pivot.
@@ -226,12 +226,12 @@ def quick_sorted_3way(items: Sequence) -> list:
 
 
 def quick_select(items: Sequence, k: int) -> object:
-    """Return the k-th smallest item in items, using Quick Select.
+    """Return the `k`-th smallest item in `items`, using Quick Select.
 
     [Quick Select](https://en.wikipedia.org/wiki/Quickselect) is a variant of Quick Sort
     that only recurses into the partition that contains the k-th smallest item.
 
-    Raise `ValueError` if k isn't within 1 to `len(items)`.
+    Raise `ValueError` if `k` isn't a value from 1 to `len(items)`.
 
     Complexity: O(n^2) worst case, O(n) expected time, with n = `len(items)`
     """
