@@ -198,7 +198,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>
 </span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LinkedListQueue&quot;</span><span class="p">]</span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="c1"># Each linked list node is a list [item, next].</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="c1"># Each linked list node is a list [member, next].</span>
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="c1"># These constants make the code more readable.</span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="n">DATA</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="n">NEXT</span> <span class="o">=</span> <span class="mi">1</span>
@@ -230,7 +230,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">        The members are added to the queue in the order they are in `sequence`.</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">        To create an empty queue, call `LinkedListQueue()` or `LinkedListQueue([])`.</span>
 </span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">        Complexity: O(len(`sequence`))</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
@@ -244,7 +244,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>
 </span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">        The string is &#39;LinkedListQueue([front member, ..., back member])&#39;.</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>
-</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">        Complexity: O(self.size())</span>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
@@ -287,7 +287,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>
 </span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the front of the queue.</span>
+</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the front of the queue.</span>
 </span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>
 </span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="sd">        Raise `ValueError` if the queue is empty.</span>
 </span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>
@@ -343,7 +343,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="LinkedListQueue-89"><a href="#LinkedListQueue-89"><span class="linenos"> 89</span></a><span class="sd">        The members are added to the queue in the order they are in `sequence`.</span>
 </span><span id="LinkedListQueue-90"><a href="#LinkedListQueue-90"><span class="linenos"> 90</span></a><span class="sd">        To create an empty queue, call `LinkedListQueue()` or `LinkedListQueue([])`.</span>
 </span><span id="LinkedListQueue-91"><a href="#LinkedListQueue-91"><span class="linenos"> 91</span></a>
-</span><span id="LinkedListQueue-92"><a href="#LinkedListQueue-92"><span class="linenos"> 92</span></a><span class="sd">        Complexity: O(len(`sequence`))</span>
+</span><span id="LinkedListQueue-92"><a href="#LinkedListQueue-92"><span class="linenos"> 92</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="LinkedListQueue-93"><a href="#LinkedListQueue-93"><span class="linenos"> 93</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListQueue-94"><a href="#LinkedListQueue-94"><span class="linenos"> 94</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="LinkedListQueue-95"><a href="#LinkedListQueue-95"><span class="linenos"> 95</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
@@ -357,7 +357,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="LinkedListQueue-103"><a href="#LinkedListQueue-103"><span class="linenos">103</span></a>
 </span><span id="LinkedListQueue-104"><a href="#LinkedListQueue-104"><span class="linenos">104</span></a><span class="sd">        The string is &#39;LinkedListQueue([front member, ..., back member])&#39;.</span>
 </span><span id="LinkedListQueue-105"><a href="#LinkedListQueue-105"><span class="linenos">105</span></a>
-</span><span id="LinkedListQueue-106"><a href="#LinkedListQueue-106"><span class="linenos">106</span></a><span class="sd">        Complexity: O(self.size())</span>
+</span><span id="LinkedListQueue-106"><a href="#LinkedListQueue-106"><span class="linenos">106</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
 </span><span id="LinkedListQueue-107"><a href="#LinkedListQueue-107"><span class="linenos">107</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListQueue-108"><a href="#LinkedListQueue-108"><span class="linenos">108</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="LinkedListQueue-109"><a href="#LinkedListQueue-109"><span class="linenos">109</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
@@ -400,7 +400,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="LinkedListQueue-146"><a href="#LinkedListQueue-146"><span class="linenos">146</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span id="LinkedListQueue-147"><a href="#LinkedListQueue-147"><span class="linenos">147</span></a>
 </span><span id="LinkedListQueue-148"><a href="#LinkedListQueue-148"><span class="linenos">148</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListQueue-149"><a href="#LinkedListQueue-149"><span class="linenos">149</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the front of the queue.</span>
+</span><span id="LinkedListQueue-149"><a href="#LinkedListQueue-149"><span class="linenos">149</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the front of the queue.</span>
 </span><span id="LinkedListQueue-150"><a href="#LinkedListQueue-150"><span class="linenos">150</span></a>
 </span><span id="LinkedListQueue-151"><a href="#LinkedListQueue-151"><span class="linenos">151</span></a><span class="sd">        Raise `ValueError` if the queue is empty.</span>
 </span><span id="LinkedListQueue-152"><a href="#LinkedListQueue-152"><span class="linenos">152</span></a>
@@ -460,7 +460,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="LinkedListQueue.__init__-89"><a href="#LinkedListQueue.__init__-89"><span class="linenos">89</span></a><span class="sd">        The members are added to the queue in the order they are in `sequence`.</span>
 </span><span id="LinkedListQueue.__init__-90"><a href="#LinkedListQueue.__init__-90"><span class="linenos">90</span></a><span class="sd">        To create an empty queue, call `LinkedListQueue()` or `LinkedListQueue([])`.</span>
 </span><span id="LinkedListQueue.__init__-91"><a href="#LinkedListQueue.__init__-91"><span class="linenos">91</span></a>
-</span><span id="LinkedListQueue.__init__-92"><a href="#LinkedListQueue.__init__-92"><span class="linenos">92</span></a><span class="sd">        Complexity: O(len(`sequence`))</span>
+</span><span id="LinkedListQueue.__init__-92"><a href="#LinkedListQueue.__init__-92"><span class="linenos">92</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="LinkedListQueue.__init__-93"><a href="#LinkedListQueue.__init__-93"><span class="linenos">93</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListQueue.__init__-94"><a href="#LinkedListQueue.__init__-94"><span class="linenos">94</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="LinkedListQueue.__init__-95"><a href="#LinkedListQueue.__init__-95"><span class="linenos">95</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="o">=</span> <span class="kc">None</span>
@@ -476,7 +476,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 <p>The members are added to the queue in the order they are in <code>sequence</code>.
 To create an empty queue, call <code><a href="#LinkedListQueue">LinkedListQueue()</a></code> or <code>LinkedListQueue([])</code>.</p>
 
-<p>Complexity: O(len(<code>sequence</code>))</p>
+<p>Complexity: O(n), with n = <code>len(sequence)</code></p>
 </div>
 
 
@@ -588,7 +588,7 @@ To create an empty queue, call <code><a href="#LinkedListQueue">LinkedListQueue(
     </div>
     <a class="headerlink" href="#LinkedListQueue.dequeue"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListQueue.dequeue-148"><a href="#LinkedListQueue.dequeue-148"><span class="linenos">148</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">dequeue</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListQueue.dequeue-149"><a href="#LinkedListQueue.dequeue-149"><span class="linenos">149</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the item at the front of the queue.</span>
+</span><span id="LinkedListQueue.dequeue-149"><a href="#LinkedListQueue.dequeue-149"><span class="linenos">149</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the front of the queue.</span>
 </span><span id="LinkedListQueue.dequeue-150"><a href="#LinkedListQueue.dequeue-150"><span class="linenos">150</span></a>
 </span><span id="LinkedListQueue.dequeue-151"><a href="#LinkedListQueue.dequeue-151"><span class="linenos">151</span></a><span class="sd">        Raise `ValueError` if the queue is empty.</span>
 </span><span id="LinkedListQueue.dequeue-152"><a href="#LinkedListQueue.dequeue-152"><span class="linenos">152</span></a>
@@ -606,7 +606,7 @@ To create an empty queue, call <code><a href="#LinkedListQueue">LinkedListQueue(
 </span></pre></div>
 
 
-            <div class="docstring"><p>Remove and return the item at the front of the queue.</p>
+            <div class="docstring"><p>Remove and return the member at the front of the queue.</p>
 
 <p>Raise <code>ValueError</code> if the queue is empty.</p>
 

@@ -14,7 +14,9 @@ the major version is zero: [anything may change](https://semver.org/#spec-item-4
 ## [Unreleased](https://github.com/dsa-ou/paddles/compare/v0.2.0...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/paddles).
 
-Nothing yet.
+<!-- Nothing yet. -->
+### Changed
+- Indicate only worst-case complexity, with Big-Oh
 
 ## [0.2.0](https://github.com/dsa-ou/paddles/compare/v0.1-beta...v0.2.0) - 2025-10-10
 

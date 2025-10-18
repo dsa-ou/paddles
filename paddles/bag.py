@@ -32,9 +32,9 @@ e.g. how many times each word appears in a text.
 
 ## Implementations
 
-A bag can be represented as a map of items to their frequency.
-The map can be implemented with a hash table (if items are hashable) or
-with a binary search tree (if items are comparable).
+A bag can be represented as a map of members to their frequency.
+The map can be implemented with a hash table (if members are hashable) or
+with a binary search tree (if members are comparable).
 `paddles` only provides a hash table implementation for the moment.
 """
 
@@ -82,7 +82,7 @@ class HashTableBag:
         To create an empty bag, call `HashTableBag()`.
         If `items` is a dictionary, only its keys are added to the bag.
 
-        Complexity: O(len(`items`))
+        Complexity: O(n), with n = `len(items)`
         """
         self._members = {}
         for item in items:
@@ -94,7 +94,7 @@ class HashTableBag:
         The string is 'HashTableBag({member: copies, ...})'.
         The members are listed in the order they were added to the bag.
 
-        Complexity: O(n), where n is the number of unique items in the bag.
+        Complexity: O(n), with n the number of unique members in the bag
         """
         return f"HashTableBag({self._members})"
 
@@ -150,7 +150,7 @@ class HashTableBag:
     def size(self) -> int:
         """Return how many members (total copies) the bag has.
 
-        Complexity: O(n), where n is the number of unique items in the bag.
+        Complexity: O(n), with n the number of unique members in the bag
         """
         total = 0
         for item in self._members:
@@ -160,17 +160,17 @@ class HashTableBag:
     def unique(self) -> set:
         """Return the set of the unique members in the bag.
 
-        Complexity: O(n), where n is the number of unique items in the bag.
+        Complexity: O(n), with n the number of unique members in the bag
         """
         return set(self._members)
 
     def union(self, other: "HashTableBag") -> "HashTableBag":
-        """Return a new bag with the items that occur in either bag.
+        """Return a new bag with the members that occur in either bag.
 
         The frequency of `item` in the union is
         `max(self.frequency(item), other.frequency(item))`.
 
-        Complexity: O(s + o), where s and o are the number of unique items in
+        Complexity: O(s + o), with s and o the number of unique members in
         this bag and `other`, respectively.
         """
         new_bag = HashTableBag()
@@ -184,7 +184,7 @@ class HashTableBag:
         The frequency of `item` in the intersection is
         `min(self.frequency(item), other.frequency(item))`.
 
-        Complexity: O(s + o), where s and o are the number of unique items in
+        Complexity: O(s + o), with s and o the number of unique members in
         this bag and `other`, respectively.
         """
         new_bag = HashTableBag()
@@ -195,7 +195,7 @@ class HashTableBag:
     def difference(self, other: "HashTableBag") -> "HashTableBag":
         """Return a new bag with the members of this bag that aren't in `other`.
 
-        Complexity: O(n), with n the number of unique items in this bag
+        Complexity: O(n), with n the number of unique members in this bag
         """
         new_bag = HashTableBag()
         # The difference is the 'extra' occurrences beyond those in `other`.
@@ -208,7 +208,7 @@ class HashTableBag:
     def equal_to(self, other: "HashTableBag") -> bool:
         """Check if this bag has the same members as `other`.
 
-        Complexity: O(n), with n the number of unique items in this bag
+        Complexity: O(n), with n the number of unique members in this bag
         """
         for member in self._members:
             if self.frequency(member) != other.frequency(member):
@@ -218,7 +218,7 @@ class HashTableBag:
     def included_in(self, other: "HashTableBag") -> bool:
         """Check if all members of this bag are members of `other`.
 
-        Complexity: O(n), with n the number of unique items in this bag
+        Complexity: O(n), with n the number of unique members in this bag
         """
         for member in self._members:
             if self.frequency(member) > other.frequency(member):

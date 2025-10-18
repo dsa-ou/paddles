@@ -56,7 +56,7 @@ from typing import Any
 
 __all__ = ["LinkedListQueue"]
 
-# Each linked list node is a list [item, next].
+# Each linked list node is a list [member, next].
 # These constants make the code more readable.
 DATA = 0
 NEXT = 1
@@ -88,7 +88,7 @@ class LinkedListQueue:
         The members are added to the queue in the order they are in `sequence`.
         To create an empty queue, call `LinkedListQueue()` or `LinkedListQueue([])`.
 
-        Complexity: O(len(`sequence`))
+        Complexity: O(n), with n = `len(sequence)`
         """
         self._head = None
         self._tail = None
@@ -102,7 +102,7 @@ class LinkedListQueue:
 
         The string is 'LinkedListQueue([front member, ..., back member])'.
 
-        Complexity: O(self.size())
+        Complexity: O(n), with n = `self.size()`
         """
         strings = []
         current = self._head
@@ -145,7 +145,7 @@ class LinkedListQueue:
         self._length += 1
 
     def dequeue(self) -> Any:
-        """Remove and return the item at the front of the queue.
+        """Remove and return the member at the front of the queue.
 
         Raise `ValueError` if the queue is empty.
 
