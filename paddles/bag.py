@@ -35,8 +35,8 @@ e.g. how many times each word appears in a text.
 A bag can be represented as a map of members to their frequency.
 The map can be implemented with a hash table if members are hashable
 (see `HashTableBag`), or with a binary search tree if members are comparable.
-Hash tables provide faster access to members, but have a larger memory overhead,
-than trees.
+Hash tables provide faster access to members than trees,
+but have a larger memory overhead.
 """
 
 from collections.abc import Hashable, Iterable
