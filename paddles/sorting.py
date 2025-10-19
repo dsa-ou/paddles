@@ -36,6 +36,22 @@ Sorting is a fundamental computational operation, as it makes items easier to lo
 e.g. trains are listed by arrival or departure time, people are listed by name, etc.
 You should consider sorting a collection when you repeatedly need to search it.
 
+## Implementations
+
+Function | In-place | Stable | Adaptive | Worst Time Complexity
+- | :-: | :-: | :-: | :-:
+`bogo_sort` | ✔️ | | | O(∞)
+`bogo_sorted` | | | | O(n·n!)
+`bubble_sort` | ✔️ | ✔️ | ✔️ | O(n²)
+`insertion_sort` | ✔️ | ✔️ | ✔️ | O(n²)
+`merge_sorted` | | ✔️ | | O(n log n)
+`quick_sorted` | | ✔️ | | O(n²)
+`quick_sorted_3way` | | ✔️ | | O(n²)
+`selection_sort` | ✔️ | | | O(n²)
+
+Other functions:
+- `quick_select`: find the k-th smallest item with a variant of `quick_sorted`
+
 ## Practice
 
 LeetCode has several [problems about sorting](https://leetcode.com/tag/sorting).
@@ -76,7 +92,7 @@ def bogo_sort(items: list) -> None:
     Non-deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
     repeatedly shuffles the items until they are in the right order.
 
-    Complexity: O((n+1)!) on average with n = `len(items)`
+    Complexity: O(∞) as the algorithm may not terminate
     """
     while not is_non_decreasing(items):
         random.shuffle(items)
@@ -88,7 +104,7 @@ def bogo_sorted(items: Sequence) -> list:  # ty: ignore[invalid-return-type] # n
     Deterministic [Bogo Sort](https://en.wikipedia.org/wiki/Bogosort)
     exhaustively searches for a permutation of items that is in the right order.
 
-    Complexity: O(n!) with n = `len(items)`
+    Complexity: O(n·n!) with n = `len(items)`
     """
     # Type checkers and linters assume the for-loop may be skipped, returning None.
     # The `ty` and `noqa` comments above remove such error messages.

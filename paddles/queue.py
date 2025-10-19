@@ -36,11 +36,11 @@ You should consider using a queue when you need to:
 
 ## Implementations
 
-The Queue ADT can be implemented with circular dynamic arrays or singly-linked lists.
-In both cases, the operations listed above take constant time.
+A queue can be stored in a circular dynamic array
+or a singly-linked list (see `LinkedListQueue`).
+In both cases, the operations take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
 but a dynamic array may have wasted capacity and requires resizing.
-`paddles` only provides a singly-linked list implementation for the moment.
 
 ## Practice
 

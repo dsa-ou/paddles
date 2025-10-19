@@ -34,12 +34,13 @@ You should consider using a stack when you need to:
 - process nested structures, like brackets (e.g. `print([1, {2, 3}])`) or
   HTML tags (e.g. `<p><b>text</b></p>`)
 - process items in the reverse order they were added, like undo operations
-  (the next command to be undone is the most recently executed one).
+  (commands are undone in the reverse order they were executed).
 
 ## Implementations
 
-The Stack ADT can be implemented with dynamic arrays or singly-linked lists.
-In both cases, the operations listed above take constant time.
+A stack can be stored in a dynamic array (see `DynamicArrayStack`)
+or a singly-linked list (see `LinkedListStack`).
+In both cases, the operations take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
 but a dynamic array may have wasted capacity and requires resizing.
 
