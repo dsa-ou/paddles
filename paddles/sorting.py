@@ -36,14 +36,6 @@ Sorting is a fundamental computational operation, as it makes items easier to lo
 e.g. trains are listed by arrival or departure time, people are listed by name, etc.
 You should consider sorting a collection when you repeatedly need to search it.
 
-## Practice
-
-LeetCode has several [problems about sorting](https://leetcode.com/tag/sorting).
-You can sort or filter the problems by difficulty or other criteria,
-using the up/down or funnel buttons above the list of problems.
-Clicking on the up/down button and then on 'Tags' will show
-the algorithmic techniques and ADTs related to each problem.
-
 ## Implementations
 
 Function | In-place | Stable | Adaptive | Worst Time Complexity
@@ -59,6 +51,14 @@ Function | In-place | Stable | Adaptive | Worst Time Complexity
 
 Other functions:
 - `quick_select`: find the k-th smallest item with a variant of `quick_sorted`
+
+## Practice
+
+LeetCode has several [problems about sorting](https://leetcode.com/tag/sorting).
+You can sort or filter the problems by difficulty or other criteria,
+using the up/down or funnel buttons above the list of problems.
+Clicking on the up/down button and then on 'Tags' will show
+the algorithmic techniques and ADTs related to each problem.
 """
 
 __all__ = [

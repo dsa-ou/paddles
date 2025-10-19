@@ -34,8 +34,8 @@ Consider using a deque when you need to simulate a queue where
 
 ## Implementations
 
-The Deque ADT can be implemented with circular dynamic arrays
-or doubly-linked lists (see `LinkedListDeque`).
+A deque can be stored in a circular dynamic array
+or a doubly-linked list (see `LinkedListDeque`).
 In both cases, the operations take constant time.
 A doubly-linked list uses much more memory than a static array of the same length,
 but a dynamic array may have wasted capacity and requires resizing.
