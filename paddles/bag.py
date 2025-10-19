@@ -33,9 +33,8 @@ e.g. how many times each word appears in a text.
 ## Implementations
 
 A bag can be represented as a map of members to their frequency.
-The map can be implemented with a hash table (if members are hashable) or
-with a binary search tree (if members are comparable).
-`paddles` only provides a hash table implementation for the moment.
+The map can be implemented with a hash table if members are hashable
+(see `HashTableBag`), or with a binary search tree if members are comparable.
 """
 
 from collections.abc import Hashable, Iterable

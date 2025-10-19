@@ -38,8 +38,9 @@ You should consider using a stack when you need to:
 
 ## Implementations
 
-The Stack ADT can be implemented with dynamic arrays or singly-linked lists.
-In both cases, the operations listed above take constant time.
+The Stack ADT can be implemented with dynamic arrays (see `DynamicArrayStack`)
+or singly-linked lists (see `LinkedListStack`).
+In both cases, the operations take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
 but a dynamic array may have wasted capacity and requires resizing.
 
