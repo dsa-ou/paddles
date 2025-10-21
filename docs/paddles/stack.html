@@ -232,15 +232,15 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">    &gt;&gt;&gt; from paddles import PythonListStack</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; stack = PythonListStack(&quot;abc&quot;)      # create a non-empty stack</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; stack = PythonListStack(&quot;abc&quot;)  # create a non-empty stack</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                    # number of members</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">    3</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                     # remove and return the top member</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                     # return but don&#39;t remove the top member</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">    &#39;b&#39;</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                 # add a new member on top</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                    # str(stack) also possible</span>
 </span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">    PythonListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
@@ -313,91 +313,89 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LinkedListStack</span><span class="p">:</span>
 </span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;An implementation of the Stack ADT, using singly-linked lists.</span>
 </span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="sd">    Besides the ADT&#39;s operations, this class provides two convenience operations:</span>
-</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="sd">    - create a non-empty stack from a given sequence</span>
-</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
-</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>
-</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="sd">    &gt;&gt;&gt; from paddles import LinkedListStack</span>
-</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a><span class="sd">    &gt;&gt;&gt; stack = LinkedListStack(&quot;abc&quot;)      # create a non-empty stack</span>
-</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
-</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="sd">    3</span>
-</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
-</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
-</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">    &#39;b&#39;</span>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
-</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
-</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="sd">    LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
-</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>
-</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="sd">    Besides the ADT&#39;s operations, this class allows to</span>
+</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="sd">    convert a stack to a string, to see its members listed from bottom to top.</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a>
+</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a><span class="sd">    &gt;&gt;&gt; from paddles import LinkedListStack</span>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="sd">    &gt;&gt;&gt; stack = LinkedListStack()</span>
+</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a><span class="sd">    &gt;&gt;&gt; for char in &quot;abc&quot;:</span>
+</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="sd">    ...     stack.push(char)</span>
+</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="sd">    &gt;&gt;&gt; str(stack)</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="sd">    &quot;LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])&quot;</span>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                    # number of members</span>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="sd">    3</span>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                     # remove and return the top member</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">    &#39;c&#39;</span>
+</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                     # return but don&#39;t remove the top member</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="sd">    &#39;b&#39;</span>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                 # add a new member on top</span>
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="sd">    &gt;&gt;&gt; print(stack)</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a><span class="sd">    LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a>
-</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
-</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a><span class="sd">        To create an empty stack, call `LinkedListStack()` or `LinkedListStack([])`.</span>
+</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an empty stack.</span>
 </span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a>
-</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
+</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">        Complexity: O(1)</span>
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
-</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>
-</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
+</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>
+</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>
+</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a><span class="sd">        The string is &#39;LinkedListStack([bottom member, ..., top member])&#39;.</span>
 </span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>
-</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="sd">        The string is &#39;LinkedListStack([bottom member, ..., top member])&#39;.</span>
-</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>
-</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
-</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>        <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
-</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a>            <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">current</span><span class="p">[</span><span class="n">DATA</span><span class="p">]))</span>
-</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
-</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>        <span class="k">return</span> <span class="s2">&quot;LinkedListStack([&quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">strings</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;])&quot;</span>
-</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>
-</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
-</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>
-</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
-</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a>
-</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
-</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a>
-</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">)</span>
-</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>
-</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>        <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
+</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>            <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">current</span><span class="p">[</span><span class="n">DATA</span><span class="p">]))</span>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
+</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a>        <span class="k">return</span> <span class="s2">&quot;LinkedListStack([&quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">strings</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;])&quot;</span>
+</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>
+</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>
+</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
+</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a>
+</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>
+</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">)</span>
+</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>
+</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
 </span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>
-</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>
-</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
-</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
-</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
-</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
-</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>        <span class="k">return</span> <span class="n">item</span>
-</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>
-</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
+</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>        <span class="k">return</span> <span class="n">item</span>
+</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>
+</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
 </span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>
-</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>
-</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
-</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
+</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span></pre></div>
 
 
@@ -416,114 +414,112 @@ the algorithmic techniques and ADTs related to each problem.</p>
             <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack-149"><a href="#LinkedListStack-149"><span class="linenos">149</span></a><span class="k">class</span><span class="w"> </span><span class="nc">LinkedListStack</span><span class="p">:</span>
 </span><span id="LinkedListStack-150"><a href="#LinkedListStack-150"><span class="linenos">150</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;An implementation of the Stack ADT, using singly-linked lists.</span>
 </span><span id="LinkedListStack-151"><a href="#LinkedListStack-151"><span class="linenos">151</span></a>
-</span><span id="LinkedListStack-152"><a href="#LinkedListStack-152"><span class="linenos">152</span></a><span class="sd">    Besides the ADT&#39;s operations, this class provides two convenience operations:</span>
-</span><span id="LinkedListStack-153"><a href="#LinkedListStack-153"><span class="linenos">153</span></a><span class="sd">    - create a non-empty stack from a given sequence</span>
-</span><span id="LinkedListStack-154"><a href="#LinkedListStack-154"><span class="linenos">154</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
-</span><span id="LinkedListStack-155"><a href="#LinkedListStack-155"><span class="linenos">155</span></a>
-</span><span id="LinkedListStack-156"><a href="#LinkedListStack-156"><span class="linenos">156</span></a><span class="sd">    &gt;&gt;&gt; from paddles import LinkedListStack</span>
-</span><span id="LinkedListStack-157"><a href="#LinkedListStack-157"><span class="linenos">157</span></a><span class="sd">    &gt;&gt;&gt; stack = LinkedListStack(&quot;abc&quot;)      # create a non-empty stack</span>
-</span><span id="LinkedListStack-158"><a href="#LinkedListStack-158"><span class="linenos">158</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
-</span><span id="LinkedListStack-159"><a href="#LinkedListStack-159"><span class="linenos">159</span></a><span class="sd">    3</span>
-</span><span id="LinkedListStack-160"><a href="#LinkedListStack-160"><span class="linenos">160</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
-</span><span id="LinkedListStack-161"><a href="#LinkedListStack-161"><span class="linenos">161</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="LinkedListStack-162"><a href="#LinkedListStack-162"><span class="linenos">162</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
-</span><span id="LinkedListStack-163"><a href="#LinkedListStack-163"><span class="linenos">163</span></a><span class="sd">    &#39;b&#39;</span>
-</span><span id="LinkedListStack-164"><a href="#LinkedListStack-164"><span class="linenos">164</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
-</span><span id="LinkedListStack-165"><a href="#LinkedListStack-165"><span class="linenos">165</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
-</span><span id="LinkedListStack-166"><a href="#LinkedListStack-166"><span class="linenos">166</span></a><span class="sd">    LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
-</span><span id="LinkedListStack-167"><a href="#LinkedListStack-167"><span class="linenos">167</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack-168"><a href="#LinkedListStack-168"><span class="linenos">168</span></a>
-</span><span id="LinkedListStack-169"><a href="#LinkedListStack-169"><span class="linenos">169</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="LinkedListStack-170"><a href="#LinkedListStack-170"><span class="linenos">170</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
+</span><span id="LinkedListStack-152"><a href="#LinkedListStack-152"><span class="linenos">152</span></a><span class="sd">    Besides the ADT&#39;s operations, this class allows to</span>
+</span><span id="LinkedListStack-153"><a href="#LinkedListStack-153"><span class="linenos">153</span></a><span class="sd">    convert a stack to a string, to see its members listed from bottom to top.</span>
+</span><span id="LinkedListStack-154"><a href="#LinkedListStack-154"><span class="linenos">154</span></a>
+</span><span id="LinkedListStack-155"><a href="#LinkedListStack-155"><span class="linenos">155</span></a><span class="sd">    &gt;&gt;&gt; from paddles import LinkedListStack</span>
+</span><span id="LinkedListStack-156"><a href="#LinkedListStack-156"><span class="linenos">156</span></a><span class="sd">    &gt;&gt;&gt; stack = LinkedListStack()</span>
+</span><span id="LinkedListStack-157"><a href="#LinkedListStack-157"><span class="linenos">157</span></a><span class="sd">    &gt;&gt;&gt; for char in &quot;abc&quot;:</span>
+</span><span id="LinkedListStack-158"><a href="#LinkedListStack-158"><span class="linenos">158</span></a><span class="sd">    ...     stack.push(char)</span>
+</span><span id="LinkedListStack-159"><a href="#LinkedListStack-159"><span class="linenos">159</span></a><span class="sd">    &gt;&gt;&gt; str(stack)</span>
+</span><span id="LinkedListStack-160"><a href="#LinkedListStack-160"><span class="linenos">160</span></a><span class="sd">    &quot;LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])&quot;</span>
+</span><span id="LinkedListStack-161"><a href="#LinkedListStack-161"><span class="linenos">161</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                    # number of members</span>
+</span><span id="LinkedListStack-162"><a href="#LinkedListStack-162"><span class="linenos">162</span></a><span class="sd">    3</span>
+</span><span id="LinkedListStack-163"><a href="#LinkedListStack-163"><span class="linenos">163</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                     # remove and return the top member</span>
+</span><span id="LinkedListStack-164"><a href="#LinkedListStack-164"><span class="linenos">164</span></a><span class="sd">    &#39;c&#39;</span>
+</span><span id="LinkedListStack-165"><a href="#LinkedListStack-165"><span class="linenos">165</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                     # return but don&#39;t remove the top member</span>
+</span><span id="LinkedListStack-166"><a href="#LinkedListStack-166"><span class="linenos">166</span></a><span class="sd">    &#39;b&#39;</span>
+</span><span id="LinkedListStack-167"><a href="#LinkedListStack-167"><span class="linenos">167</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                 # add a new member on top</span>
+</span><span id="LinkedListStack-168"><a href="#LinkedListStack-168"><span class="linenos">168</span></a><span class="sd">    &gt;&gt;&gt; print(stack)</span>
+</span><span id="LinkedListStack-169"><a href="#LinkedListStack-169"><span class="linenos">169</span></a><span class="sd">    LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
+</span><span id="LinkedListStack-170"><a href="#LinkedListStack-170"><span class="linenos">170</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="LinkedListStack-171"><a href="#LinkedListStack-171"><span class="linenos">171</span></a>
-</span><span id="LinkedListStack-172"><a href="#LinkedListStack-172"><span class="linenos">172</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
-</span><span id="LinkedListStack-173"><a href="#LinkedListStack-173"><span class="linenos">173</span></a><span class="sd">        To create an empty stack, call `LinkedListStack()` or `LinkedListStack([])`.</span>
+</span><span id="LinkedListStack-172"><a href="#LinkedListStack-172"><span class="linenos">172</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="LinkedListStack-173"><a href="#LinkedListStack-173"><span class="linenos">173</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an empty stack.</span>
 </span><span id="LinkedListStack-174"><a href="#LinkedListStack-174"><span class="linenos">174</span></a>
-</span><span id="LinkedListStack-175"><a href="#LinkedListStack-175"><span class="linenos">175</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
+</span><span id="LinkedListStack-175"><a href="#LinkedListStack-175"><span class="linenos">175</span></a><span class="sd">        Complexity: O(1)</span>
 </span><span id="LinkedListStack-176"><a href="#LinkedListStack-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListStack-177"><a href="#LinkedListStack-177"><span class="linenos">177</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="LinkedListStack-178"><a href="#LinkedListStack-178"><span class="linenos">178</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="LinkedListStack-179"><a href="#LinkedListStack-179"><span class="linenos">179</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
-</span><span id="LinkedListStack-180"><a href="#LinkedListStack-180"><span class="linenos">180</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="LinkedListStack-181"><a href="#LinkedListStack-181"><span class="linenos">181</span></a>
-</span><span id="LinkedListStack-182"><a href="#LinkedListStack-182"><span class="linenos">182</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="LinkedListStack-183"><a href="#LinkedListStack-183"><span class="linenos">183</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
+</span><span id="LinkedListStack-179"><a href="#LinkedListStack-179"><span class="linenos">179</span></a>
+</span><span id="LinkedListStack-180"><a href="#LinkedListStack-180"><span class="linenos">180</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="LinkedListStack-181"><a href="#LinkedListStack-181"><span class="linenos">181</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
+</span><span id="LinkedListStack-182"><a href="#LinkedListStack-182"><span class="linenos">182</span></a>
+</span><span id="LinkedListStack-183"><a href="#LinkedListStack-183"><span class="linenos">183</span></a><span class="sd">        The string is &#39;LinkedListStack([bottom member, ..., top member])&#39;.</span>
 </span><span id="LinkedListStack-184"><a href="#LinkedListStack-184"><span class="linenos">184</span></a>
-</span><span id="LinkedListStack-185"><a href="#LinkedListStack-185"><span class="linenos">185</span></a><span class="sd">        The string is &#39;LinkedListStack([bottom member, ..., top member])&#39;.</span>
-</span><span id="LinkedListStack-186"><a href="#LinkedListStack-186"><span class="linenos">186</span></a>
-</span><span id="LinkedListStack-187"><a href="#LinkedListStack-187"><span class="linenos">187</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
-</span><span id="LinkedListStack-188"><a href="#LinkedListStack-188"><span class="linenos">188</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack-189"><a href="#LinkedListStack-189"><span class="linenos">189</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="LinkedListStack-190"><a href="#LinkedListStack-190"><span class="linenos">190</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-</span><span id="LinkedListStack-191"><a href="#LinkedListStack-191"><span class="linenos">191</span></a>        <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
-</span><span id="LinkedListStack-192"><a href="#LinkedListStack-192"><span class="linenos">192</span></a>            <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">current</span><span class="p">[</span><span class="n">DATA</span><span class="p">]))</span>
-</span><span id="LinkedListStack-193"><a href="#LinkedListStack-193"><span class="linenos">193</span></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
-</span><span id="LinkedListStack-194"><a href="#LinkedListStack-194"><span class="linenos">194</span></a>        <span class="k">return</span> <span class="s2">&quot;LinkedListStack([&quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">strings</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;])&quot;</span>
-</span><span id="LinkedListStack-195"><a href="#LinkedListStack-195"><span class="linenos">195</span></a>
-</span><span id="LinkedListStack-196"><a href="#LinkedListStack-196"><span class="linenos">196</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="LinkedListStack-197"><a href="#LinkedListStack-197"><span class="linenos">197</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
-</span><span id="LinkedListStack-198"><a href="#LinkedListStack-198"><span class="linenos">198</span></a>
-</span><span id="LinkedListStack-199"><a href="#LinkedListStack-199"><span class="linenos">199</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack-200"><a href="#LinkedListStack-200"><span class="linenos">200</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack-201"><a href="#LinkedListStack-201"><span class="linenos">201</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
-</span><span id="LinkedListStack-202"><a href="#LinkedListStack-202"><span class="linenos">202</span></a>
-</span><span id="LinkedListStack-203"><a href="#LinkedListStack-203"><span class="linenos">203</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="LinkedListStack-204"><a href="#LinkedListStack-204"><span class="linenos">204</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
-</span><span id="LinkedListStack-205"><a href="#LinkedListStack-205"><span class="linenos">205</span></a>
-</span><span id="LinkedListStack-206"><a href="#LinkedListStack-206"><span class="linenos">206</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack-207"><a href="#LinkedListStack-207"><span class="linenos">207</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack-208"><a href="#LinkedListStack-208"><span class="linenos">208</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">)</span>
-</span><span id="LinkedListStack-209"><a href="#LinkedListStack-209"><span class="linenos">209</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span id="LinkedListStack-210"><a href="#LinkedListStack-210"><span class="linenos">210</span></a>
-</span><span id="LinkedListStack-211"><a href="#LinkedListStack-211"><span class="linenos">211</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListStack-212"><a href="#LinkedListStack-212"><span class="linenos">212</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="LinkedListStack-185"><a href="#LinkedListStack-185"><span class="linenos">185</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
+</span><span id="LinkedListStack-186"><a href="#LinkedListStack-186"><span class="linenos">186</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack-187"><a href="#LinkedListStack-187"><span class="linenos">187</span></a>        <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="LinkedListStack-188"><a href="#LinkedListStack-188"><span class="linenos">188</span></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+</span><span id="LinkedListStack-189"><a href="#LinkedListStack-189"><span class="linenos">189</span></a>        <span class="k">while</span> <span class="n">current</span><span class="p">:</span>
+</span><span id="LinkedListStack-190"><a href="#LinkedListStack-190"><span class="linenos">190</span></a>            <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">current</span><span class="p">[</span><span class="n">DATA</span><span class="p">]))</span>
+</span><span id="LinkedListStack-191"><a href="#LinkedListStack-191"><span class="linenos">191</span></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
+</span><span id="LinkedListStack-192"><a href="#LinkedListStack-192"><span class="linenos">192</span></a>        <span class="k">return</span> <span class="s2">&quot;LinkedListStack([&quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">strings</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;])&quot;</span>
+</span><span id="LinkedListStack-193"><a href="#LinkedListStack-193"><span class="linenos">193</span></a>
+</span><span id="LinkedListStack-194"><a href="#LinkedListStack-194"><span class="linenos">194</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="LinkedListStack-195"><a href="#LinkedListStack-195"><span class="linenos">195</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
+</span><span id="LinkedListStack-196"><a href="#LinkedListStack-196"><span class="linenos">196</span></a>
+</span><span id="LinkedListStack-197"><a href="#LinkedListStack-197"><span class="linenos">197</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack-198"><a href="#LinkedListStack-198"><span class="linenos">198</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack-199"><a href="#LinkedListStack-199"><span class="linenos">199</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
+</span><span id="LinkedListStack-200"><a href="#LinkedListStack-200"><span class="linenos">200</span></a>
+</span><span id="LinkedListStack-201"><a href="#LinkedListStack-201"><span class="linenos">201</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="LinkedListStack-202"><a href="#LinkedListStack-202"><span class="linenos">202</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
+</span><span id="LinkedListStack-203"><a href="#LinkedListStack-203"><span class="linenos">203</span></a>
+</span><span id="LinkedListStack-204"><a href="#LinkedListStack-204"><span class="linenos">204</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack-205"><a href="#LinkedListStack-205"><span class="linenos">205</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack-206"><a href="#LinkedListStack-206"><span class="linenos">206</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">)</span>
+</span><span id="LinkedListStack-207"><a href="#LinkedListStack-207"><span class="linenos">207</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="LinkedListStack-208"><a href="#LinkedListStack-208"><span class="linenos">208</span></a>
+</span><span id="LinkedListStack-209"><a href="#LinkedListStack-209"><span class="linenos">209</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="LinkedListStack-210"><a href="#LinkedListStack-210"><span class="linenos">210</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="LinkedListStack-211"><a href="#LinkedListStack-211"><span class="linenos">211</span></a>
+</span><span id="LinkedListStack-212"><a href="#LinkedListStack-212"><span class="linenos">212</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
 </span><span id="LinkedListStack-213"><a href="#LinkedListStack-213"><span class="linenos">213</span></a>
-</span><span id="LinkedListStack-214"><a href="#LinkedListStack-214"><span class="linenos">214</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="LinkedListStack-215"><a href="#LinkedListStack-215"><span class="linenos">215</span></a>
-</span><span id="LinkedListStack-216"><a href="#LinkedListStack-216"><span class="linenos">216</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack-217"><a href="#LinkedListStack-217"><span class="linenos">217</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack-218"><a href="#LinkedListStack-218"><span class="linenos">218</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="LinkedListStack-219"><a href="#LinkedListStack-219"><span class="linenos">219</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
-</span><span id="LinkedListStack-220"><a href="#LinkedListStack-220"><span class="linenos">220</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="LinkedListStack-221"><a href="#LinkedListStack-221"><span class="linenos">221</span></a>        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
-</span><span id="LinkedListStack-222"><a href="#LinkedListStack-222"><span class="linenos">222</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
-</span><span id="LinkedListStack-223"><a href="#LinkedListStack-223"><span class="linenos">223</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
-</span><span id="LinkedListStack-224"><a href="#LinkedListStack-224"><span class="linenos">224</span></a>        <span class="k">return</span> <span class="n">item</span>
-</span><span id="LinkedListStack-225"><a href="#LinkedListStack-225"><span class="linenos">225</span></a>
-</span><span id="LinkedListStack-226"><a href="#LinkedListStack-226"><span class="linenos">226</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListStack-227"><a href="#LinkedListStack-227"><span class="linenos">227</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+</span><span id="LinkedListStack-214"><a href="#LinkedListStack-214"><span class="linenos">214</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack-215"><a href="#LinkedListStack-215"><span class="linenos">215</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack-216"><a href="#LinkedListStack-216"><span class="linenos">216</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="LinkedListStack-217"><a href="#LinkedListStack-217"><span class="linenos">217</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
+</span><span id="LinkedListStack-218"><a href="#LinkedListStack-218"><span class="linenos">218</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="LinkedListStack-219"><a href="#LinkedListStack-219"><span class="linenos">219</span></a>        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+</span><span id="LinkedListStack-220"><a href="#LinkedListStack-220"><span class="linenos">220</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
+</span><span id="LinkedListStack-221"><a href="#LinkedListStack-221"><span class="linenos">221</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span id="LinkedListStack-222"><a href="#LinkedListStack-222"><span class="linenos">222</span></a>        <span class="k">return</span> <span class="n">item</span>
+</span><span id="LinkedListStack-223"><a href="#LinkedListStack-223"><span class="linenos">223</span></a>
+</span><span id="LinkedListStack-224"><a href="#LinkedListStack-224"><span class="linenos">224</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="LinkedListStack-225"><a href="#LinkedListStack-225"><span class="linenos">225</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+</span><span id="LinkedListStack-226"><a href="#LinkedListStack-226"><span class="linenos">226</span></a>
+</span><span id="LinkedListStack-227"><a href="#LinkedListStack-227"><span class="linenos">227</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
 </span><span id="LinkedListStack-228"><a href="#LinkedListStack-228"><span class="linenos">228</span></a>
-</span><span id="LinkedListStack-229"><a href="#LinkedListStack-229"><span class="linenos">229</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="LinkedListStack-230"><a href="#LinkedListStack-230"><span class="linenos">230</span></a>
-</span><span id="LinkedListStack-231"><a href="#LinkedListStack-231"><span class="linenos">231</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack-232"><a href="#LinkedListStack-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack-233"><a href="#LinkedListStack-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="LinkedListStack-234"><a href="#LinkedListStack-234"><span class="linenos">234</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
-</span><span id="LinkedListStack-235"><a href="#LinkedListStack-235"><span class="linenos">235</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="LinkedListStack-236"><a href="#LinkedListStack-236"><span class="linenos">236</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+</span><span id="LinkedListStack-229"><a href="#LinkedListStack-229"><span class="linenos">229</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack-230"><a href="#LinkedListStack-230"><span class="linenos">230</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack-231"><a href="#LinkedListStack-231"><span class="linenos">231</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="LinkedListStack-232"><a href="#LinkedListStack-232"><span class="linenos">232</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
+</span><span id="LinkedListStack-233"><a href="#LinkedListStack-233"><span class="linenos">233</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="LinkedListStack-234"><a href="#LinkedListStack-234"><span class="linenos">234</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>An implementation of the Stack ADT, using singly-linked lists.</p>
 
-<p>Besides the ADT's operations, this class provides two convenience operations:</p>
-
-<ul>
-<li>create a non-empty stack from a given sequence</li>
-<li>convert a stack to a string, to see its members listed from bottom to top.</li>
-</ul>
+<p>Besides the ADT's operations, this class allows to
+convert a stack to a string, to see its members listed from bottom to top.</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">paddles</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinkedListStack</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">LinkedListStack</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>      <span class="c1"># create a non-empty stack</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>                        <span class="c1"># number of members</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">LinkedListStack</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="go">&quot;LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>                    <span class="c1"># number of members</span>
 <span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                         <span class="c1"># remove and return the top member</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                     <span class="c1"># remove and return the top member</span>
 <span class="go">&#39;c&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>                         <span class="c1"># return but don&#39;t remove the top member</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>                     <span class="c1"># return but don&#39;t remove the top member</span>
 <span class="go">&#39;b&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                     <span class="c1"># add a new member on top</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>                        <span class="c1"># str(stack) also possible</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                 <span class="c1"># add a new member on top</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
 <span class="go">LinkedListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
 </code></pre>
 </div>
@@ -534,33 +530,25 @@ the algorithmic techniques and ADTs related to each problem.</p>
                                         <input id="LinkedListStack.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">LinkedListStack</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></span>)</span>
+        <span class="name">LinkedListStack</span><span class="signature pdoc-code condensed">()</span>
 
                 <label class="view-source-button" for="LinkedListStack.__init__-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#LinkedListStack.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.__init__-169"><a href="#LinkedListStack.__init__-169"><span class="linenos">169</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="LinkedListStack.__init__-170"><a href="#LinkedListStack.__init__-170"><span class="linenos">170</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
-</span><span id="LinkedListStack.__init__-171"><a href="#LinkedListStack.__init__-171"><span class="linenos">171</span></a>
-</span><span id="LinkedListStack.__init__-172"><a href="#LinkedListStack.__init__-172"><span class="linenos">172</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
-</span><span id="LinkedListStack.__init__-173"><a href="#LinkedListStack.__init__-173"><span class="linenos">173</span></a><span class="sd">        To create an empty stack, call `LinkedListStack()` or `LinkedListStack([])`.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.__init__-172"><a href="#LinkedListStack.__init__-172"><span class="linenos">172</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="LinkedListStack.__init__-173"><a href="#LinkedListStack.__init__-173"><span class="linenos">173</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an empty stack.</span>
 </span><span id="LinkedListStack.__init__-174"><a href="#LinkedListStack.__init__-174"><span class="linenos">174</span></a>
-</span><span id="LinkedListStack.__init__-175"><a href="#LinkedListStack.__init__-175"><span class="linenos">175</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
+</span><span id="LinkedListStack.__init__-175"><a href="#LinkedListStack.__init__-175"><span class="linenos">175</span></a><span class="sd">        Complexity: O(1)</span>
 </span><span id="LinkedListStack.__init__-176"><a href="#LinkedListStack.__init__-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListStack.__init__-177"><a href="#LinkedListStack.__init__-177"><span class="linenos">177</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="LinkedListStack.__init__-178"><a href="#LinkedListStack.__init__-178"><span class="linenos">178</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="LinkedListStack.__init__-179"><a href="#LinkedListStack.__init__-179"><span class="linenos">179</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
-</span><span id="LinkedListStack.__init__-180"><a href="#LinkedListStack.__init__-180"><span class="linenos">180</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span></pre></div>
 
 
-            <div class="docstring"><p>Initialize the stack with the members of <code>sequence</code>.</p>
+            <div class="docstring"><p>Create an empty stack.</p>
 
-<p>The members are added to the stack in the order they are in <code>sequence</code>.
-To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack()</a></code> or <code>LinkedListStack([])</code>.</p>
-
-<p>Complexity: O(n), with n = <code>len(sequence)</code></p>
+<p>Complexity: O(1)</p>
 </div>
 
 
@@ -576,12 +564,12 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 
     </div>
     <a class="headerlink" href="#LinkedListStack.size"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.size-196"><a href="#LinkedListStack.size-196"><span class="linenos">196</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="LinkedListStack.size-197"><a href="#LinkedListStack.size-197"><span class="linenos">197</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
-</span><span id="LinkedListStack.size-198"><a href="#LinkedListStack.size-198"><span class="linenos">198</span></a>
-</span><span id="LinkedListStack.size-199"><a href="#LinkedListStack.size-199"><span class="linenos">199</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack.size-200"><a href="#LinkedListStack.size-200"><span class="linenos">200</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack.size-201"><a href="#LinkedListStack.size-201"><span class="linenos">201</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.size-194"><a href="#LinkedListStack.size-194"><span class="linenos">194</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="LinkedListStack.size-195"><a href="#LinkedListStack.size-195"><span class="linenos">195</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
+</span><span id="LinkedListStack.size-196"><a href="#LinkedListStack.size-196"><span class="linenos">196</span></a>
+</span><span id="LinkedListStack.size-197"><a href="#LinkedListStack.size-197"><span class="linenos">197</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack.size-198"><a href="#LinkedListStack.size-198"><span class="linenos">198</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack.size-199"><a href="#LinkedListStack.size-199"><span class="linenos">199</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_length</span>
 </span></pre></div>
 
 
@@ -603,13 +591,13 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 
     </div>
     <a class="headerlink" href="#LinkedListStack.push"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.push-203"><a href="#LinkedListStack.push-203"><span class="linenos">203</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="LinkedListStack.push-204"><a href="#LinkedListStack.push-204"><span class="linenos">204</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
-</span><span id="LinkedListStack.push-205"><a href="#LinkedListStack.push-205"><span class="linenos">205</span></a>
-</span><span id="LinkedListStack.push-206"><a href="#LinkedListStack.push-206"><span class="linenos">206</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack.push-207"><a href="#LinkedListStack.push-207"><span class="linenos">207</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack.push-208"><a href="#LinkedListStack.push-208"><span class="linenos">208</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">)</span>
-</span><span id="LinkedListStack.push-209"><a href="#LinkedListStack.push-209"><span class="linenos">209</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.push-201"><a href="#LinkedListStack.push-201"><span class="linenos">201</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="LinkedListStack.push-202"><a href="#LinkedListStack.push-202"><span class="linenos">202</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
+</span><span id="LinkedListStack.push-203"><a href="#LinkedListStack.push-203"><span class="linenos">203</span></a>
+</span><span id="LinkedListStack.push-204"><a href="#LinkedListStack.push-204"><span class="linenos">204</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack.push-205"><a href="#LinkedListStack.push-205"><span class="linenos">205</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack.push-206"><a href="#LinkedListStack.push-206"><span class="linenos">206</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">)</span>
+</span><span id="LinkedListStack.push-207"><a href="#LinkedListStack.push-207"><span class="linenos">207</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></pre></div>
 
 
@@ -631,20 +619,20 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 
     </div>
     <a class="headerlink" href="#LinkedListStack.pop"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.pop-211"><a href="#LinkedListStack.pop-211"><span class="linenos">211</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListStack.pop-212"><a href="#LinkedListStack.pop-212"><span class="linenos">212</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.pop-209"><a href="#LinkedListStack.pop-209"><span class="linenos">209</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="LinkedListStack.pop-210"><a href="#LinkedListStack.pop-210"><span class="linenos">210</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="LinkedListStack.pop-211"><a href="#LinkedListStack.pop-211"><span class="linenos">211</span></a>
+</span><span id="LinkedListStack.pop-212"><a href="#LinkedListStack.pop-212"><span class="linenos">212</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
 </span><span id="LinkedListStack.pop-213"><a href="#LinkedListStack.pop-213"><span class="linenos">213</span></a>
-</span><span id="LinkedListStack.pop-214"><a href="#LinkedListStack.pop-214"><span class="linenos">214</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="LinkedListStack.pop-215"><a href="#LinkedListStack.pop-215"><span class="linenos">215</span></a>
-</span><span id="LinkedListStack.pop-216"><a href="#LinkedListStack.pop-216"><span class="linenos">216</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack.pop-217"><a href="#LinkedListStack.pop-217"><span class="linenos">217</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack.pop-218"><a href="#LinkedListStack.pop-218"><span class="linenos">218</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="LinkedListStack.pop-219"><a href="#LinkedListStack.pop-219"><span class="linenos">219</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
-</span><span id="LinkedListStack.pop-220"><a href="#LinkedListStack.pop-220"><span class="linenos">220</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="LinkedListStack.pop-221"><a href="#LinkedListStack.pop-221"><span class="linenos">221</span></a>        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
-</span><span id="LinkedListStack.pop-222"><a href="#LinkedListStack.pop-222"><span class="linenos">222</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
-</span><span id="LinkedListStack.pop-223"><a href="#LinkedListStack.pop-223"><span class="linenos">223</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
-</span><span id="LinkedListStack.pop-224"><a href="#LinkedListStack.pop-224"><span class="linenos">224</span></a>        <span class="k">return</span> <span class="n">item</span>
+</span><span id="LinkedListStack.pop-214"><a href="#LinkedListStack.pop-214"><span class="linenos">214</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack.pop-215"><a href="#LinkedListStack.pop-215"><span class="linenos">215</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack.pop-216"><a href="#LinkedListStack.pop-216"><span class="linenos">216</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="LinkedListStack.pop-217"><a href="#LinkedListStack.pop-217"><span class="linenos">217</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
+</span><span id="LinkedListStack.pop-218"><a href="#LinkedListStack.pop-218"><span class="linenos">218</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="LinkedListStack.pop-219"><a href="#LinkedListStack.pop-219"><span class="linenos">219</span></a>        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+</span><span id="LinkedListStack.pop-220"><a href="#LinkedListStack.pop-220"><span class="linenos">220</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">NEXT</span><span class="p">]</span>
+</span><span id="LinkedListStack.pop-221"><a href="#LinkedListStack.pop-221"><span class="linenos">221</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span id="LinkedListStack.pop-222"><a href="#LinkedListStack.pop-222"><span class="linenos">222</span></a>        <span class="k">return</span> <span class="n">item</span>
 </span></pre></div>
 
 
@@ -668,17 +656,17 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 
     </div>
     <a class="headerlink" href="#LinkedListStack.top"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.top-226"><a href="#LinkedListStack.top-226"><span class="linenos">226</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListStack.top-227"><a href="#LinkedListStack.top-227"><span class="linenos">227</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.top-224"><a href="#LinkedListStack.top-224"><span class="linenos">224</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="LinkedListStack.top-225"><a href="#LinkedListStack.top-225"><span class="linenos">225</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+</span><span id="LinkedListStack.top-226"><a href="#LinkedListStack.top-226"><span class="linenos">226</span></a>
+</span><span id="LinkedListStack.top-227"><a href="#LinkedListStack.top-227"><span class="linenos">227</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
 </span><span id="LinkedListStack.top-228"><a href="#LinkedListStack.top-228"><span class="linenos">228</span></a>
-</span><span id="LinkedListStack.top-229"><a href="#LinkedListStack.top-229"><span class="linenos">229</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="LinkedListStack.top-230"><a href="#LinkedListStack.top-230"><span class="linenos">230</span></a>
-</span><span id="LinkedListStack.top-231"><a href="#LinkedListStack.top-231"><span class="linenos">231</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack.top-232"><a href="#LinkedListStack.top-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack.top-233"><a href="#LinkedListStack.top-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="LinkedListStack.top-234"><a href="#LinkedListStack.top-234"><span class="linenos">234</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
-</span><span id="LinkedListStack.top-235"><a href="#LinkedListStack.top-235"><span class="linenos">235</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="LinkedListStack.top-236"><a href="#LinkedListStack.top-236"><span class="linenos">236</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+</span><span id="LinkedListStack.top-229"><a href="#LinkedListStack.top-229"><span class="linenos">229</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack.top-230"><a href="#LinkedListStack.top-230"><span class="linenos">230</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack.top-231"><a href="#LinkedListStack.top-231"><span class="linenos">231</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="LinkedListStack.top-232"><a href="#LinkedListStack.top-232"><span class="linenos">232</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
+</span><span id="LinkedListStack.top-233"><a href="#LinkedListStack.top-233"><span class="linenos">233</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="LinkedListStack.top-234"><a href="#LinkedListStack.top-234"><span class="linenos">234</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span></pre></div>
 
 
@@ -711,15 +699,15 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 </span><span id="PythonListStack-68"><a href="#PythonListStack-68"><span class="linenos"> 68</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
 </span><span id="PythonListStack-69"><a href="#PythonListStack-69"><span class="linenos"> 69</span></a>
 </span><span id="PythonListStack-70"><a href="#PythonListStack-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; from paddles import PythonListStack</span>
-</span><span id="PythonListStack-71"><a href="#PythonListStack-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack = PythonListStack(&quot;abc&quot;)      # create a non-empty stack</span>
-</span><span id="PythonListStack-72"><a href="#PythonListStack-72"><span class="linenos"> 72</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
+</span><span id="PythonListStack-71"><a href="#PythonListStack-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack = PythonListStack(&quot;abc&quot;)  # create a non-empty stack</span>
+</span><span id="PythonListStack-72"><a href="#PythonListStack-72"><span class="linenos"> 72</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                    # number of members</span>
 </span><span id="PythonListStack-73"><a href="#PythonListStack-73"><span class="linenos"> 73</span></a><span class="sd">    3</span>
-</span><span id="PythonListStack-74"><a href="#PythonListStack-74"><span class="linenos"> 74</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
+</span><span id="PythonListStack-74"><a href="#PythonListStack-74"><span class="linenos"> 74</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                     # remove and return the top member</span>
 </span><span id="PythonListStack-75"><a href="#PythonListStack-75"><span class="linenos"> 75</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="PythonListStack-76"><a href="#PythonListStack-76"><span class="linenos"> 76</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
+</span><span id="PythonListStack-76"><a href="#PythonListStack-76"><span class="linenos"> 76</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                     # return but don&#39;t remove the top member</span>
 </span><span id="PythonListStack-77"><a href="#PythonListStack-77"><span class="linenos"> 77</span></a><span class="sd">    &#39;b&#39;</span>
-</span><span id="PythonListStack-78"><a href="#PythonListStack-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
-</span><span id="PythonListStack-79"><a href="#PythonListStack-79"><span class="linenos"> 79</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
+</span><span id="PythonListStack-78"><a href="#PythonListStack-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                 # add a new member on top</span>
+</span><span id="PythonListStack-79"><a href="#PythonListStack-79"><span class="linenos"> 79</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                    # str(stack) also possible</span>
 </span><span id="PythonListStack-80"><a href="#PythonListStack-80"><span class="linenos"> 80</span></a><span class="sd">    PythonListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
 </span><span id="PythonListStack-81"><a href="#PythonListStack-81"><span class="linenos"> 81</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="PythonListStack-82"><a href="#PythonListStack-82"><span class="linenos"> 82</span></a>
@@ -795,15 +783,15 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">paddles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonListStack</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">PythonListStack</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>      <span class="c1"># create a non-empty stack</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>                        <span class="c1"># number of members</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">PythonListStack</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># create a non-empty stack</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>                    <span class="c1"># number of members</span>
 <span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                         <span class="c1"># remove and return the top member</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                     <span class="c1"># remove and return the top member</span>
 <span class="go">&#39;c&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>                         <span class="c1"># return but don&#39;t remove the top member</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>                     <span class="c1"># return but don&#39;t remove the top member</span>
 <span class="go">&#39;b&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                     <span class="c1"># add a new member on top</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>                        <span class="c1"># str(stack) also possible</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                 <span class="c1"># add a new member on top</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>                    <span class="c1"># str(stack) also possible</span>
 <span class="go">PythonListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
 </code></pre>
 </div>

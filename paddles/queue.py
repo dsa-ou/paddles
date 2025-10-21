@@ -51,7 +51,6 @@ Clicking on the up/down button and then on 'Tags' will show
 the algorithmic techniques and ADTs related to each problem.
 """
 
-from collections.abc import Sequence
 from typing import Any
 
 __all__ = ["LinkedListQueue"]
@@ -65,12 +64,15 @@ NEXT = 1
 class LinkedListQueue:
     """An implementation of the Queue ADT, using a singly-linked list.
 
-    Besides the ADT's operations, this class provides two convenience operations:
-    - create a non-empty queue from a given sequence
-    - convert a queue to a string, to see its members listed from front to back.
+    Besides the ADT's operations, this class allows to
+    convert a queue to a string, to see its members listed from front to back.
 
     >>> from paddles import LinkedListQueue
-    >>> q = LinkedListQueue("abc")  # create a non-empty queue
+    >>> q = LinkedListQueue()
+    >>> for char in "abc":
+    ...     q.enqueue(char)
+    >>> str(q)
+    "LinkedListQueue(['a', 'b', 'c'])"
     >>> q.size()                    # number of members
     3
     >>> q.dequeue()                 # remove and return the front member
@@ -78,24 +80,18 @@ class LinkedListQueue:
     >>> q.front()                   # return but don't remove the front member
     'b'
     >>> q.enqueue("d")              # add a new member at the back
-    >>> print(q)                    # str(q) also possible
+    >>> print(q)
     LinkedListQueue(['b', 'c', 'd'])
     """
 
-    def __init__(self, sequence: Sequence[Any] = []) -> None:
-        """Initialize the queue with the members of `sequence`.
+    def __init__(self) -> None:
+        """Create an empty queue.
 
-        The members are added to the queue in the order they are in `sequence`.
-        To create an empty queue, call `LinkedListQueue()` or `LinkedListQueue([])`.
-
-        Complexity: O(n), with n = `len(sequence)`
+        Complexity: O(1)
         """
         self._head = None
         self._tail = None
         self._length = 0
-        if sequence:
-            for item in sequence:
-                self.enqueue(item)
 
     def __str__(self) -> str:
         """Return a string representation of the queue.

@@ -41,15 +41,6 @@ def test_init_empty(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N8
     check_is_empty(Deque())
 
 
-def test_init_iterable(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
-    """Test the creation of deques from itemss."""
-    deque = Deque(items)
-    assert deque.size() == len(items)
-    assert deque.front() == items[0]
-    assert deque.back() == items[-1]
-    assert str(deque) == f"{Deque.__name__}({list(items)})"
-
-
 # Test each modifier method separately.
 
 
@@ -79,7 +70,9 @@ def test_add_back(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
 
 def test_take_front(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that `take_front()` removes and returns the front item."""
-    deque = Deque(items)
+    deque = Deque()
+    for item in items:
+        deque.add_back(item)
     for _ in items:
         before = deque.size()
         assert deque.back() == items[-1]
@@ -90,7 +83,9 @@ def test_take_front(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N8
 
 def test_take_back(Deque: type[DequeADT], items: Sequence) -> None:  # noqa: N803
     """Test that `take_back()` removes and returns the back item."""
-    deque = Deque(items)
+    deque = Deque()
+    for item in items:
+        deque.add_back(item)
     for _ in items:
         before = deque.size()
         assert deque.front() == items[0]

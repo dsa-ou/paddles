@@ -38,14 +38,6 @@ def test_init_empty(Queue: type[QueueADT], items: Sequence) -> None:  # noqa: N8
     check_is_empty(Queue())
 
 
-def test_init_iterable(Queue: type[QueueADT], items: Sequence) -> None:  # noqa: N803
-    """Test the creation of queues from itemss."""
-    queue = Queue(items)
-    assert queue.size() == len(items)
-    assert queue.front() == items[0]
-    assert str(queue) == f"{Queue.__name__}({list(items)})"
-
-
 # Test each modifier method separately.
 
 
@@ -62,7 +54,9 @@ def test_enqueue(Queue: type[QueueADT], items: Sequence) -> None:  # noqa: N803
 
 def test_dequeue(Queue: type[QueueADT], items: Sequence) -> None:  # noqa: N803
     """Test that `dequeue()` removes and returns the front item."""
-    queue = Queue(items)
+    queue = Queue()
+    for item in items:
+        queue.enqueue(item)
     for _ in items:
         before = queue.size()
         assert queue.front() == queue.dequeue()

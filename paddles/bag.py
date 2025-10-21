@@ -39,7 +39,7 @@ Hash tables provide faster access to members than trees,
 but have a larger memory overhead.
 """
 
-from collections.abc import Hashable, Iterable
+from collections.abc import Hashable
 
 __all__ = ["PythonDictBag"]
 
@@ -47,25 +47,30 @@ __all__ = ["PythonDictBag"]
 class PythonDictBag:
     """An implementation of the Bag ADT with a Python dictionary.
 
-    Besides the ADT's basic operations, for convenience this class allows to:
-    - create a non-empty bag from an iterable collection of items
+    Besides the ADT's basic operations, this class allows to:
     - convert a bag to a string, to see its members and their frequency
     - check membership, i.e. whether a bag contains a given item
     - add or remove more than one copy of an item at once
 
     >>> from paddles import PythonDictBag
-    >>> text = PythonDictBag("picnic")               # create a non-empty bag
+    >>> text = PythonDictBag()
+    >>> for char in "picnic":
+    ...     text.add(char)
+    >>> str(text)
+    "PythonDictBag({'p': 1, 'i': 2, 'c': 2, 'n': 1})"
     >>> text.size()                                 # number of members
     6
     >>> text.frequency("c")
     2
     >>> text.add("a", 3)                            # add 3 copies of "a"
     >>> text.remove("c")                            # remove 1 copy of "c"
-    >>> print(text)                                 # str(bag) also possible
+    >>> print(text)
     PythonDictBag({'p': 1, 'i': 2, 'c': 1, 'n': 1, 'a': 3})
     >>> text.has("T")
     False
-    >>> vowels = PythonDictBag("aeiou")
+    >>> vowels = PythonDictBag()
+    >>> for vowel in "aeiou":
+    ...     vowels.add(vowel)
     >>> # characters that are in text or in vowels
     >>> print(text.union(vowels))                   # doctest: +SKIP
     PythonDictBag({'p': 1, 'i': 2, 'c': 1, 'n': 1, 'a': 3, 'e': 1, 'o': 1, 'u': 1})
@@ -77,17 +82,12 @@ class PythonDictBag:
     PythonDictBag({'e': 1, 'o': 1, 'u': 1})
     """
 
-    def __init__(self, items: Iterable[Hashable] = []) -> None:
-        """Initialize the bag with the `items`.
+    def __init__(self) -> None:
+        """Create an empty bag.
 
-        To create an empty bag, call `PythonDictBag()`.
-        If `items` is a dictionary, only its keys are added to the bag.
-
-        Complexity: O(n), with n = `len(items)`
+        Complexity: O(1)
         """
         self._members = {}
-        for item in items:
-            self.add(item)
 
     def __str__(self) -> str:
         """Return a string representation of the bag.

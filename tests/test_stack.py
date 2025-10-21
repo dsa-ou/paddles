@@ -42,14 +42,6 @@ def test_init_empty(Stack: type[StackADT], items: Sequence) -> None:  # noqa: N8
     check_is_empty(Stack())
 
 
-def test_init_iterable(Stack: type[StackADT], items: Sequence) -> None:  # noqa: N803
-    """Test the creation of stacks from itemss."""
-    stack = Stack(items)
-    assert stack.size() == len(items)
-    assert stack.top() == items[-1]
-    assert str(stack) == f"{Stack.__name__}({list(items)})"
-
-
 # Test each modifier method separately.
 
 
@@ -66,7 +58,9 @@ def test_push(Stack: type[StackADT], items: Sequence) -> None:  # noqa: N803
 
 def test_pop(Stack: type[StackADT], items: Sequence) -> None:  # noqa: N803
     """Test that `pop()` removes and returns the top item."""
-    stack = Stack(items)
+    stack = Stack()
+    for item in items:
+        stack.push(item)
     for _ in items:
         before = stack.size()
         assert stack.top() == stack.pop()

@@ -37,16 +37,6 @@ def test_init_empty(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # no
     check_is_empty(Bag())
 
 
-def test_init_iterable(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
-    """Test the creation of bags from an iterable collection."""
-    bag = Bag(items)
-    for item in set(items):
-        assert bag.has(item)
-        assert bag.frequency(item) == items.count(item)
-    assert bag.size() == len(items)
-    assert bag.unique() == set(items)
-
-
 # Test each modifier method separately.
 
 
@@ -85,7 +75,9 @@ def test_add_preconditions(Bag: type[BagADT], items: Sequence[Hashable]) -> None
 
 def test_remove_default(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that `remove(item)` removes one copy of `item` from the bag."""
-    bag = Bag(items)
+    bag = Bag()
+    for item in items:
+        bag.add(item)
     for item in items:
         before = bag.frequency(item)
         bag.remove(item)
@@ -96,7 +88,9 @@ def test_remove_default(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  
 
 def test_remove_copies(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that `remove(item, copies)` removes `copies` of `item` from the bag."""
-    bag = Bag(items)
+    bag = Bag()
+    for item in items:
+        bag.add(item)
     for unique_item in set(items):
         copies = items.count(unique_item)
         bag.remove(unique_item, copies)
@@ -107,7 +101,9 @@ def test_remove_copies(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  #
 
 def test_remove_preconditions(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that `remove(item, copies)` checks the preconditions."""
-    bag = Bag(items)
+    bag = Bag()
+    for item in items:
+        bag.add(item)
     for unique_item in set(items):
         with pytest.raises(ValueError, match="must remove at least one copy"):
             # test with various non-positive numbers, based on the index
@@ -124,8 +120,12 @@ def test_union(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N
     size = len(items)
     items1 = items[size // 3 :]
     items2 = items[: 2 * size // 3]
-    bag1 = Bag(items1)
-    bag2 = Bag(items2)
+    bag1 = Bag()
+    for item in items1:
+        bag1.add(item)
+    bag2 = Bag()
+    for item in items2:
+        bag2.add(item)
     union = bag1.union(bag2)
     for item in set(items):
         assert union.has(item)
@@ -135,11 +135,15 @@ def test_union(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N
     assert bag2.included_in(union)
 
 
-def test_union_subset(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
+def test_union_with_subset(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that the union of a bag with a subset of it is the bag."""
-    whole = Bag(items)
+    whole = Bag()
+    for item in items:
+        whole.add(item)
     for n in range(len(items) + 1):
-        subset = Bag(random.sample(items, n))  # choose n random sequence members
+        subset = Bag()
+        for item in random.sample(items, n):  # choose n random sequence members
+            subset.add(item)
         assert subset.included_in(whole)
         union = whole.union(subset)
         assert union.equal_to(whole)
@@ -153,8 +157,12 @@ def test_intersection(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # 
     size = len(items)
     items1 = items[size // 3 :]
     items2 = items[: 2 * size // 3]
-    bag1 = Bag(items1)
-    bag2 = Bag(items2)
+    bag1 = Bag()
+    for item in items1:
+        bag1.add(item)
+    bag2 = Bag()
+    for item in items2:
+        bag2.add(item)
     common = bag1.intersection(bag2)
     for item in set(items):
         assert common.has(item) == (item in items1 and item in items2)
@@ -164,11 +172,15 @@ def test_intersection(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # 
     assert common.included_in(bag2)
 
 
-def test_intersection_subset(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
+def test_intersection_with_subset(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that the intersection of a bag with a subset of it is the subset."""
-    whole = Bag(items)
+    whole = Bag()
+    for item in items:
+        whole.add(item)
     for n in range(len(items) + 1):
-        subset = Bag(random.sample(items, n))  # choose n random sequence members
+        subset = Bag()
+        for item in random.sample(items, n):  # choose n random sequence members
+            subset.add(item)
         assert subset.included_in(whole)
         common = whole.intersection(subset)
         assert common.equal_to(subset)
@@ -182,8 +194,12 @@ def test_difference(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # no
     size = len(items)
     items1 = items[size // 3 :]
     items2 = items[: 2 * size // 3]
-    bag1 = Bag(items1)
-    bag2 = Bag(items2)
+    bag1 = Bag()
+    for item in items1:
+        bag1.add(item)
+    bag2 = Bag()
+    for item in items2:
+        bag2.add(item)
     diff = bag1.difference(bag2)
     for item in set(items):
         assert diff.has(item) == (items1.count(item) > items2.count(item))
@@ -193,10 +209,14 @@ def test_difference(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # no
 
 def test_difference_subset(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test the difference between a bag and a subset of it."""
-    whole = Bag(items)
+    whole = Bag()
+    for item in items:
+        whole.add(item)
     for n in range(len(items) + 1):
         some = random.sample(items, n)  # choose n random sequence members
-        subset = Bag(some)
+        subset = Bag()
+        for item in some:
+            subset.add(item)
         assert subset.included_in(whole)
         diff = whole.difference(subset)
         for item in set(items):
@@ -209,12 +229,18 @@ def test_difference_subset(Bag: type[BagADT], items: Sequence[Hashable]) -> None
 
 def test_included_in(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that any subset of a bag is included in it."""
-    bag1 = Bag(items)
-    bag2 = Bag(items[::-1])
+    bag1 = Bag()
+    for item in items:
+        bag1.add(item)
+    bag2 = Bag()
+    for item in items[::-1]:
+        bag2.add(item)
     assert bag1.included_in(bag2)
     assert bag2.included_in(bag1)
     for n in range(len(items)):
-        subset = Bag(random.sample(items, n))  # choose n random sequence members
+        subset = Bag()
+        for item in random.sample(items, n):  # choose n random sequence members
+            subset.add(item)
         assert subset.included_in(bag1)
         assert not bag1.included_in(subset)
         assert subset.included_in(bag2)
@@ -223,11 +249,17 @@ def test_included_in(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # n
 
 def test_equal_to(Bag: type[BagADT], items: Sequence[Hashable]) -> None:  # noqa: N803
     """Test that two bags are equal if they contain the same items."""
-    bag1 = Bag(items)
-    bag2 = Bag(items[::-1])
+    bag1 = Bag()
+    for item in items:
+        bag1.add(item)
+    bag2 = Bag()
+    for item in items[::-1]:
+        bag2.add(item)
     assert bag1.equal_to(bag2)
     assert bag2.equal_to(bag1)  # check that equality is commutative
     for n in range(len(items)):
-        subset = Bag(random.sample(items, n))
+        subset = Bag()
+        for item in random.sample(items, n):  # choose n random sequence members
+            subset.add(item)
         assert not bag1.equal_to(subset)
         assert not subset.equal_to(bag1)

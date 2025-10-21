@@ -67,15 +67,15 @@ class PythonListStack:
     - convert a stack to a string, to see its members listed from bottom to top.
 
     >>> from paddles import PythonListStack
-    >>> stack = PythonListStack("abc")      # create a non-empty stack
-    >>> stack.size()                        # number of members
+    >>> stack = PythonListStack("abc")  # create a non-empty stack
+    >>> stack.size()                    # number of members
     3
-    >>> stack.pop()                         # remove and return the top member
+    >>> stack.pop()                     # remove and return the top member
     'c'
-    >>> stack.top()                         # return but don't remove the top member
+    >>> stack.top()                     # return but don't remove the top member
     'b'
-    >>> stack.push("C")                     # add a new member on top
-    >>> print(stack)                        # str(stack) also possible
+    >>> stack.push("C")                 # add a new member on top
+    >>> print(stack)                    # str(stack) also possible
     PythonListStack(['a', 'b', 'C'])
     """
 
@@ -148,35 +148,33 @@ NEXT = 1
 class LinkedListStack:
     """An implementation of the Stack ADT, using singly-linked lists.
 
-    Besides the ADT's operations, this class provides two convenience operations:
-    - create a non-empty stack from a given sequence
-    - convert a stack to a string, to see its members listed from bottom to top.
+    Besides the ADT's operations, this class allows to
+    convert a stack to a string, to see its members listed from bottom to top.
 
     >>> from paddles import LinkedListStack
-    >>> stack = LinkedListStack("abc")      # create a non-empty stack
-    >>> stack.size()                        # number of members
+    >>> stack = LinkedListStack()
+    >>> for char in "abc":
+    ...     stack.push(char)
+    >>> str(stack)
+    "LinkedListStack(['a', 'b', 'c'])"
+    >>> stack.size()                    # number of members
     3
-    >>> stack.pop()                         # remove and return the top member
+    >>> stack.pop()                     # remove and return the top member
     'c'
-    >>> stack.top()                         # return but don't remove the top member
+    >>> stack.top()                     # return but don't remove the top member
     'b'
-    >>> stack.push("C")                     # add a new member on top
-    >>> print(stack)                        # str(stack) also possible
+    >>> stack.push("C")                 # add a new member on top
+    >>> print(stack)
     LinkedListStack(['a', 'b', 'C'])
     """
 
-    def __init__(self, sequence: Sequence[Any] = []) -> None:
-        """Initialize the stack with the members of `sequence`.
+    def __init__(self) -> None:
+        """Create an empty stack.
 
-        The members are added to the stack in the order they are in `sequence`.
-        To create an empty stack, call `LinkedListStack()` or `LinkedListStack([])`.
-
-        Complexity: O(n), with n = `len(sequence)`
+        Complexity: O(1)
         """
         self._head = None
         self._length = 0
-        for item in sequence:
-            self.push(item)
 
     def __str__(self) -> str:
         """Return a string representation of the stack.
