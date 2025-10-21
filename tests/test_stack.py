@@ -4,18 +4,20 @@ from collections.abc import Sequence
 
 import pytest
 
-from paddles import DynamicArrayStack, LinkedListStack
+from paddles import LinkedListStack, PythonListStack
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 
-StackADT = DynamicArrayStack | LinkedListStack
+StackADT = PythonListStack | LinkedListStack
 
 
 def check_is_empty(stack: StackADT) -> None:
     """Test that the stack is empty."""
     assert stack.size() == 0
-    with pytest.raises(ValueError, match="can't peek into an empty stack"):
-        stack.peek()
+    with pytest.raises(
+        ValueError, match="can't access the top member of an empty stack"
+    ):
+        stack.top()
     with pytest.raises(ValueError, match="can't pop a member from an empty stack"):
         stack.pop()
     assert str(stack) == f"{stack.__class__.__name__}([])"
@@ -23,7 +25,7 @@ def check_is_empty(stack: StackADT) -> None:
 
 # Execute each test for all combinations of these parameter values.
 pytestmark = [
-    pytest.mark.parametrize("Stack", [LinkedListStack, DynamicArrayStack]),
+    pytest.mark.parametrize("Stack", [LinkedListStack, PythonListStack]),
     pytest.mark.parametrize(
         "items", ["abcd", [3, 2, 1], (True, False, None), range(20)]
     ),
@@ -44,7 +46,7 @@ def test_init_iterable(Stack: type[StackADT], items: Sequence) -> None:  # noqa:
     """Test the creation of stacks from itemss."""
     stack = Stack(items)
     assert stack.size() == len(items)
-    assert stack.peek() == items[-1]
+    assert stack.top() == items[-1]
     assert str(stack) == f"{Stack.__name__}({list(items)})"
 
 
@@ -58,7 +60,7 @@ def test_push(Stack: type[StackADT], items: Sequence) -> None:  # noqa: N803
         before = stack.size()
         stack.push(item)
         assert stack.size() == before + 1
-        assert stack.peek() == item
+        assert stack.top() == item
     assert str(stack) == f"{Stack.__name__}({list(items)})"
 
 
@@ -67,7 +69,7 @@ def test_pop(Stack: type[StackADT], items: Sequence) -> None:  # noqa: N803
     stack = Stack(items)
     for _ in items:
         before = stack.size()
-        assert stack.peek() == stack.pop()
+        assert stack.top() == stack.pop()
         assert stack.size() == before - 1
     check_is_empty(stack)
 

@@ -38,7 +38,7 @@ You should consider using a stack when you need to:
 
 ## Implementations
 
-A stack can be stored in a dynamic array (see `DynamicArrayStack`)
+A stack can be stored in a dynamic array (see `PythonListStack`)
 or a singly-linked list (see `LinkedListStack`).
 In both cases, the operations take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
@@ -56,34 +56,34 @@ the algorithmic techniques and ADTs related to each problem.
 from collections.abc import Sequence
 from typing import Any
 
-__all__ = ["DynamicArrayStack", "LinkedListStack"]
+__all__ = ["LinkedListStack", "PythonListStack"]
 
 
-class DynamicArrayStack:
+class PythonListStack:
     """An implementation of the Stack ADT, using Python lists.
 
     Besides the ADT's operations, this class provides two convenience operations:
     - create a non-empty stack from a given sequence
     - convert a stack to a string, to see its members listed from bottom to top.
 
-    >>> from paddles import DynamicArrayStack
-    >>> stack = DynamicArrayStack("abc")    # create a non-empty stack
+    >>> from paddles import PythonListStack
+    >>> stack = PythonListStack("abc")      # create a non-empty stack
     >>> stack.size()                        # number of members
     3
     >>> stack.pop()                         # remove and return the top member
     'c'
-    >>> stack.peek()                        # return but don't remove the top member
+    >>> stack.top()                         # return but don't remove the top member
     'b'
     >>> stack.push("C")                     # add a new member on top
     >>> print(stack)                        # str(stack) also possible
-    DynamicArrayStack(['a', 'b', 'C'])
+    PythonListStack(['a', 'b', 'C'])
     """
 
     def __init__(self, sequence: Sequence[Any] = []) -> None:
         """Initialize the stack with the members of `sequence`.
 
         The members are added to the stack in the order they are in `sequence`.
-        To create an empty stack, call `DynamicArrayStack()` or `DynamicArrayStack([])`.
+        To create an empty stack, call `PythonListStack()` or `PythonListStack([])`.
 
         Complexity: O(n), with n = `len(sequence)`
         """
@@ -94,11 +94,11 @@ class DynamicArrayStack:
     def __str__(self) -> str:
         """Return a string representation of the stack.
 
-        The string is 'DynamicArrayStack([bottom member, ..., top member])'.
+        The string is 'PythonListStack([bottom member, ..., top member])'.
 
         Complexity: O(n), with n = `self.size()`
         """
-        return f"DynamicArrayStack({self._members})"
+        return f"PythonListStack({self._members})"
 
     def size(self) -> int:
         """Return how many members the stack has.
@@ -107,7 +107,7 @@ class DynamicArrayStack:
         """
         return len(self._members)
 
-    def peek(self) -> Any:
+    def top(self) -> Any:
         """Return the member at the top of the stack, without removing it.
 
         Raise `ValueError` if the stack is empty.
@@ -115,7 +115,7 @@ class DynamicArrayStack:
         Complexity: O(1)
         """
         if self.size() == 0:
-            msg = "can't peek into an empty stack"
+            msg = "can't access the top member of an empty stack"
             raise ValueError(msg)
         return self._members[-1]
 
@@ -158,7 +158,7 @@ class LinkedListStack:
     3
     >>> stack.pop()                         # remove and return the top member
     'c'
-    >>> stack.peek()                        # return but don't remove the top member
+    >>> stack.top()                         # return but don't remove the top member
     'b'
     >>> stack.push("C")                     # add a new member on top
     >>> print(stack)                        # str(stack) also possible
@@ -222,7 +222,7 @@ class LinkedListStack:
         self._length -= 1
         return item
 
-    def peek(self) -> Any:
+    def top(self) -> Any:
         """Return the member at the top of the stack.
 
         Raise `ValueError` if the stack is empty.
@@ -230,6 +230,6 @@ class LinkedListStack:
         Complexity: O(1)
         """
         if self.size() == 0:
-            msg = "can't peek into an empty stack"
+            msg = "can't access the top member of an empty stack"
             raise ValueError(msg)
         return self._head[DATA]

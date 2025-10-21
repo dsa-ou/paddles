@@ -41,27 +41,6 @@
             <h2>API Documentation</h2>
                 <ul class="memberlist">
             <li>
-                    <a class="class" href="#DynamicArrayStack">DynamicArrayStack</a>
-                            <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#DynamicArrayStack.__init__">DynamicArrayStack</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#DynamicArrayStack.size">size</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#DynamicArrayStack.peek">peek</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#DynamicArrayStack.push">push</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#DynamicArrayStack.pop">pop</a>
-                        </li>
-                </ul>
-
-            </li>
-            <li>
                     <a class="class" href="#LinkedListStack">LinkedListStack</a>
                             <ul class="memberlist">
                         <li>
@@ -77,7 +56,28 @@
                                 <a class="function" href="#LinkedListStack.pop">pop</a>
                         </li>
                         <li>
-                                <a class="function" href="#LinkedListStack.peek">peek</a>
+                                <a class="function" href="#LinkedListStack.top">top</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#PythonListStack">PythonListStack</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#PythonListStack.__init__">PythonListStack</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PythonListStack.size">size</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PythonListStack.top">top</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PythonListStack.push">push</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#PythonListStack.pop">pop</a>
                         </li>
                 </ul>
 
@@ -144,7 +144,7 @@ HTML tags (e.g. <code>&lt;p&gt;&lt;b&gt;text&lt;/b&gt;&lt;/p&gt;</code>)</li>
 
 <h2 id="implementations">Implementations</h2>
 
-<p>A stack can be stored in a dynamic array (see <code><a href="#DynamicArrayStack">DynamicArrayStack</a></code>)
+<p>A stack can be stored in a dynamic array (see <code><a href="#PythonListStack">PythonListStack</a></code>)
 or a singly-linked list (see <code><a href="#LinkedListStack">LinkedListStack</a></code>).
 In both cases, the operations take constant time.
 A singly-linked list uses much more memory than a static array of the same length,
@@ -203,7 +203,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a><span class="sd">## Implementations</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="sd">A stack can be stored in a dynamic array (see `DynamicArrayStack`)</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="sd">A stack can be stored in a dynamic array (see `PythonListStack`)</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="sd">or a singly-linked list (see `LinkedListStack`).</span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a><span class="sd">In both cases, the operations take constant time.</span>
 </span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="sd">A singly-linked list uses much more memory than a static array of the same length,</span>
@@ -221,34 +221,34 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
 </span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DynamicArrayStack&quot;</span><span class="p">,</span> <span class="s2">&quot;LinkedListStack&quot;</span><span class="p">]</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LinkedListStack&quot;</span><span class="p">,</span> <span class="s2">&quot;PythonListStack&quot;</span><span class="p">]</span>
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>
-</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="k">class</span><span class="w"> </span><span class="nc">DynamicArrayStack</span><span class="p">:</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PythonListStack</span><span class="p">:</span>
 </span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;An implementation of the Stack ADT, using Python lists.</span>
 </span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>
 </span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a><span class="sd">    Besides the ADT&#39;s operations, this class provides two convenience operations:</span>
 </span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a><span class="sd">    - create a non-empty stack from a given sequence</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">    &gt;&gt;&gt; from paddles import DynamicArrayStack</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; stack = DynamicArrayStack(&quot;abc&quot;)    # create a non-empty stack</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">    &gt;&gt;&gt; from paddles import PythonListStack</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; stack = PythonListStack(&quot;abc&quot;)      # create a non-empty stack</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">    3</span>
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    &gt;&gt;&gt; stack.peek()                        # return but don&#39;t remove the top member</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">    &#39;b&#39;</span>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
 </span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">    DynamicArrayStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">    PythonListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">        To create an empty stack, call `DynamicArrayStack()` or `DynamicArrayStack([])`.</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="sd">        To create an empty stack, call `PythonListStack()` or `PythonListStack([])`.</span>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">        &quot;&quot;&quot;</span>
@@ -259,11 +259,11 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        The string is &#39;DynamicArrayStack([bottom member, ..., top member])&#39;.</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">        The string is &#39;PythonListStack([bottom member, ..., top member])&#39;.</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;DynamicArrayStack(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="si">}</span><span class="s2">)&quot;</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;PythonListStack(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="si">}</span><span class="s2">)&quot;</span>
 </span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>
 </span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
@@ -272,7 +272,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 </span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack, without removing it.</span>
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
@@ -280,7 +280,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">        Complexity: O(1)</span>
 </span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t peek into an empty stack&quot;</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
 </span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>
@@ -323,7 +323,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a><span class="sd">    3</span>
 </span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
 </span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="sd">    &gt;&gt;&gt; stack.peek()                        # return but don&#39;t remove the top member</span>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
 </span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">    &#39;b&#39;</span>
 </span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
@@ -387,7 +387,7 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
 </span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>        <span class="k">return</span> <span class="n">item</span>
 </span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>
-</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 </span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
 </span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>
 </span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
@@ -395,288 +395,13 @@ the algorithmic techniques and ADTs related to each problem.</p>
 </span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a><span class="sd">        Complexity: O(1)</span>
 </span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t peek into an empty stack&quot;</span>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
 </span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span></pre></div>
 
 
             </section>
-                <section id="DynamicArrayStack">
-                            <input id="DynamicArrayStack-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr class">
-            
-    <span class="def">class</span>
-    <span class="name">DynamicArrayStack</span>:
-
-                <label class="view-source-button" for="DynamicArrayStack-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#DynamicArrayStack"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DynamicArrayStack-63"><a href="#DynamicArrayStack-63"><span class="linenos"> 63</span></a><span class="k">class</span><span class="w"> </span><span class="nc">DynamicArrayStack</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-64"><a href="#DynamicArrayStack-64"><span class="linenos"> 64</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;An implementation of the Stack ADT, using Python lists.</span>
-</span><span id="DynamicArrayStack-65"><a href="#DynamicArrayStack-65"><span class="linenos"> 65</span></a>
-</span><span id="DynamicArrayStack-66"><a href="#DynamicArrayStack-66"><span class="linenos"> 66</span></a><span class="sd">    Besides the ADT&#39;s operations, this class provides two convenience operations:</span>
-</span><span id="DynamicArrayStack-67"><a href="#DynamicArrayStack-67"><span class="linenos"> 67</span></a><span class="sd">    - create a non-empty stack from a given sequence</span>
-</span><span id="DynamicArrayStack-68"><a href="#DynamicArrayStack-68"><span class="linenos"> 68</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
-</span><span id="DynamicArrayStack-69"><a href="#DynamicArrayStack-69"><span class="linenos"> 69</span></a>
-</span><span id="DynamicArrayStack-70"><a href="#DynamicArrayStack-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; from paddles import DynamicArrayStack</span>
-</span><span id="DynamicArrayStack-71"><a href="#DynamicArrayStack-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack = DynamicArrayStack(&quot;abc&quot;)    # create a non-empty stack</span>
-</span><span id="DynamicArrayStack-72"><a href="#DynamicArrayStack-72"><span class="linenos"> 72</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
-</span><span id="DynamicArrayStack-73"><a href="#DynamicArrayStack-73"><span class="linenos"> 73</span></a><span class="sd">    3</span>
-</span><span id="DynamicArrayStack-74"><a href="#DynamicArrayStack-74"><span class="linenos"> 74</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
-</span><span id="DynamicArrayStack-75"><a href="#DynamicArrayStack-75"><span class="linenos"> 75</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="DynamicArrayStack-76"><a href="#DynamicArrayStack-76"><span class="linenos"> 76</span></a><span class="sd">    &gt;&gt;&gt; stack.peek()                        # return but don&#39;t remove the top member</span>
-</span><span id="DynamicArrayStack-77"><a href="#DynamicArrayStack-77"><span class="linenos"> 77</span></a><span class="sd">    &#39;b&#39;</span>
-</span><span id="DynamicArrayStack-78"><a href="#DynamicArrayStack-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
-</span><span id="DynamicArrayStack-79"><a href="#DynamicArrayStack-79"><span class="linenos"> 79</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
-</span><span id="DynamicArrayStack-80"><a href="#DynamicArrayStack-80"><span class="linenos"> 80</span></a><span class="sd">    DynamicArrayStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
-</span><span id="DynamicArrayStack-81"><a href="#DynamicArrayStack-81"><span class="linenos"> 81</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-82"><a href="#DynamicArrayStack-82"><span class="linenos"> 82</span></a>
-</span><span id="DynamicArrayStack-83"><a href="#DynamicArrayStack-83"><span class="linenos"> 83</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-84"><a href="#DynamicArrayStack-84"><span class="linenos"> 84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
-</span><span id="DynamicArrayStack-85"><a href="#DynamicArrayStack-85"><span class="linenos"> 85</span></a>
-</span><span id="DynamicArrayStack-86"><a href="#DynamicArrayStack-86"><span class="linenos"> 86</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
-</span><span id="DynamicArrayStack-87"><a href="#DynamicArrayStack-87"><span class="linenos"> 87</span></a><span class="sd">        To create an empty stack, call `DynamicArrayStack()` or `DynamicArrayStack([])`.</span>
-</span><span id="DynamicArrayStack-88"><a href="#DynamicArrayStack-88"><span class="linenos"> 88</span></a>
-</span><span id="DynamicArrayStack-89"><a href="#DynamicArrayStack-89"><span class="linenos"> 89</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
-</span><span id="DynamicArrayStack-90"><a href="#DynamicArrayStack-90"><span class="linenos"> 90</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-91"><a href="#DynamicArrayStack-91"><span class="linenos"> 91</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="DynamicArrayStack-92"><a href="#DynamicArrayStack-92"><span class="linenos"> 92</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-93"><a href="#DynamicArrayStack-93"><span class="linenos"> 93</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="DynamicArrayStack-94"><a href="#DynamicArrayStack-94"><span class="linenos"> 94</span></a>
-</span><span id="DynamicArrayStack-95"><a href="#DynamicArrayStack-95"><span class="linenos"> 95</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-96"><a href="#DynamicArrayStack-96"><span class="linenos"> 96</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
-</span><span id="DynamicArrayStack-97"><a href="#DynamicArrayStack-97"><span class="linenos"> 97</span></a>
-</span><span id="DynamicArrayStack-98"><a href="#DynamicArrayStack-98"><span class="linenos"> 98</span></a><span class="sd">        The string is &#39;DynamicArrayStack([bottom member, ..., top member])&#39;.</span>
-</span><span id="DynamicArrayStack-99"><a href="#DynamicArrayStack-99"><span class="linenos"> 99</span></a>
-</span><span id="DynamicArrayStack-100"><a href="#DynamicArrayStack-100"><span class="linenos">100</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
-</span><span id="DynamicArrayStack-101"><a href="#DynamicArrayStack-101"><span class="linenos">101</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-102"><a href="#DynamicArrayStack-102"><span class="linenos">102</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;DynamicArrayStack(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="si">}</span><span class="s2">)&quot;</span>
-</span><span id="DynamicArrayStack-103"><a href="#DynamicArrayStack-103"><span class="linenos">103</span></a>
-</span><span id="DynamicArrayStack-104"><a href="#DynamicArrayStack-104"><span class="linenos">104</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-105"><a href="#DynamicArrayStack-105"><span class="linenos">105</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
-</span><span id="DynamicArrayStack-106"><a href="#DynamicArrayStack-106"><span class="linenos">106</span></a>
-</span><span id="DynamicArrayStack-107"><a href="#DynamicArrayStack-107"><span class="linenos">107</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack-108"><a href="#DynamicArrayStack-108"><span class="linenos">108</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-109"><a href="#DynamicArrayStack-109"><span class="linenos">109</span></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
-</span><span id="DynamicArrayStack-110"><a href="#DynamicArrayStack-110"><span class="linenos">110</span></a>
-</span><span id="DynamicArrayStack-111"><a href="#DynamicArrayStack-111"><span class="linenos">111</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-112"><a href="#DynamicArrayStack-112"><span class="linenos">112</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack, without removing it.</span>
-</span><span id="DynamicArrayStack-113"><a href="#DynamicArrayStack-113"><span class="linenos">113</span></a>
-</span><span id="DynamicArrayStack-114"><a href="#DynamicArrayStack-114"><span class="linenos">114</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="DynamicArrayStack-115"><a href="#DynamicArrayStack-115"><span class="linenos">115</span></a>
-</span><span id="DynamicArrayStack-116"><a href="#DynamicArrayStack-116"><span class="linenos">116</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack-117"><a href="#DynamicArrayStack-117"><span class="linenos">117</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-118"><a href="#DynamicArrayStack-118"><span class="linenos">118</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-119"><a href="#DynamicArrayStack-119"><span class="linenos">119</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t peek into an empty stack&quot;</span>
-</span><span id="DynamicArrayStack-120"><a href="#DynamicArrayStack-120"><span class="linenos">120</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="DynamicArrayStack-121"><a href="#DynamicArrayStack-121"><span class="linenos">121</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="DynamicArrayStack-122"><a href="#DynamicArrayStack-122"><span class="linenos">122</span></a>
-</span><span id="DynamicArrayStack-123"><a href="#DynamicArrayStack-123"><span class="linenos">123</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-124"><a href="#DynamicArrayStack-124"><span class="linenos">124</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
-</span><span id="DynamicArrayStack-125"><a href="#DynamicArrayStack-125"><span class="linenos">125</span></a>
-</span><span id="DynamicArrayStack-126"><a href="#DynamicArrayStack-126"><span class="linenos">126</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack-127"><a href="#DynamicArrayStack-127"><span class="linenos">127</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-128"><a href="#DynamicArrayStack-128"><span class="linenos">128</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span><span id="DynamicArrayStack-129"><a href="#DynamicArrayStack-129"><span class="linenos">129</span></a>
-</span><span id="DynamicArrayStack-130"><a href="#DynamicArrayStack-130"><span class="linenos">130</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-131"><a href="#DynamicArrayStack-131"><span class="linenos">131</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
-</span><span id="DynamicArrayStack-132"><a href="#DynamicArrayStack-132"><span class="linenos">132</span></a>
-</span><span id="DynamicArrayStack-133"><a href="#DynamicArrayStack-133"><span class="linenos">133</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="DynamicArrayStack-134"><a href="#DynamicArrayStack-134"><span class="linenos">134</span></a>
-</span><span id="DynamicArrayStack-135"><a href="#DynamicArrayStack-135"><span class="linenos">135</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack-136"><a href="#DynamicArrayStack-136"><span class="linenos">136</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack-137"><a href="#DynamicArrayStack-137"><span class="linenos">137</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="DynamicArrayStack-138"><a href="#DynamicArrayStack-138"><span class="linenos">138</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
-</span><span id="DynamicArrayStack-139"><a href="#DynamicArrayStack-139"><span class="linenos">139</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="DynamicArrayStack-140"><a href="#DynamicArrayStack-140"><span class="linenos">140</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>An implementation of the Stack ADT, using Python lists.</p>
-
-<p>Besides the ADT's operations, this class provides two convenience operations:</p>
-
-<ul>
-<li>create a non-empty stack from a given sequence</li>
-<li>convert a stack to a string, to see its members listed from bottom to top.</li>
-</ul>
-
-<div class="pdoc-code codehilite">
-<pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">paddles</span><span class="w"> </span><span class="kn">import</span> <span class="n">DynamicArrayStack</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">DynamicArrayStack</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>    <span class="c1"># create a non-empty stack</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>                        <span class="c1"># number of members</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                         <span class="c1"># remove and return the top member</span>
-<span class="go">&#39;c&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>                        <span class="c1"># return but don&#39;t remove the top member</span>
-<span class="go">&#39;b&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                     <span class="c1"># add a new member on top</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>                        <span class="c1"># str(stack) also possible</span>
-<span class="go">DynamicArrayStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
-</code></pre>
-</div>
-</div>
-
-
-                            <div id="DynamicArrayStack.__init__" class="classattr">
-                                        <input id="DynamicArrayStack.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">DynamicArrayStack</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></span>)</span>
-
-                <label class="view-source-button" for="DynamicArrayStack.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#DynamicArrayStack.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DynamicArrayStack.__init__-83"><a href="#DynamicArrayStack.__init__-83"><span class="linenos">83</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.__init__-84"><a href="#DynamicArrayStack.__init__-84"><span class="linenos">84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
-</span><span id="DynamicArrayStack.__init__-85"><a href="#DynamicArrayStack.__init__-85"><span class="linenos">85</span></a>
-</span><span id="DynamicArrayStack.__init__-86"><a href="#DynamicArrayStack.__init__-86"><span class="linenos">86</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
-</span><span id="DynamicArrayStack.__init__-87"><a href="#DynamicArrayStack.__init__-87"><span class="linenos">87</span></a><span class="sd">        To create an empty stack, call `DynamicArrayStack()` or `DynamicArrayStack([])`.</span>
-</span><span id="DynamicArrayStack.__init__-88"><a href="#DynamicArrayStack.__init__-88"><span class="linenos">88</span></a>
-</span><span id="DynamicArrayStack.__init__-89"><a href="#DynamicArrayStack.__init__-89"><span class="linenos">89</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
-</span><span id="DynamicArrayStack.__init__-90"><a href="#DynamicArrayStack.__init__-90"><span class="linenos">90</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack.__init__-91"><a href="#DynamicArrayStack.__init__-91"><span class="linenos">91</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="DynamicArrayStack.__init__-92"><a href="#DynamicArrayStack.__init__-92"><span class="linenos">92</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.__init__-93"><a href="#DynamicArrayStack.__init__-93"><span class="linenos">93</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Initialize the stack with the members of <code>sequence</code>.</p>
-
-<p>The members are added to the stack in the order they are in <code>sequence</code>.
-To create an empty stack, call <code><a href="#DynamicArrayStack">DynamicArrayStack()</a></code> or <code>DynamicArrayStack([])</code>.</p>
-
-<p>Complexity: O(n), with n = <code>len(sequence)</code></p>
-</div>
-
-
-                            </div>
-                            <div id="DynamicArrayStack.size" class="classattr">
-                                        <input id="DynamicArrayStack.size-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">size</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
-
-                <label class="view-source-button" for="DynamicArrayStack.size-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#DynamicArrayStack.size"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DynamicArrayStack.size-104"><a href="#DynamicArrayStack.size-104"><span class="linenos">104</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.size-105"><a href="#DynamicArrayStack.size-105"><span class="linenos">105</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
-</span><span id="DynamicArrayStack.size-106"><a href="#DynamicArrayStack.size-106"><span class="linenos">106</span></a>
-</span><span id="DynamicArrayStack.size-107"><a href="#DynamicArrayStack.size-107"><span class="linenos">107</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack.size-108"><a href="#DynamicArrayStack.size-108"><span class="linenos">108</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack.size-109"><a href="#DynamicArrayStack.size-109"><span class="linenos">109</span></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Return how many members the stack has.</p>
-
-<p>Complexity: O(1)</p>
-</div>
-
-
-                            </div>
-                            <div id="DynamicArrayStack.peek" class="classattr">
-                                        <input id="DynamicArrayStack.peek-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">peek</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
-
-                <label class="view-source-button" for="DynamicArrayStack.peek-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#DynamicArrayStack.peek"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DynamicArrayStack.peek-111"><a href="#DynamicArrayStack.peek-111"><span class="linenos">111</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.peek-112"><a href="#DynamicArrayStack.peek-112"><span class="linenos">112</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack, without removing it.</span>
-</span><span id="DynamicArrayStack.peek-113"><a href="#DynamicArrayStack.peek-113"><span class="linenos">113</span></a>
-</span><span id="DynamicArrayStack.peek-114"><a href="#DynamicArrayStack.peek-114"><span class="linenos">114</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="DynamicArrayStack.peek-115"><a href="#DynamicArrayStack.peek-115"><span class="linenos">115</span></a>
-</span><span id="DynamicArrayStack.peek-116"><a href="#DynamicArrayStack.peek-116"><span class="linenos">116</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack.peek-117"><a href="#DynamicArrayStack.peek-117"><span class="linenos">117</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack.peek-118"><a href="#DynamicArrayStack.peek-118"><span class="linenos">118</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.peek-119"><a href="#DynamicArrayStack.peek-119"><span class="linenos">119</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t peek into an empty stack&quot;</span>
-</span><span id="DynamicArrayStack.peek-120"><a href="#DynamicArrayStack.peek-120"><span class="linenos">120</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="DynamicArrayStack.peek-121"><a href="#DynamicArrayStack.peek-121"><span class="linenos">121</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Return the member at the top of the stack, without removing it.</p>
-
-<p>Raise <code>ValueError</code> if the stack is empty.</p>
-
-<p>Complexity: O(1)</p>
-</div>
-
-
-                            </div>
-                            <div id="DynamicArrayStack.push" class="classattr">
-                                        <input id="DynamicArrayStack.push-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">push</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
-
-                <label class="view-source-button" for="DynamicArrayStack.push-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#DynamicArrayStack.push"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DynamicArrayStack.push-123"><a href="#DynamicArrayStack.push-123"><span class="linenos">123</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.push-124"><a href="#DynamicArrayStack.push-124"><span class="linenos">124</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
-</span><span id="DynamicArrayStack.push-125"><a href="#DynamicArrayStack.push-125"><span class="linenos">125</span></a>
-</span><span id="DynamicArrayStack.push-126"><a href="#DynamicArrayStack.push-126"><span class="linenos">126</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack.push-127"><a href="#DynamicArrayStack.push-127"><span class="linenos">127</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack.push-128"><a href="#DynamicArrayStack.push-128"><span class="linenos">128</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Put <code>item</code> on top of the stack.</p>
-
-<p>Complexity: O(1)</p>
-</div>
-
-
-                            </div>
-                            <div id="DynamicArrayStack.pop" class="classattr">
-                                        <input id="DynamicArrayStack.pop-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">pop</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
-
-                <label class="view-source-button" for="DynamicArrayStack.pop-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#DynamicArrayStack.pop"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DynamicArrayStack.pop-130"><a href="#DynamicArrayStack.pop-130"><span class="linenos">130</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.pop-131"><a href="#DynamicArrayStack.pop-131"><span class="linenos">131</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
-</span><span id="DynamicArrayStack.pop-132"><a href="#DynamicArrayStack.pop-132"><span class="linenos">132</span></a>
-</span><span id="DynamicArrayStack.pop-133"><a href="#DynamicArrayStack.pop-133"><span class="linenos">133</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="DynamicArrayStack.pop-134"><a href="#DynamicArrayStack.pop-134"><span class="linenos">134</span></a>
-</span><span id="DynamicArrayStack.pop-135"><a href="#DynamicArrayStack.pop-135"><span class="linenos">135</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="DynamicArrayStack.pop-136"><a href="#DynamicArrayStack.pop-136"><span class="linenos">136</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DynamicArrayStack.pop-137"><a href="#DynamicArrayStack.pop-137"><span class="linenos">137</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="DynamicArrayStack.pop-138"><a href="#DynamicArrayStack.pop-138"><span class="linenos">138</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
-</span><span id="DynamicArrayStack.pop-139"><a href="#DynamicArrayStack.pop-139"><span class="linenos">139</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="DynamicArrayStack.pop-140"><a href="#DynamicArrayStack.pop-140"><span class="linenos">140</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Remove and return the member at the top of the stack.</p>
-
-<p>Raise <code>ValueError</code> if the stack is empty.</p>
-
-<p>Complexity: O(1)</p>
-</div>
-
-
-                            </div>
-                </section>
                 <section id="LinkedListStack">
                             <input id="LinkedListStack-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
@@ -701,7 +426,7 @@ To create an empty stack, call <code><a href="#DynamicArrayStack">DynamicArraySt
 </span><span id="LinkedListStack-159"><a href="#LinkedListStack-159"><span class="linenos">159</span></a><span class="sd">    3</span>
 </span><span id="LinkedListStack-160"><a href="#LinkedListStack-160"><span class="linenos">160</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
 </span><span id="LinkedListStack-161"><a href="#LinkedListStack-161"><span class="linenos">161</span></a><span class="sd">    &#39;c&#39;</span>
-</span><span id="LinkedListStack-162"><a href="#LinkedListStack-162"><span class="linenos">162</span></a><span class="sd">    &gt;&gt;&gt; stack.peek()                        # return but don&#39;t remove the top member</span>
+</span><span id="LinkedListStack-162"><a href="#LinkedListStack-162"><span class="linenos">162</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
 </span><span id="LinkedListStack-163"><a href="#LinkedListStack-163"><span class="linenos">163</span></a><span class="sd">    &#39;b&#39;</span>
 </span><span id="LinkedListStack-164"><a href="#LinkedListStack-164"><span class="linenos">164</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
 </span><span id="LinkedListStack-165"><a href="#LinkedListStack-165"><span class="linenos">165</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
@@ -765,7 +490,7 @@ To create an empty stack, call <code><a href="#DynamicArrayStack">DynamicArraySt
 </span><span id="LinkedListStack-223"><a href="#LinkedListStack-223"><span class="linenos">223</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_length</span> <span class="o">-=</span> <span class="mi">1</span>
 </span><span id="LinkedListStack-224"><a href="#LinkedListStack-224"><span class="linenos">224</span></a>        <span class="k">return</span> <span class="n">item</span>
 </span><span id="LinkedListStack-225"><a href="#LinkedListStack-225"><span class="linenos">225</span></a>
-</span><span id="LinkedListStack-226"><a href="#LinkedListStack-226"><span class="linenos">226</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="LinkedListStack-226"><a href="#LinkedListStack-226"><span class="linenos">226</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 </span><span id="LinkedListStack-227"><a href="#LinkedListStack-227"><span class="linenos">227</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
 </span><span id="LinkedListStack-228"><a href="#LinkedListStack-228"><span class="linenos">228</span></a>
 </span><span id="LinkedListStack-229"><a href="#LinkedListStack-229"><span class="linenos">229</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
@@ -773,7 +498,7 @@ To create an empty stack, call <code><a href="#DynamicArrayStack">DynamicArraySt
 </span><span id="LinkedListStack-231"><a href="#LinkedListStack-231"><span class="linenos">231</span></a><span class="sd">        Complexity: O(1)</span>
 </span><span id="LinkedListStack-232"><a href="#LinkedListStack-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="LinkedListStack-233"><a href="#LinkedListStack-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="LinkedListStack-234"><a href="#LinkedListStack-234"><span class="linenos">234</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t peek into an empty stack&quot;</span>
+</span><span id="LinkedListStack-234"><a href="#LinkedListStack-234"><span class="linenos">234</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
 </span><span id="LinkedListStack-235"><a href="#LinkedListStack-235"><span class="linenos">235</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="LinkedListStack-236"><a href="#LinkedListStack-236"><span class="linenos">236</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span></pre></div>
@@ -795,7 +520,7 @@ To create an empty stack, call <code><a href="#DynamicArrayStack">DynamicArraySt
 <span class="go">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                         <span class="c1"># remove and return the top member</span>
 <span class="go">&#39;c&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">peek</span><span class="p">()</span>                        <span class="c1"># return but don&#39;t remove the top member</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>                         <span class="c1"># return but don&#39;t remove the top member</span>
 <span class="go">&#39;b&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                     <span class="c1"># add a new member on top</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>                        <span class="c1"># str(stack) also possible</span>
@@ -932,32 +657,307 @@ To create an empty stack, call <code><a href="#LinkedListStack">LinkedListStack(
 
 
                             </div>
-                            <div id="LinkedListStack.peek" class="classattr">
-                                        <input id="LinkedListStack.peek-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="LinkedListStack.top" class="classattr">
+                                        <input id="LinkedListStack.top-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">peek</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+        <span class="name">top</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
 
-                <label class="view-source-button" for="LinkedListStack.peek-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="LinkedListStack.top-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#LinkedListStack.peek"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.peek-226"><a href="#LinkedListStack.peek-226"><span class="linenos">226</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-</span><span id="LinkedListStack.peek-227"><a href="#LinkedListStack.peek-227"><span class="linenos">227</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
-</span><span id="LinkedListStack.peek-228"><a href="#LinkedListStack.peek-228"><span class="linenos">228</span></a>
-</span><span id="LinkedListStack.peek-229"><a href="#LinkedListStack.peek-229"><span class="linenos">229</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
-</span><span id="LinkedListStack.peek-230"><a href="#LinkedListStack.peek-230"><span class="linenos">230</span></a>
-</span><span id="LinkedListStack.peek-231"><a href="#LinkedListStack.peek-231"><span class="linenos">231</span></a><span class="sd">        Complexity: O(1)</span>
-</span><span id="LinkedListStack.peek-232"><a href="#LinkedListStack.peek-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="LinkedListStack.peek-233"><a href="#LinkedListStack.peek-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="LinkedListStack.peek-234"><a href="#LinkedListStack.peek-234"><span class="linenos">234</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t peek into an empty stack&quot;</span>
-</span><span id="LinkedListStack.peek-235"><a href="#LinkedListStack.peek-235"><span class="linenos">235</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="LinkedListStack.peek-236"><a href="#LinkedListStack.peek-236"><span class="linenos">236</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
+    <a class="headerlink" href="#LinkedListStack.top"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="LinkedListStack.top-226"><a href="#LinkedListStack.top-226"><span class="linenos">226</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="LinkedListStack.top-227"><a href="#LinkedListStack.top-227"><span class="linenos">227</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack.</span>
+</span><span id="LinkedListStack.top-228"><a href="#LinkedListStack.top-228"><span class="linenos">228</span></a>
+</span><span id="LinkedListStack.top-229"><a href="#LinkedListStack.top-229"><span class="linenos">229</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
+</span><span id="LinkedListStack.top-230"><a href="#LinkedListStack.top-230"><span class="linenos">230</span></a>
+</span><span id="LinkedListStack.top-231"><a href="#LinkedListStack.top-231"><span class="linenos">231</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="LinkedListStack.top-232"><a href="#LinkedListStack.top-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="LinkedListStack.top-233"><a href="#LinkedListStack.top-233"><span class="linenos">233</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="LinkedListStack.top-234"><a href="#LinkedListStack.top-234"><span class="linenos">234</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
+</span><span id="LinkedListStack.top-235"><a href="#LinkedListStack.top-235"><span class="linenos">235</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="LinkedListStack.top-236"><a href="#LinkedListStack.top-236"><span class="linenos">236</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">[</span><span class="n">DATA</span><span class="p">]</span>
 </span></pre></div>
 
 
             <div class="docstring"><p>Return the member at the top of the stack.</p>
+
+<p>Raise <code>ValueError</code> if the stack is empty.</p>
+
+<p>Complexity: O(1)</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="PythonListStack">
+                            <input id="PythonListStack-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">PythonListStack</span>:
+
+                <label class="view-source-button" for="PythonListStack-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#PythonListStack"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PythonListStack-63"><a href="#PythonListStack-63"><span class="linenos"> 63</span></a><span class="k">class</span><span class="w"> </span><span class="nc">PythonListStack</span><span class="p">:</span>
+</span><span id="PythonListStack-64"><a href="#PythonListStack-64"><span class="linenos"> 64</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;An implementation of the Stack ADT, using Python lists.</span>
+</span><span id="PythonListStack-65"><a href="#PythonListStack-65"><span class="linenos"> 65</span></a>
+</span><span id="PythonListStack-66"><a href="#PythonListStack-66"><span class="linenos"> 66</span></a><span class="sd">    Besides the ADT&#39;s operations, this class provides two convenience operations:</span>
+</span><span id="PythonListStack-67"><a href="#PythonListStack-67"><span class="linenos"> 67</span></a><span class="sd">    - create a non-empty stack from a given sequence</span>
+</span><span id="PythonListStack-68"><a href="#PythonListStack-68"><span class="linenos"> 68</span></a><span class="sd">    - convert a stack to a string, to see its members listed from bottom to top.</span>
+</span><span id="PythonListStack-69"><a href="#PythonListStack-69"><span class="linenos"> 69</span></a>
+</span><span id="PythonListStack-70"><a href="#PythonListStack-70"><span class="linenos"> 70</span></a><span class="sd">    &gt;&gt;&gt; from paddles import PythonListStack</span>
+</span><span id="PythonListStack-71"><a href="#PythonListStack-71"><span class="linenos"> 71</span></a><span class="sd">    &gt;&gt;&gt; stack = PythonListStack(&quot;abc&quot;)      # create a non-empty stack</span>
+</span><span id="PythonListStack-72"><a href="#PythonListStack-72"><span class="linenos"> 72</span></a><span class="sd">    &gt;&gt;&gt; stack.size()                        # number of members</span>
+</span><span id="PythonListStack-73"><a href="#PythonListStack-73"><span class="linenos"> 73</span></a><span class="sd">    3</span>
+</span><span id="PythonListStack-74"><a href="#PythonListStack-74"><span class="linenos"> 74</span></a><span class="sd">    &gt;&gt;&gt; stack.pop()                         # remove and return the top member</span>
+</span><span id="PythonListStack-75"><a href="#PythonListStack-75"><span class="linenos"> 75</span></a><span class="sd">    &#39;c&#39;</span>
+</span><span id="PythonListStack-76"><a href="#PythonListStack-76"><span class="linenos"> 76</span></a><span class="sd">    &gt;&gt;&gt; stack.top()                         # return but don&#39;t remove the top member</span>
+</span><span id="PythonListStack-77"><a href="#PythonListStack-77"><span class="linenos"> 77</span></a><span class="sd">    &#39;b&#39;</span>
+</span><span id="PythonListStack-78"><a href="#PythonListStack-78"><span class="linenos"> 78</span></a><span class="sd">    &gt;&gt;&gt; stack.push(&quot;C&quot;)                     # add a new member on top</span>
+</span><span id="PythonListStack-79"><a href="#PythonListStack-79"><span class="linenos"> 79</span></a><span class="sd">    &gt;&gt;&gt; print(stack)                        # str(stack) also possible</span>
+</span><span id="PythonListStack-80"><a href="#PythonListStack-80"><span class="linenos"> 80</span></a><span class="sd">    PythonListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
+</span><span id="PythonListStack-81"><a href="#PythonListStack-81"><span class="linenos"> 81</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-82"><a href="#PythonListStack-82"><span class="linenos"> 82</span></a>
+</span><span id="PythonListStack-83"><a href="#PythonListStack-83"><span class="linenos"> 83</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="PythonListStack-84"><a href="#PythonListStack-84"><span class="linenos"> 84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
+</span><span id="PythonListStack-85"><a href="#PythonListStack-85"><span class="linenos"> 85</span></a>
+</span><span id="PythonListStack-86"><a href="#PythonListStack-86"><span class="linenos"> 86</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
+</span><span id="PythonListStack-87"><a href="#PythonListStack-87"><span class="linenos"> 87</span></a><span class="sd">        To create an empty stack, call `PythonListStack()` or `PythonListStack([])`.</span>
+</span><span id="PythonListStack-88"><a href="#PythonListStack-88"><span class="linenos"> 88</span></a>
+</span><span id="PythonListStack-89"><a href="#PythonListStack-89"><span class="linenos"> 89</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
+</span><span id="PythonListStack-90"><a href="#PythonListStack-90"><span class="linenos"> 90</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-91"><a href="#PythonListStack-91"><span class="linenos"> 91</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="PythonListStack-92"><a href="#PythonListStack-92"><span class="linenos"> 92</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+</span><span id="PythonListStack-93"><a href="#PythonListStack-93"><span class="linenos"> 93</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="PythonListStack-94"><a href="#PythonListStack-94"><span class="linenos"> 94</span></a>
+</span><span id="PythonListStack-95"><a href="#PythonListStack-95"><span class="linenos"> 95</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="PythonListStack-96"><a href="#PythonListStack-96"><span class="linenos"> 96</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the stack.</span>
+</span><span id="PythonListStack-97"><a href="#PythonListStack-97"><span class="linenos"> 97</span></a>
+</span><span id="PythonListStack-98"><a href="#PythonListStack-98"><span class="linenos"> 98</span></a><span class="sd">        The string is &#39;PythonListStack([bottom member, ..., top member])&#39;.</span>
+</span><span id="PythonListStack-99"><a href="#PythonListStack-99"><span class="linenos"> 99</span></a>
+</span><span id="PythonListStack-100"><a href="#PythonListStack-100"><span class="linenos">100</span></a><span class="sd">        Complexity: O(n), with n = `self.size()`</span>
+</span><span id="PythonListStack-101"><a href="#PythonListStack-101"><span class="linenos">101</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-102"><a href="#PythonListStack-102"><span class="linenos">102</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;PythonListStack(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="si">}</span><span class="s2">)&quot;</span>
+</span><span id="PythonListStack-103"><a href="#PythonListStack-103"><span class="linenos">103</span></a>
+</span><span id="PythonListStack-104"><a href="#PythonListStack-104"><span class="linenos">104</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="PythonListStack-105"><a href="#PythonListStack-105"><span class="linenos">105</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
+</span><span id="PythonListStack-106"><a href="#PythonListStack-106"><span class="linenos">106</span></a>
+</span><span id="PythonListStack-107"><a href="#PythonListStack-107"><span class="linenos">107</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack-108"><a href="#PythonListStack-108"><span class="linenos">108</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-109"><a href="#PythonListStack-109"><span class="linenos">109</span></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
+</span><span id="PythonListStack-110"><a href="#PythonListStack-110"><span class="linenos">110</span></a>
+</span><span id="PythonListStack-111"><a href="#PythonListStack-111"><span class="linenos">111</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="PythonListStack-112"><a href="#PythonListStack-112"><span class="linenos">112</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack, without removing it.</span>
+</span><span id="PythonListStack-113"><a href="#PythonListStack-113"><span class="linenos">113</span></a>
+</span><span id="PythonListStack-114"><a href="#PythonListStack-114"><span class="linenos">114</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
+</span><span id="PythonListStack-115"><a href="#PythonListStack-115"><span class="linenos">115</span></a>
+</span><span id="PythonListStack-116"><a href="#PythonListStack-116"><span class="linenos">116</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack-117"><a href="#PythonListStack-117"><span class="linenos">117</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-118"><a href="#PythonListStack-118"><span class="linenos">118</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="PythonListStack-119"><a href="#PythonListStack-119"><span class="linenos">119</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
+</span><span id="PythonListStack-120"><a href="#PythonListStack-120"><span class="linenos">120</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="PythonListStack-121"><a href="#PythonListStack-121"><span class="linenos">121</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="PythonListStack-122"><a href="#PythonListStack-122"><span class="linenos">122</span></a>
+</span><span id="PythonListStack-123"><a href="#PythonListStack-123"><span class="linenos">123</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="PythonListStack-124"><a href="#PythonListStack-124"><span class="linenos">124</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
+</span><span id="PythonListStack-125"><a href="#PythonListStack-125"><span class="linenos">125</span></a>
+</span><span id="PythonListStack-126"><a href="#PythonListStack-126"><span class="linenos">126</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack-127"><a href="#PythonListStack-127"><span class="linenos">127</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-128"><a href="#PythonListStack-128"><span class="linenos">128</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span id="PythonListStack-129"><a href="#PythonListStack-129"><span class="linenos">129</span></a>
+</span><span id="PythonListStack-130"><a href="#PythonListStack-130"><span class="linenos">130</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="PythonListStack-131"><a href="#PythonListStack-131"><span class="linenos">131</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="PythonListStack-132"><a href="#PythonListStack-132"><span class="linenos">132</span></a>
+</span><span id="PythonListStack-133"><a href="#PythonListStack-133"><span class="linenos">133</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
+</span><span id="PythonListStack-134"><a href="#PythonListStack-134"><span class="linenos">134</span></a>
+</span><span id="PythonListStack-135"><a href="#PythonListStack-135"><span class="linenos">135</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack-136"><a href="#PythonListStack-136"><span class="linenos">136</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack-137"><a href="#PythonListStack-137"><span class="linenos">137</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="PythonListStack-138"><a href="#PythonListStack-138"><span class="linenos">138</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
+</span><span id="PythonListStack-139"><a href="#PythonListStack-139"><span class="linenos">139</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="PythonListStack-140"><a href="#PythonListStack-140"><span class="linenos">140</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>An implementation of the Stack ADT, using Python lists.</p>
+
+<p>Besides the ADT's operations, this class provides two convenience operations:</p>
+
+<ul>
+<li>create a non-empty stack from a given sequence</li>
+<li>convert a stack to a string, to see its members listed from bottom to top.</li>
+</ul>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">paddles</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonListStack</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="n">PythonListStack</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>      <span class="c1"># create a non-empty stack</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>                        <span class="c1"># number of members</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>                         <span class="c1"># remove and return the top member</span>
+<span class="go">&#39;c&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">top</span><span class="p">()</span>                         <span class="c1"># return but don&#39;t remove the top member</span>
+<span class="go">&#39;b&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>                     <span class="c1"># add a new member on top</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>                        <span class="c1"># str(stack) also possible</span>
+<span class="go">PythonListStack([&#39;a&#39;, &#39;b&#39;, &#39;C&#39;])</span>
+</code></pre>
+</div>
+</div>
+
+
+                            <div id="PythonListStack.__init__" class="classattr">
+                                        <input id="PythonListStack.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="name">PythonListStack</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></span>)</span>
+
+                <label class="view-source-button" for="PythonListStack.__init__-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#PythonListStack.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PythonListStack.__init__-83"><a href="#PythonListStack.__init__-83"><span class="linenos">83</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sequence</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="PythonListStack.__init__-84"><a href="#PythonListStack.__init__-84"><span class="linenos">84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the stack with the members of `sequence`.</span>
+</span><span id="PythonListStack.__init__-85"><a href="#PythonListStack.__init__-85"><span class="linenos">85</span></a>
+</span><span id="PythonListStack.__init__-86"><a href="#PythonListStack.__init__-86"><span class="linenos">86</span></a><span class="sd">        The members are added to the stack in the order they are in `sequence`.</span>
+</span><span id="PythonListStack.__init__-87"><a href="#PythonListStack.__init__-87"><span class="linenos">87</span></a><span class="sd">        To create an empty stack, call `PythonListStack()` or `PythonListStack([])`.</span>
+</span><span id="PythonListStack.__init__-88"><a href="#PythonListStack.__init__-88"><span class="linenos">88</span></a>
+</span><span id="PythonListStack.__init__-89"><a href="#PythonListStack.__init__-89"><span class="linenos">89</span></a><span class="sd">        Complexity: O(n), with n = `len(sequence)`</span>
+</span><span id="PythonListStack.__init__-90"><a href="#PythonListStack.__init__-90"><span class="linenos">90</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack.__init__-91"><a href="#PythonListStack.__init__-91"><span class="linenos">91</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="PythonListStack.__init__-92"><a href="#PythonListStack.__init__-92"><span class="linenos">92</span></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+</span><span id="PythonListStack.__init__-93"><a href="#PythonListStack.__init__-93"><span class="linenos">93</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Initialize the stack with the members of <code>sequence</code>.</p>
+
+<p>The members are added to the stack in the order they are in <code>sequence</code>.
+To create an empty stack, call <code><a href="#PythonListStack">PythonListStack()</a></code> or <code>PythonListStack([])</code>.</p>
+
+<p>Complexity: O(n), with n = <code>len(sequence)</code></p>
+</div>
+
+
+                            </div>
+                            <div id="PythonListStack.size" class="classattr">
+                                        <input id="PythonListStack.size-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">size</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">int</span>:</span></span>
+
+                <label class="view-source-button" for="PythonListStack.size-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#PythonListStack.size"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PythonListStack.size-104"><a href="#PythonListStack.size-104"><span class="linenos">104</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="PythonListStack.size-105"><a href="#PythonListStack.size-105"><span class="linenos">105</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return how many members the stack has.</span>
+</span><span id="PythonListStack.size-106"><a href="#PythonListStack.size-106"><span class="linenos">106</span></a>
+</span><span id="PythonListStack.size-107"><a href="#PythonListStack.size-107"><span class="linenos">107</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack.size-108"><a href="#PythonListStack.size-108"><span class="linenos">108</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack.size-109"><a href="#PythonListStack.size-109"><span class="linenos">109</span></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Return how many members the stack has.</p>
+
+<p>Complexity: O(1)</p>
+</div>
+
+
+                            </div>
+                            <div id="PythonListStack.top" class="classattr">
+                                        <input id="PythonListStack.top-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">top</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+                <label class="view-source-button" for="PythonListStack.top-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#PythonListStack.top"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PythonListStack.top-111"><a href="#PythonListStack.top-111"><span class="linenos">111</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="PythonListStack.top-112"><a href="#PythonListStack.top-112"><span class="linenos">112</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the member at the top of the stack, without removing it.</span>
+</span><span id="PythonListStack.top-113"><a href="#PythonListStack.top-113"><span class="linenos">113</span></a>
+</span><span id="PythonListStack.top-114"><a href="#PythonListStack.top-114"><span class="linenos">114</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
+</span><span id="PythonListStack.top-115"><a href="#PythonListStack.top-115"><span class="linenos">115</span></a>
+</span><span id="PythonListStack.top-116"><a href="#PythonListStack.top-116"><span class="linenos">116</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack.top-117"><a href="#PythonListStack.top-117"><span class="linenos">117</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack.top-118"><a href="#PythonListStack.top-118"><span class="linenos">118</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="PythonListStack.top-119"><a href="#PythonListStack.top-119"><span class="linenos">119</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t access the top member of an empty stack&quot;</span>
+</span><span id="PythonListStack.top-120"><a href="#PythonListStack.top-120"><span class="linenos">120</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="PythonListStack.top-121"><a href="#PythonListStack.top-121"><span class="linenos">121</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Return the member at the top of the stack, without removing it.</p>
+
+<p>Raise <code>ValueError</code> if the stack is empty.</p>
+
+<p>Complexity: O(1)</p>
+</div>
+
+
+                            </div>
+                            <div id="PythonListStack.push" class="classattr">
+                                        <input id="PythonListStack.push-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">push</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+
+                <label class="view-source-button" for="PythonListStack.push-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#PythonListStack.push"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PythonListStack.push-123"><a href="#PythonListStack.push-123"><span class="linenos">123</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="PythonListStack.push-124"><a href="#PythonListStack.push-124"><span class="linenos">124</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Put `item` on top of the stack.</span>
+</span><span id="PythonListStack.push-125"><a href="#PythonListStack.push-125"><span class="linenos">125</span></a>
+</span><span id="PythonListStack.push-126"><a href="#PythonListStack.push-126"><span class="linenos">126</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack.push-127"><a href="#PythonListStack.push-127"><span class="linenos">127</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack.push-128"><a href="#PythonListStack.push-128"><span class="linenos">128</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Put <code>item</code> on top of the stack.</p>
+
+<p>Complexity: O(1)</p>
+</div>
+
+
+                            </div>
+                            <div id="PythonListStack.pop" class="classattr">
+                                        <input id="PythonListStack.pop-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">pop</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n">Any</span>:</span></span>
+
+                <label class="view-source-button" for="PythonListStack.pop-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#PythonListStack.pop"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PythonListStack.pop-130"><a href="#PythonListStack.pop-130"><span class="linenos">130</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+</span><span id="PythonListStack.pop-131"><a href="#PythonListStack.pop-131"><span class="linenos">131</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove and return the member at the top of the stack.</span>
+</span><span id="PythonListStack.pop-132"><a href="#PythonListStack.pop-132"><span class="linenos">132</span></a>
+</span><span id="PythonListStack.pop-133"><a href="#PythonListStack.pop-133"><span class="linenos">133</span></a><span class="sd">        Raise `ValueError` if the stack is empty.</span>
+</span><span id="PythonListStack.pop-134"><a href="#PythonListStack.pop-134"><span class="linenos">134</span></a>
+</span><span id="PythonListStack.pop-135"><a href="#PythonListStack.pop-135"><span class="linenos">135</span></a><span class="sd">        Complexity: O(1)</span>
+</span><span id="PythonListStack.pop-136"><a href="#PythonListStack.pop-136"><span class="linenos">136</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="PythonListStack.pop-137"><a href="#PythonListStack.pop-137"><span class="linenos">137</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="PythonListStack.pop-138"><a href="#PythonListStack.pop-138"><span class="linenos">138</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can&#39;t pop a member from an empty stack&quot;</span>
+</span><span id="PythonListStack.pop-139"><a href="#PythonListStack.pop-139"><span class="linenos">139</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="PythonListStack.pop-140"><a href="#PythonListStack.pop-140"><span class="linenos">140</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_members</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Remove and return the member at the top of the stack.</p>
 
 <p>Raise <code>ValueError</code> if the stack is empty.</p>
 

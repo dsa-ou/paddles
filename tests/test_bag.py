@@ -5,14 +5,14 @@ from collections.abc import Hashable, Sequence
 
 import pytest
 
-from paddles import HashTableBag
+from paddles import PythonDictBag
 
 # Helper functions: can't be named test_... or pytest will call them directly.
 
-BagADT = HashTableBag
+BagADT = PythonDictBag
 
 pytestmark = [
-    pytest.mark.parametrize("Bag", [HashTableBag]),
+    pytest.mark.parametrize("Bag", [PythonDictBag]),
     pytest.mark.parametrize("items", [
         "", [], (),                         # empty sequences
         "x", [1], (2.0,),                   # sequences of length 1
