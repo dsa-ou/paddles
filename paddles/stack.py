@@ -53,7 +53,6 @@ Clicking on the up/down button and then on 'Tags' will show
 the algorithmic techniques and ADTs related to each problem.
 """
 
-from collections.abc import Sequence
 from typing import Any
 
 __all__ = ["LinkedListStack", "PythonListStack"]
@@ -67,7 +66,11 @@ class PythonListStack:
     - convert a stack to a string, to see its members listed from bottom to top.
 
     >>> from paddles import PythonListStack
-    >>> stack = PythonListStack("abc")  # create a non-empty stack
+    >>> stack = PythonListStack()
+    >>> for char in "abc":
+    ...     stack.push(char)
+    >>> str(stack)
+    "PythonListStack(['a', 'b', 'c'])"
     >>> stack.size()                    # number of members
     3
     >>> stack.pop()                     # remove and return the top member
@@ -79,17 +82,12 @@ class PythonListStack:
     PythonListStack(['a', 'b', 'C'])
     """
 
-    def __init__(self, sequence: Sequence[Any] = []) -> None:
-        """Initialize the stack with the members of `sequence`.
+    def __init__(self) -> None:
+        """Create an empty stack.
 
-        The members are added to the stack in the order they are in `sequence`.
-        To create an empty stack, call `PythonListStack()` or `PythonListStack([])`.
-
-        Complexity: O(n), with n = `len(sequence)`
+        Complexity: O(1)
         """
         self._members = []
-        for item in sequence:
-            self.push(item)
 
     def __str__(self) -> str:
         """Return a string representation of the stack.
