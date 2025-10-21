@@ -31,6 +31,12 @@ repos:
         types_or: [python, pyi]
         require_serial: true
 
+    -   id: lint-language
+        name: allowed
+        entry: uv run allowed -f -c m269-25j paddles/
+        language: system
+        types: [python]
+
     -   id: docs
         name: pdoc
         entry: uv run pdoc -o docs paddles

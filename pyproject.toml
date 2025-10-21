@@ -35,6 +35,7 @@ dev = [
     "ruff",
     "pdoc",
     "ty",
+    "allowed",
 ]
 
 [build-system]

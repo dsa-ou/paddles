@@ -130,7 +130,7 @@ class PythonDictBag:
             raise ValueError(msg)
         self._members[item] -= copies
         if self._members[item] == 0:
-            del self._members[item]
+            self._members.pop(item)
 
     def frequency(self, item: Hashable) -> int:
         """Return how many times `item` occurs in the bag.

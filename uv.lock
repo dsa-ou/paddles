@@ -3,6 +3,15 @@ revision = 3
 requires-python = ">=3.10"
 
 [[package]]
+name = "allowed"
+version = "1.5.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/91/cc/630ccaeef26ce273e00757e0f6a923981fdb8a00ea4ef2eaebbd0fef563d/allowed-1.5.4.tar.gz", hash = "sha256:94decb73cdba5e786455a2b8bac12d5a8ff9e1ee0e10ae0e7904542552696f65", size = 12939, upload-time = "2025-08-21T15:23:54.525Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ee/e6/971af9cf5c04a7891ff1836b1db3b43b621766e28370b83e9f8c2ce343c8/allowed-1.5.4-py3-none-any.whl", hash = "sha256:ace54b492863268894d4c217b63308bae8278cdd8c24a5b879ff42e6ab789a3e", size = 14399, upload-time = "2025-08-21T15:23:53.689Z" },
+]
+
+[[package]]
 name = "cfgv"
 version = "3.4.0"
 source = { registry = "https://pypi.org/simple" }
@@ -294,6 +303,7 @@ source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
+    { name = "allowed" },
     { name = "pdoc" },
     { name = "pre-commit" },
     { name = "pytest" },
@@ -306,6 +316,7 @@ dev = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "allowed" },
     { name = "pdoc" },
     { name = "pre-commit" },
     { name = "pytest" },
