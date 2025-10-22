@@ -56,6 +56,19 @@ The project folder contains the following files and subfolders, among others:
 The documentation is generated from the docstrings in the code, so do *not*
 edit the `docs/` files directly.
 
+## Language
+To ease understanding, the library code (in folder `paddles/`) only uses
+the Python subset taught in our algorithms and data structures course,
+and a few extra constructs. They are all defined in file `paddles.json`.
+
+To check that the library code only uses those constructs,
+enter `./allowed.sh` in a terminal. If there is any output, you need
+to rewrite the code to not use them or add
+the new constructs to pseudo-unit 31 in `paddles.json`.
+(This is because our course has 30 units.)
+See the [allowed documentation](https://dsa-ou.github.io/allowed/docs/configuration.html)
+for details on the JSON configuration file.
+
 ## Testing
 
 We use [pytest](https://pytest.org) to test `paddles`.
@@ -122,11 +135,12 @@ the library files are immediately reflected in the site, upon saving the files.
 ## Committing
 If you installed the pre-commit hooks when setting up the development environment,
 then every time you commit your code, these steps are done automatically:
-1. test the code with `pytest`
-2. type check the code with `ty`
-3. check (but _don't_ fix) the code with `ruff`
-4. format the code with `ruff`
-5. generate the documentation with `pdoc`.
+1. check the Python subset used by the code with `allowed`
+2. test the code with `pytest`
+3. type check the code with `ty`
+4. check (but _don't_ fix) the code with `ruff`
+5. format the code with `ruff`
+6. generate the documentation with `pdoc`.
 
 You can therefore just commit whenever you want to check your changes,
 instead of running each check manually, as explained in the previous sections.
@@ -134,11 +148,11 @@ instead of running each check manually, as explained in the previous sections.
 The automated steps are executed on the staged files. If you changed some files
 but didn't stage them, you will get a warning that those files weren't processed.
 
-If a test or check fails in steps 1–3 or if a file is modified in steps 4–5,
+If a test or check fails in steps 1–4 or if a file is modified in steps 5–6,
 then the commit doesn't go ahead.
 This allows you to review the errors and the automatically applied changes,
 stage the modified files, and commit again.
 
-Due to the automated steps, each commit takes many seconds to complete.
+Due to the automated steps, each commit takes several seconds to complete.
 But when it successfully completes, you know that your code hasn't broken existing tests,
 isn't poorly formatted, and has up-to-date documentation.
